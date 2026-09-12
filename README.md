@@ -3,7 +3,7 @@
 A static, dependency-light website for hosting and publishing math and computer
 science lecture notes. Hosted on GitHub Pages.
 
-**线上地址**: https://silverwolf57.github.io/lecture-notes/  
+**线上地址**: https://silverwolf57.github.io/lecture-notes-website/  
 **GitHub 仓库**: https://github.com/silverwolf57/lecture-notes (Private)
 
 ## 维护者
