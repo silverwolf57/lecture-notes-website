@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WXG.math and computer science</title>
+    <link>https://silverwolf57.github.io/lecture-notes-website/</link>
+    <atom:link href="https://silverwolf57.github.io/lecture-notes-website/feed.xml" rel="self" type="application/rss+xml" />
+    <description>数学与计算机讲义集 · Lectures on Math &amp; Computer Science</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 12 Sep 2026 13:00:00 GMT</lastBuildDate>
+    <generator>WXG.math</generator>
+
+    <item>
+      <title>矩阵论 · 第 1 章 引论(向量范数与矩阵范数)</title>
+      <link>https://silverwolf57.github.io/lecture-notes-website/math/matrix-analysis.html</link>
+      <guid isPermaLink="true">https://silverwolf57.github.io/lecture-notes-website/math/matrix-analysis.html</guid>
+      <description>向量范数(p-范数、等价性、连续性、Cauchy 收敛准则),矩阵范数(Frobenius、诱导范数、列和/行和范数)。源自中山大学数学学院(珠海)讲义。</description>
+      <pubDate>Sat, 12 Sep 2026 09:42:00 GMT</pubDate>
+      <category>数学</category>
+    </item>
+
+    <item>
+      <title>抽象代数 · 第 1 章 群、环、域</title>
+      <link>https://silverwolf57.github.io/lecture-notes-website/math/abstract-algebra.html</link>
+      <guid isPermaLink="true">https://silverwolf57.github.io/lecture-notes-website/math/abstract-algebra.html</guid>
+      <description>域(子域、单扩张、有限域 F_p)、环(子环、单扩张、带余除法)、群(子群、循环群)、同态与同构(含 Cayley 定理)。源自中山大学数学学院(珠海)讲义。</description>
+      <pubDate>Sat, 12 Sep 2026 09:11:00 GMT</pubDate>
+      <category>数学</category>
+    </item>
+
+  </channel>
+</rss>
