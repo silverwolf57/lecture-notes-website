@@ -1,0 +1,26 @@
+# 编辑器/系统垃圾
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# OneDrive 同步冲突产物
+*.tmp
+*.conflict
+
+# 本地预览/构建产物(本项目无构建,但留个习惯)
+node_modules/
+dist/
+.cache/
+
+# 私有笔记(若日后放进来,默认排除)
+**/private/
+**/drafts/
+
+# 不上传的本地配置
+.env
+.env.local

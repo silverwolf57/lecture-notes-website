@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>讲义 · Lecture Notes on Mathematics &amp; Computer Science</title>
+  <meta name="description" content="数学与计算机科学讲义集:线性代数、概率论、实分析、算法、机器学习基础、系统。排版追求印刷教材的清晰感,辅以 KaTeX 公式与代码高亮。" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="brand" href="index.html"><span class="mark">¶</span> 讲义集</a>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="math/index.html">数学</a>
+      <a href="cs/index.html">计算机</a>
+      <a href="about.html">关于</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page page-wide">
+
+  <p class="lecture-title">Lecture Notes</p>
+  <h1>数学与计算机讲义</h1>
+  <p class="lede">
+    一组精选讲义,覆盖数学与计算机科学的核心议题。排版上坚持印刷教材的克制:米白纸面、衬线正文、暗红章节编号、KaTeX 公式与可读代码。所有讲义均按主题归档,任何修订都附 commit 历史,可审计、可回滚。
+  </p>
+
+  <hr />
+
+  <h2>数学 · Mathematics</h2>
+  <p>覆盖代数、分析、概率与离散结构的基础讲义。</p>
+  <div class="toc-grid">
+    <a class="toc-card" href="math/linear-algebra.html">
+      <div class="tag">代数</div>
+      <h3>线性代数</h3>
+      <p>从向量空间到谱定理:矩阵分解、最小二乘、特征值几何直观。</p>
+    </a>
+    <a class="toc-card" href="math/probability.html">
+      <div class="tag">概率</div>
+      <h3>概率论</h3>
+      <p>测度论基础之上的概率:随机变量、收敛模式、大数定律与中心极限定理。</p>
+    </a>
+    <a class="toc-card" href="#">
+      <div class="tag">分析</div>
+      <h3>实分析</h3>
+      <p>即将推出 · 测度、勒贝格积分、L<sup>p</sup> 空间。</p>
+    </a>
+    <a class="toc-card" href="#">
+      <div class="tag">离散</div>
+      <h3>组合数学</h3>
+      <p>即将推出 · 生成函数、Pólya 计数、极值组合。</p>
+    </a>
+  </div>
+
+  <h2>计算机 · Computer Science</h2>
+  <p>从算法设计到系统实现,再到现代机器学习。</p>
+  <div class="toc-grid">
+    <a class="toc-card" href="cs/algorithms.html">
+      <div class="tag">算法</div>
+      <h3>算法设计与分析</h3>
+      <p>分治、动态规划、图算法、随机化与近似算法。</p>
+    </a>
+    <a class="toc-card" href="cs/ml-foundations.html">
+      <div class="tag">机器学习</div>
+      <h3>机器学习基础</h3>
+      <p>经验风险最小化、偏差-方差分解、PCA 与 SVM 的几何直观。</p>
+    </a>
+    <a class="toc-card" href="#">
+      <div class="tag">系统</div>
+      <h3>计算机系统</h3>
+      <p>即将推出 · 从 C 到进程:栈、链接、并发、I/O。</p>
+    </a>
+    <a class="toc-card" href="#">
+      <div class="tag">理论</div>
+      <h3>计算理论</h3>
+      <p>即将推出 · 自动机、可判定性、复杂性类。</p>
+    </a>
+  </div>
+
+  <hr />
+
+  <h2>使用说明</h2>
+  <ul>
+    <li>页面纯静态,无服务端依赖,可离线阅读。</li>
+    <li>公式采用 KaTeX 实时渲染,首屏延迟来自 CDN 加载。</li>
+    <li>正文以 Markdown 风格书写,但保留为 HTML 以控制版式。</li>
+    <li>所有源码在 <a href="about.html">关于页</a> 说明。</li>
+  </ul>
+
+</main>
+
+<footer class="site-foot">
+  <p>讲义集 · Last updated 2026-09-12 · <a href="about.html">关于与许可</a></p>
+</footer>
+
+</body>
+</html>

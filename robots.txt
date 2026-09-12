@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 站点地图 - 用于搜索引擎发现所有页面
+Sitemap: https://silverwolf57.github.io/lecture-notes/sitemap.xml

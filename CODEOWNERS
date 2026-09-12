@@ -1,0 +1,14 @@
+# CODEOWNERS — 自动指派 reviewer
+# 详细语法见 https://docs.github.com/en/repositories/creating-and-managing-repositories/about-code-owners
+# 留空文件也合法;下面给个最小可用的占位,你之后按需调整
+
+# 默认:所有 PR 都 @ silverwolf57
+*       @silverwolf57
+
+# 例子:某子目录让 laiyihe44-creator 也参与 review
+# /math/   @laiyihe44-creator
+# /cs/     @laiyihe44-creator
+
+# 建议:加严保护的话,把这些注释行打开
+# 注意:在 GitHub 仓库设置里 Branch protection 启用 "Require review from Code Owners"
+#      才会强制让 Code Owner 真正 review 才能 merge

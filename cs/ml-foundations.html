@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>机器学习基础 · Lecture Notes</title>
+  <meta name="description" content="机器学习讲义:经验风险最小化、偏差-方差分解、PCA、SVM 的几何直观。" />
+  <link rel="stylesheet" href="../assets/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="brand" href="../index.html"><span class="mark">¶</span> 讲义集</a>
+    <nav>
+      <a href="../index.html">首页</a>
+      <a href="../math/index.html">数学</a>
+      <a href="index.html">计算机</a>
+      <a href="../about.html">关于</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+
+  <p class="front-matter">
+    <span class="course-tag">CS 189</span>
+    机器学习基础 · 第 1 讲
+  </p>
+
+  <h1>经验风险最小化</h1>
+  <p class="lede">
+    监督学习的核心问题:给定 $n$ 个独立同分布样本 $(x_i, y_i) \sim P$,找一个假设 $h$ 使其期望风险 $R(h) = \mathbb{E}[\ell(h(x), y)]$ 最小。本讲建立"经验风险 + 复杂度惩罚"的标准框架。
+  </p>
+
+  <h2>1. 监督学习的三要素</h2>
+  <ol>
+    <li><strong>样本</strong>:$\mathcal{D}_n = \{(x_i, y_i)\}_{i=1}^n \sim P^n$。</li>
+    <li><strong>假设类</strong>:$\mathcal{H} \subseteq \{h: \mathcal{X} \to \mathcal{Y}\}$。</li>
+    <li><strong>损失</strong>:$\ell: \mathcal{Y} \times \mathcal{Y} \to \mathbb{R}_+$。</li>
+  </ol>
+
+  <p>
+    学习算法 $\mathcal{A}: \mathcal{D}_n \mapsto \mathcal{H}$ 选出一个假设 $\hat{h}$。我们关心它的<em>泛化误差</em>
+    $$R(\hat{h}) - R(h^\star), \quad h^\star = \arg\min_{h \in \mathcal{H}} R(h).$$
+  </p>
+
+  <h2>2. 经验风险最小化(ERM)</h2>
+
+  <div class="def-box">
+    <p class="label">定义 1.1<span class="label-name">经验风险</span></p>
+    <p>
+      $$\hat{R}(h) = \frac{1}{n} \sum_{i=1}^{n} \ell(h(x_i), y_i).$$
+      ERM 选出 $\hat{h}_{\mathrm{ERM}} = \arg\min_{h \in \mathcal{H}} \hat{R}(h)$。
+    </p>
+  </div>
+
+  <p>
+    $\hat{R}(h)$ 是 $R(h)$ 的无偏估计:$\mathbb{E}_{\mathcal{D}}[\hat{R}(h)] = R(h)$。但最小化 $\hat{R}$ 不等于最小化 $R$——我们需要的是 Rademacher 复杂度或 VC 维这类衡量 $\mathcal{H}$ 容量的工具。
+  </p>
+
+  <h2>3. 偏差-方差分解</h2>
+
+  <p>
+    对平方损失 $\ell(\hat{y}, y) = (\hat{y} - y)^2$,把 $R(\hat{h})$ 在 $\mathcal{D}$ 上取期望,可分解为
+    $$R(\hat{h}) = \underbrace{\mathbb{E}_\mathcal{D}[(\bar{h}(x) - h^\star(x))^2]}_{\text{bias}^2} + \underbrace{\mathbb{E}_{x, \mathcal{D}}[(\hat{h}(x) - \bar{h}(x))^2]}_{\text{variance}} + \underbrace{\sigma^2}_{\text{noise}},$$
+    其中 $\bar{h}(x) = \mathbb{E}_\mathcal{D}[\hat{h}(x)]$。
+  </p>
+
+  <p>
+    这个分解直观告诉我们要做的权衡:模型越复杂 → 方差越大;模型越简单 → 偏差越大。最佳点在两者交叉处。
+  </p>
+
+  <h2>4. 正则化与结构风险最小化</h2>
+
+  <p>
+    ERM 的过拟合问题用结构风险最小化(SRM)缓解:
+    $$\hat{h}_{\lambda} = \arg\min_{h \in \mathcal{H}} \hat{R}(h) + \lambda\, \Omega(h),$$
+    其中 $\Omega(h)$ 是衡量复杂度的罚项,$\lambda > 0$ 控制权衡。常见 $\Omega$ 选取:
+  </p>
+  <ul>
+    <li>$L^2$ 正则(Ridge):$\Omega(h) = \|h\|_2^2$。</li>
+    <li>$L^1$ 正则(Lasso):$\Omega(h) = \|h\|_1$ → 产生稀疏解。</li>
+    <li>核范数正则:在矩阵参数上,$\Omega(W) = \|W\|_*$ → 倾向低秩。</li>
+  </ul>
+
+  <h2>5. 一个原型:线性回归</h2>
+
+  <p>
+    设 $\mathcal{H} = \{x \mapsto w^\top x : w \in \mathbb{R}^d\}$,$\ell(\hat{y}, y) = (\hat{y} - y)^2$。ERM 解为
+    $$w_{\mathrm{LS}} = \arg\min_{w} \|Xw - y\|_2^2 = (X^\top X)^{-1} X^\top y,$$
+    其中 $X \in \mathbb{R}^{n \times d}$ 是设计矩阵。Ridge 解为
+    $$w_{\mathrm{Ridge}} = (X^\top X + \lambda I)^{-1} X^\top y.$$
+  </p>
+
+  <pre><code>import numpy as np
+from sklearn.linear_model import Ridge
+
+X = np.random.randn(200, 5)
+w_true = np.array([1, -2, 0, 0.5, 3])
+y = X @ w_true + 0.1 * np.random.randn(200)
+
+# 直接法:数值稳定用 lstsq
+w_lstsq = np.linalg.lstsq(X, y, rcond=None)[0]
+
+# Ridge:用 sklearn
+ridge = Ridge(alpha=1.0).fit(X, y)
+print(np.allclose(ridge.coef_, w_lstsq, atol=0.05))</code></pre>
+
+  <h2>6. PCA:方差最大化的几何</h2>
+
+  <p>
+    给定数据中心化矩阵 $X \in \mathbb{R}^{n \times d}$,PCA 找方向 $u_1$ 使投影方差 $u_1^\top X^\top X\, u_1$ 最大(约束 $\|u_1\| = 1$)。由 Rayleigh 商,$u_1$ 是 $X^\top X$ 的最大特征向量;$u_2, \ldots, u_d$ 依次是次大特征向量。
+  </p>
+
+  <div class="thm-box">
+    <p class="label">定理 1.2<span class="label-name">Eckart–Young–Mirsky</span></p>
+    <p>
+      设 $X = U \Sigma V^\top$ 是 SVD。$X$ 在秩 $k$ 矩阵中最优 Frobenius 范数近似是
+      $$X_k = U_k \Sigma_k V_k^\top,$$
+      其中下标 $k$ 截取前 $k$ 个奇异值与对应向量。
+    </p>
+  </div>
+
+  <h2>练习</h2>
+  <ol>
+    <li>证明 0-1 损失下 ERM 退化为"经验最优分类器",但此时泛化界最差。</li>
+    <li>推导 Lasso 解的软阈值(soft-thresholding)形式。</li>
+    <li>用 <code>sklearn.datasets.make_regression</code> 生成 200 个样本,比较 LS、Ridge、Lasso 的测试 MSE;画出 $\lambda$ 与测试 MSE 的关系曲线。</li>
+  </ol>
+
+  <h2>扩展阅读</h2>
+  <ul>
+    <li>Shalev-Shwartz &amp; Ben-David, <em>Understanding Machine Learning</em>, 第 2–4 章。</li>
+    <li>Mohri, Rostamizadeh &amp; Talwalkar, <em>Foundations of Machine Learning</em>, 第 2、3 章。</li>
+    <li>Bishop, <em>Pattern Recognition and Machine Learning</em>, 第 1–3 章。</li>
+  </ul>
+
+</main>
+
+<footer class="site-foot">
+  <p>讲义集 · Last updated 2026-09-12 · <a href="../about.html">关于与许可</a></p>
+</footer>
+
+</body>
+</html>
