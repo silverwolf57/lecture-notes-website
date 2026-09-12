@@ -6,7 +6,9 @@
 ## 当前讲义
 
 - [抽象代数](math/abstract-algebra.html) — 群、环、域、同态与同构
-  (源自中山大学数学学院(珠海)讲义)
+- [矩阵论](math/matrix-analysis.html) — 向量范数、矩阵范数、Frobenius、诱导范数
+
+(两篇均源自中山大学数学学院(珠海)讲义)
 
 ## 维护者
 
