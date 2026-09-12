@@ -1,4 +1,4 @@
-# 讲义集 · Lecture Notes on Math & CS
+# WXG.math and computer science
 
 A static, dependency-light website for hosting and publishing math and computer
 science lecture notes. Hosted on GitHub Pages.

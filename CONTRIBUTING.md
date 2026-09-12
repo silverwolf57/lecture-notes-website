@@ -1,6 +1,6 @@
 # 贡献指南 · Contributing
 
-本站点是一个协作讲义集。任何想参与的人都欢迎。
+本站点 WXG.math and computer science 是一个协作讲义集。任何想参与的人都欢迎。
 
 ## 仓库结构
 
