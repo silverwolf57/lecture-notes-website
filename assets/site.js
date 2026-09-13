@@ -178,11 +178,123 @@
     updateActive();
   }
 
+  // ---------- 5. back-to-top button ----------
+  function setupBackToTop() {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'back-to-top';
+    btn.setAttribute('aria-label', '回到顶部');
+    btn.textContent = '↑';
+
+    var ticking = false;
+    function update() {
+      if (window.scrollY > 600) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+      ticking = false;
+    }
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    document.body.appendChild(btn);
+    update();
+  }
+
+  // ---------- 6. dark mode (system + manual + persist + giscus sync) ----------
+  function setupDarkMode() {
+    var STORAGE_KEY = 'wxgmath-theme';
+    var giscusReady = false;
+
+    function systemPrefersDark() {
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    function getStoredTheme() {
+      try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+    }
+
+    function setStoredTheme(t) {
+      try { localStorage.setItem(STORAGE_KEY, t); } catch (e) { /* noop */ }
+    }
+
+    function effectiveTheme() {
+      var stored = getStoredTheme();
+      if (stored === 'dark' || stored === 'light') return stored;
+      return systemPrefersDark() ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme) {
+      var root = document.documentElement;
+      if (theme === 'dark') root.setAttribute('data-theme', 'dark');
+      else root.removeAttribute('data-theme');
+
+      // 同步 giscus(它在 iframe 里,需要 postMessage)
+      syncGiscusTheme(theme);
+      // 更新 toggle 按钮文字
+      var btn = document.querySelector('.theme-toggle');
+      if (btn) btn.textContent = theme === 'dark' ? '☀' : '☾';
+    }
+
+    function syncGiscusTheme(theme) {
+      try {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe || !iframe.contentWindow) return;
+        var giscusTheme = theme;  // 'light' | 'dark'
+        iframe.contentWindow.postMessage(
+          { giscus: { setConfig: { theme: giscusTheme } } },
+          'https://giscus.app'
+        );
+      } catch (e) { /* noop */ }
+    }
+
+    // 初始应用(不闪屏:在 <head> 早期就跑)
+    applyTheme(effectiveTheme());
+
+    // 监听 toggle
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest && e.target.closest('.theme-toggle');
+      if (!btn) return;
+      var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      setStoredTheme(next);
+    });
+
+    // 系统主题变化时(仅在用户没显式设过的时候跟随)
+    if (window.matchMedia) {
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      var onSystemChange = function () {
+        if (!getStoredTheme()) applyTheme(systemPrefersDark() ? 'dark' : 'light');
+      };
+      if (mq.addEventListener) mq.addEventListener('change', onSystemChange);
+      else if (mq.addListener) mq.addListener(onSystemChange);
+    }
+
+    // 监听 giscus iframe 加载,确保之后我们改主题能同步上
+    window.addEventListener('message', function (e) {
+      if (e.origin !== 'https://giscus.app') return;
+      if (e.data && e.data.giscus && e.data.giscus.signIn || e.data.type === 'ready') {
+        giscusReady = true;
+        // giscus 刚准备好,主动 sync 一次当前主题
+        var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        setTimeout(function () { syncGiscusTheme(cur); }, 100);
+      }
+    });
+  }
+
   function init() {
     setupProgressBar();
     setupCodeCopy();
     setupReadingTime();
     setupTOC();
+    setupBackToTop();
+    setupDarkMode();
   }
 
   // 等 KaTeX auto-render 跑完再执行

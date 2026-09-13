@@ -464,3 +464,140 @@ pre:hover .code-copy-btn,
   white-space: pre-wrap;
   word-break: break-all;
 }
+
+/* ============================================================
+   UI improvements v2: sticky nav, back-to-top, lecture nav, dark mode
+   ============================================================ */
+
+/* ---------- 1. sticky top nav ---------- */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  /* border-bottom 已有,粘性时背景填实避免透出内容 */
+}
+.site-nav-inner {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+/* ---------- 2. back-to-top floating button ---------- */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.2s, transform 0.2s, background 0.15s;
+  z-index: 80;
+  font-family: var(--font-sans);
+}
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.back-to-top:hover { background: #6b1313; }
+.back-to-top:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- 3. lecture prev/next nav ---------- */
+.lecture-nav {
+  max-width: var(--max-w);
+  margin: 32px auto 0;
+  padding: 24px 28px 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+.lecture-nav a {
+  display: block;
+  padding: 14px 18px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  color: var(--fg-soft);
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  line-height: 1.4;
+}
+.lecture-nav a:hover {
+  border-color: var(--accent);
+  color: var(--fg);
+  background: var(--code-bg);
+}
+.lecture-nav .label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+  display: block;
+  margin-bottom: 4px;
+}
+.lecture-nav .title { color: var(--fg); font-weight: 600; }
+.lecture-nav .next { text-align: right; }
+
+/* ---------- 4. dark mode ---------- */
+:root { color-scheme: light; }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --fg: #e8e6df;
+  --fg-soft: #b0aea5;
+  --fg-mute: #7a7870;
+  --bg: #1a1a1a;
+  --bg-card: #242424;
+  --rule: #383838;
+  --rule-strong: #4a4a4a;
+  --accent: #d67d7d;
+  --link: #7ba6d4;
+  --link-hover: #d67d7d;
+  --code-bg: #2a2a2a;
+  --code-fg: #e8e6df;
+}
+:root[data-theme="dark"] body { background: #1a1a1a; }
+:root[data-theme="dark"] .katex,
+:root[data-theme="dark"] .katex .mord,
+:root[data-theme="dark"] .katex .mbin,
+:root[data-theme="dark"] .katex .mrel,
+:root[data-theme="dark"] .katex .mopen,
+:root[data-theme="dark"] .katex .mclose,
+:root[data-theme="dark"] .katex .mpunct,
+:root[data-theme="dark"] .katex .minner,
+:root[data-theme="dark"] .katex .mop,
+:root[data-theme="dark"] .katex .mathnormal { color: #e8e6df !important; }
+:root[data-theme="dark"] .def-box,
+:root[data-theme="dark"] .thm-box,
+:root[data-theme="dark"] .ex-box { background: #242424; }
+
+/* theme toggle button in nav */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--fg-soft);
+  margin-left: auto;
+  transition: border-color 0.15s, color 0.15s;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--fg); }
