@@ -288,30 +288,6 @@
     });
   }
 
-  // ---------- 7. PDF download button ----------
-  // Reads data-pdf-url from each .pdf-download button. If set, wires it as a
-  // download link. If empty, the button stays disabled with a CSS hint
-  // ("請於 HTML 設定 data-pdf-url"). The PDF is never bundled with the site;
-  // the maintainer provides the URL per-lecture.
-  function setupPdfDownload() {
-    var btns = document.querySelectorAll('.pdf-download');
-    btns.forEach(function (btn) {
-      var url = (btn.getAttribute('data-pdf-url') || '').trim();
-      if (url) {
-        btn.setAttribute('href', url);
-        btn.setAttribute('download', '');
-        btn.removeAttribute('aria-disabled');
-        btn.classList.remove('is-disabled');
-      } else {
-        btn.setAttribute('aria-disabled', 'true');
-        btn.classList.add('is-disabled');
-        btn.addEventListener('click', function (e) {
-          if (btn.getAttribute('aria-disabled') === 'true') e.preventDefault();
-        });
-      }
-    });
-  }
-
   function init() {
     setupProgressBar();
     setupCodeCopy();
@@ -319,7 +295,6 @@
     setupTOC();
     setupBackToTop();
     setupDarkMode();
-    setupPdfDownload();
   }
 
   // 等 KaTeX auto-render 跑完再执行

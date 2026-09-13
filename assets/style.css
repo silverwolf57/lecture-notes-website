@@ -16,11 +16,10 @@ html { -webkit-text-size-adjust: 100%; }
   --link-hover: #8b1a1a;
   --code-bg: #f3efe2;
   --code-fg: #1a1a1a;
-  /* Body: prefer LaTeX-style serif (Latin Modern Web) → Source Han Serif / Noto Serif CJK SC for Chinese. */
-  --font-serif: "Latin Modern Roman", "CMU Serif", "Computer Modern Serif", "Charter", "Source Serif Pro", "Iowan Old Style", "Apple Garamond", Georgia, "Times New Roman", "Source Han Serif SC", "Noto Serif CJK SC", "Noto Serif SC", "SimSun", "宋体", serif;
+  --font-serif: "Charter", "Source Serif Pro", "Latin Modern Roman", "Iowan Old Style", "Apple Garamond", Georgia, "Times New Roman", serif;
   --font-sans: "Inter", "Source Sans Pro", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", "Source Code Pro", Menlo, Consolas, monospace;
-  --max-w: 680px;             /* ≈ LaTeX textwidth at 6in / 16pt body */
+  --max-w: 760px;
   --max-w-wide: 1080px;
 }
 
@@ -71,17 +70,12 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
 }
 .page-wide { max-width: var(--max-w-wide); }
 
-/* ----------  typography  ----------
-   Heading style is closer to LaTeX book class: serif throughout, no top
-   border on h2 (border looked decorative, LaTeX uses a horizontal rule via
-   section spacing only). Body still picks up Charter/CM fallback if Latin
-   Modern is missing.
-*/
-h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: bold; color: var(--fg); line-height: 1.25; }
-h1 { font-size: 34px; margin: 0 0 16px; letter-spacing: -0.005em; }
-h2 { font-size: 24px; margin: 56px 0 12px; }
-h3 { font-size: 19px; margin: 32px 0 8px; }
-h4 { font-size: 16px; margin: 24px 0 6px; color: var(--fg-soft); font-weight: 600; }
+/* ----------  typography  ---------- */
+h1, h2, h3, h4 { font-family: var(--font-sans); font-weight: 600; color: var(--fg); line-height: 1.25; }
+h1 { font-size: 36px; margin: 0 0 12px; letter-spacing: -0.01em; }
+h2 { font-size: 24px; margin: 56px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 19px; margin: 32px 0 12px; }
+h4 { font-size: 16px; margin: 24px 0 8px; color: var(--fg-soft); }
 p { margin: 0 0 16px; }
 .lede {
   font-size: 19px;
@@ -134,48 +128,6 @@ pre code { padding: 0; background: transparent; font-size: inherit; }
   border-radius: 2px;
   margin-right: 10px;
   font-weight: 600;
-}
-
-/* ----------  download original PDF button  ----------
-   Sits at the top of the lecture next to the front-matter. The URL is
-   taken from data-pdf-url (or href) and the user opts in per-lecture.
-   No PDF is bundled with the site; this only opens whatever URL the
-   maintainer wires up.
-*/
-.pdf-download {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin: 0 0 28px;
-  padding: 6px 14px;
-  font-family: var(--font-sans);
-  font-size: 13px;
-  color: var(--fg-soft);
-  background: transparent;
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  text-decoration: none;
-  letter-spacing: 0;
-  text-transform: none;
-  transition: border-color 0.15s, color 0.15s, background 0.15s;
-}
-.pdf-download:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: transparent;
-}
-.pdf-download[aria-disabled="true"],
-.pdf-download.is-disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-.pdf-download .ico { font-size: 14px; line-height: 1; }
-.pdf-download.is-disabled::after {
-  content: " (請於 HTML 設定 data-pdf-url)";
-  font-size: 11px;
-  color: var(--fg-mute);
-  margin-left: 4px;
 }
 
 .lecture-title {
@@ -242,37 +194,33 @@ pre code { padding: 0; background: transparent; font-size: inherit; }
   text-transform: uppercase;
 }
 
-/* ----------  definition / theorem boxes  ----------
-   LaTeX-style: no border, no background, just vertical spacing. The label
-   is bold serif (like \textbf{Definition 1.1.1}), the optional name is in
-   italic (\textit{...}). The environment kind word (定义/定理/...) is also
-   bold. The body inherits upright serif.
-   Markup stays the same: <div class="def-box">...<p class="label">...</p>...
-*/
-.def-box, .thm-box, .ex-box, .remark-box {
-  margin: 18px 0 18px 0;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
+/* ----------  definition / theorem boxes  ---------- */
+.def-box, .thm-box, .ex-box {
+  margin: 24px 0;
+  padding: 18px 22px 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 3px 3px 0;
 }
-.def-box .label, .thm-box .label, .ex-box .label, .remark-box .label {
-  font-family: var(--font-serif);
-  font-size: 1em;
-  font-weight: bold;
-  color: var(--fg);
-  letter-spacing: 0;
-  text-transform: none;
-  margin: 0 0 6px;
+.def-box .label, .thm-box .label, .ex-box .label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 8px;
 }
-.def-box .label-name, .thm-box .label-name, .ex-box .label-name, .remark-box .label-name {
+.def-box .label-name, .thm-box .label-name, .ex-box .label-name {
   font-style: italic;
-  font-weight: normal;
   color: var(--fg);
   margin-left: 6px;
+  text-transform: none;
+  letter-spacing: 0;
 }
-.def-box p, .thm-box p, .ex-box p, .remark-box p { margin-bottom: 8px; }
-.def-box p:last-child, .thm-box p:last-child, .ex-box p:last-child, .remark-box p:last-child { margin-bottom: 0; }
+.def-box p, .thm-box p, .ex-box p { margin-bottom: 8px; }
+.def-box p:last-child, .thm-box p:last-child, .ex-box p:last-child { margin-bottom: 0; }
 
 /* ----------  footer  ---------- */
 .site-foot {
@@ -637,7 +585,7 @@ pre:hover .code-copy-btn,
 :root[data-theme="dark"] .katex .mathnormal { color: #e8e6df !important; }
 :root[data-theme="dark"] .def-box,
 :root[data-theme="dark"] .thm-box,
-:root[data-theme="dark"] .ex-box { background: transparent; }
+:root[data-theme="dark"] .ex-box { background: #242424; }
 
 /* theme toggle button in nav */
 .theme-toggle {
