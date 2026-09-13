@@ -53,10 +53,11 @@
   <h2>1. 如何阅读</h2>
   <p>每篇讲义页面顶部会显示:</p>
   <ul>
-    <li><strong>课程编号</strong>(如 MATH 401)+ 章/节信息</li>
-    <li><strong>阅读时间</strong>(中英文加权估算)</li>
-    <li><strong>目录</strong>(章节 ≥ 4 时自动出现,右侧浮窗)</li>
-    <li><strong>顶部进度条</strong>(暗红,实时显示阅读进度)</li>
+    <li><strong>章/节信息</strong>(如 抽象代数 · 第 1–4 章)</li>
+    <li><strong>下載原始 PDF</strong>(僅當作者提供 URL 時啟用)</li>
+    <li><strong>閱讀時間</strong>(中英文加權估算)</li>
+    <li><strong>目錄</strong>(章節 ≥ 4 時自動出現,右側浮窗)</li>
+    <li><strong>頂部進度條</strong>(暗紅,即時顯示閱讀進度)</li>
   </ul>
   <p>页面右下角"↑"按钮点击回顶。键盘 <code>Ctrl+P</code> / <code>⌘+P</code> 可打印讲义(打印版自动隐藏导航、TOC、评论等 UI 元素)。</p>
 
@@ -65,21 +66,37 @@
   <ul>
     <li>行内:<code>$x^2 + y^2 = r^2$</code></li>
     <li>独立行:<code>$$ \int_a^b f(x)\,dx $$</code></li>
-    <li>编号:在独立公式末尾加 <code>\tag{1.1}</code></li>
+    <li>编号:在独立公式末尾加 <code>\tag{章.節.序}</code>,例如
+      <code>\tag{1.1.1}</code>、<code>\tag{2.3.5}</code>(三級制,跨章不撞)。</li>
   </ul>
 
-  <h2>3. 引用本文(BibTeX)</h2>
+  <h2>3. 排版風格</h2>
+  <p>本站在瀏覽器中盡量還原 LaTeX 排版感:</p>
+  <ul>
+    <li>主字型優先用 <strong>Latin Modern Roman</strong>(LaTeX 的 Computer Modern
+      的官方名稱;裝了 TeX Live 的讀者自動啟用),否則降級到
+      <strong>Charter / Iowan / Georgia</strong> 等學術襯線字;
+      中文用 <strong>思源宋體 / Noto Serif CJK SC / 宋體</strong>。</li>
+    <li>數學公式由 KaTeX 渲染,字型與正文一致(像讀 PDF)。</li>
+    <li>定理 / 定義 / 例的環境採用 LaTeX 預設樣式:粗體標籤、無方框邊界、
+      適當留白(<code>.def-box</code> / <code>.thm-box</code> / <code>.ex-box</code>)。
+      證明結尾用 <code>$\square$</code>。</li>
+    <li>想對照原稿?部分講義頁頂有「📥 下載原始 PDF」按鈕(若作者提供 URL)。
+      為避免原稿被公開,本站不內嵌 PDF,讀者按鈕打開作者指定的外部連結。</li>
+  </ul>
+
+  <h2>4. 引用本文(BibTeX)</h2>
   <p>每篇讲义底部有"📚 引用本文"展开,自动生成 BibTeX 条目。例:</p>
   <pre><code>@misc{wxgmath_abstract_algebra_2026,
   author       = {WXG.math},
-  title        = {抽象代数 · 第 1 章 群、环、域},
+  title        = {抽象代数 · 第 1–4 章 群环域 / 唯一分解整环 / 域扩张 / 群论初步},
   year         = {2026},
   howpublished = {GitHub Pages},
   url          = {https://silverwolf57.github.io/lecture-notes-website/math/abstract-algebra.html},
   note         = {Accessed: 2026-09-13}
 }</code></pre>
 
-  <h2>4. 报告错误 / 提建议</h2>
+  <h2>5. 报告错误 / 提建议</h2>
   <p>所有讲义底部都有"✏️ 在 GitHub 编辑此页"链接,点进去直接编辑:</p>
   <ol>
     <li>点击 → 跳到 GitHub 编辑器</li>
@@ -89,7 +106,7 @@
   </ol>
   <p>也可在每篇讲义底部的 Giscus 评论区直接留言。</p>
 
-  <h2>5. 贡献新讲义</h2>
+  <h2>6. 贡献新讲义</h2>
   <p>欢迎投递。流程:</p>
   <ol>
     <li>Fork 仓库</li>
@@ -100,28 +117,28 @@
   </ol>
   <p>详细见 <a href="https://github.com/silverwolf57/lecture-notes-website/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>。</p>
 
-  <h2>6. 许可</h2>
+  <h2>7. 许可</h2>
   <ul>
     <li><strong>讲义文本</strong>:CC BY 4.0(署名即可使用,允许商用)</li>
     <li><strong>代码与样式</strong>:MIT</li>
   </ul>
   <p>详细见 <a href="https://github.com/silverwolf57/lecture-notes-website/blob/main/LICENSE">LICENSE</a>。</p>
 
-  <h2>7. 订阅</h2>
+  <h2>8. 订阅</h2>
   <p>用 RSS 阅读器订阅新讲义:</p>
   <ul>
     <li>Feedly / NetNewsWire / Inoreader 等</li>
     <li>订阅地址:<a href="https://silverwolf57.github.io/lecture-notes-website/feed.xml">https://silverwolf57.github.io/lecture-notes-website/feed.xml</a></li>
   </ul>
 
-  <h2>8. 联系</h2>
+  <h2>9. 联系</h2>
   <p>无独立联系方式。请用以下任一方式:</p>
   <ul>
     <li>GitHub Issues:<a href="https://github.com/silverwolf57/lecture-notes-website/issues">github.com/silverwolf57/lecture-notes-website/issues</a></li>
     <li>Email:<code>Hilbert.Gauss@outlook.com</code></li>
   </ul>
 
-  <h2>9. 隐私</h2>
+  <h2>10. 隐私</h2>
   <p>本站:</p>
   <ul>
     <li>❌ 不用 cookie</li>

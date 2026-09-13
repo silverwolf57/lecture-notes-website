@@ -77,11 +77,14 @@ E:\lecture-notes\
 ### Adding a New Lecture
 
 1. **Copy template** `math/abstract-algebra.html` to `math/<topic>.html`
-2. **Update front-matter**: course tag, chapter, title in `<h1>`
+2. **Update front-matter**: chapter label, title in `<h1>`, optional
+   `.pdf-download` button (set `data-pdf-url` to enable)
 3. **Update SEO meta**: title, description, canonical, OG, Twitter, JSON-LD
 4. **Write content** with KaTeX:
    - `$...$` inline, `$$...$$` display
-   - `\tag{1.1}` for display equation numbering
+   - `\tag{章.節.序}` for display equation numbering (e.g. `\tag{1.1.1}`,
+     `\tag{2.3.5}`). 3-level scheme is unambiguous across 4 chapters —
+     the renumbering script `add_eq_numbers.py` enforces this.
    - `.def-box` / `.thm-box` / `.ex-box` for definitions / theorems / examples
    - Proofs end with `$\square$`
 5. **Update index**:
@@ -102,6 +105,53 @@ E:\lecture-notes\
 - `--max-w`, `--max-w-wide` — widths
 
 Dark mode redefines all of these under `:root[data-theme="dark"]`.
+
+### Typography: LaTeX-style Manuscript Rendering
+
+The visual goal is "像讀 PDF" (reads like a typeset PDF). Concretely:
+
+- **Body font**: `--font-serif` resolves to `Latin Modern Roman` →
+  `CMU Serif` (TeX Live users) → `Charter` / `Iowan Old Style` /
+  `Apple Garamond` / `Georgia` fallbacks. We rely on system fonts rather
+  than @font-face because the public Latin Modern Web woff2 mirrors
+  (DonaldAlan, dimka665) are not reliably hosted. A user with TeX Live
+  installed gets the exact LaTeX look automatically; everyone else gets
+  Charter or a similar academic serif.
+- **Chinese**: `Source Han Serif SC` → `Noto Serif CJK SC` → `Noto Serif SC`
+  → `SimSun` / `宋体`. Every modern OS ships with at least one of these.
+- **Math**: KaTeX already uses Latin Modern-like fonts (KaTeX_Main),
+  so math matches the body automatically.
+- **Headings** (h1-h4): all use `--font-serif` (bold). No more sans-serif
+  chapter titles — matches `\section{...}` rendering.
+- **Theorem environments** (`.def-box` / `.thm-box` / `.ex-box`):
+  - No border, no background (LaTeX defaults).
+  - Label `<p class="label">定义 1.1.1</p>` is bold serif; the optional
+    name span `.label-name` is italic (LaTeX `\textit{name}`).
+  - Body remains upright (we deliberately skip italic theorem body
+    because proofs share the same `.thm-box`; making statements italic
+    would italicize proofs too. Splitting into `.thm-box` / `.proof`
+    would require HTML refactor — left as a future improvement).
+- **`--max-w: 680px`** approximates LaTeX's `\textwidth = 6in` at 16pt.
+
+### Original PDF Download Button
+
+For each lecture that has a source PDF, add a download button at the top:
+
+```html
+<a class="pdf-download" data-pdf-url="https://your.host/path.pdf" href="#"
+   target="_blank" rel="noopener">
+  <span class="ico">📥</span><span>下載原始 PDF</span>
+</a>
+```
+
+- `data-pdf-url` is the URL the maintainer wires up (Dropbox, Google Drive
+  share, your own server, etc.). The site **never bundles the PDF** —
+  that keeps the repo small and avoids redistributing source material
+  publicly unless you choose to.
+- If `data-pdf-url` is empty, `site.js#setupPdfDownload` leaves the
+  button `aria-disabled` with a CSS hint "請於 HTML 設定 data-pdf-url".
+- `download` attribute is added when a URL is set, so the file saves
+  instead of opening in a new tab.
 
 ### Math Notation
 
