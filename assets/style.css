@@ -354,3 +354,113 @@ pre:hover .code-copy-btn,
   color: #6a6a6a;
 }
 .toc-sidebar .toc-h3 a.active { color: #8b1a1a; }
+
+/* ============================================================
+   Print stylesheet — 打印讲义用
+   ============================================================ */
+@media print {
+  /* 隐藏非必要 UI */
+  .site-nav,
+  .site-foot,
+  .toc-sidebar,
+  .reading-progress,
+  .code-copy-btn,
+  .giscus-comments,
+  .page-actions {
+    display: none !important;
+  }
+  /* 配色:黑字白底 */
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+    line-height: 1.55;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .page {
+    max-width: 100% !important;
+    padding: 12pt 18pt !important;
+  }
+  /* 链接去色,URL 跟在后面 */
+  a, a:visited { color: #000 !important; text-decoration: none !important; }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555;
+  }
+  /* 内部链接不带 URL(避免噪音) */
+  a[href^="#"]::after,
+  a[href^="javascript"]::after { content: ""; }
+  /* 分页:H2 起新页,首个 H2 不强制 */
+  h1 { page-break-before: avoid; }
+  h2 { page-break-before: always; }
+  h2:first-of-type { page-break-before: avoid; }
+  h3, h4 { page-break-before: avoid; }
+  /* 块内不要断开 */
+  .def-box, .thm-box, .ex-box,
+  pre, table, figure, blockquote {
+    page-break-inside: avoid;
+  }
+  /* KaTeX 公式不切 */
+  .katex-display { page-break-inside: avoid; }
+  /* 避免孤行寡行 */
+  p { orphans: 3; widows: 3; }
+}
+
+/* ============================================================
+   Page actions (Edit on GitHub + Cite)
+   ============================================================ */
+.page-actions {
+  max-width: var(--max-w);
+  margin: 64px auto 0;
+  padding: 24px 28px 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--fg-soft);
+}
+.page-actions a {
+  color: var(--fg-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.page-actions a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Cite 块 */
+.cite-block {
+  position: relative;
+}
+.cite-block summary {
+  cursor: pointer;
+  list-style: none;
+  color: var(--fg-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+  user-select: none;
+}
+.cite-block summary::-webkit-details-marker { display: none; }
+.cite-block summary::before {
+  content: "›";
+  display: inline-block;
+  width: 12px;
+  font-weight: 600;
+  color: var(--fg-mute);
+  transition: transform 0.15s;
+}
+.cite-block[open] summary::before { transform: rotate(90deg); }
+.cite-block summary:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.cite-block pre {
+  margin-top: 12px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
