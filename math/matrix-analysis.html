@@ -86,7 +86,7 @@
   <div class="ex-box">
     <p class="label">例 1.1<span class="label-name">$p$-范数</span></p>
     <p>
-      $$\|x\|_p = \left( \sum_{i=1}^{n} |x_i|^p \right)^{1/p}$$
+      $$\|x\|_p = \left( \sum_{i=1}^{n} |x_i|^p \right)^{1/p}\tag{1.1}$$
       当 $p \ge 1$ 时为范数;当 $0 < p < 1$ 时为拟范数。
     </p>
   </div>
@@ -94,7 +94,7 @@
   <div class="thm-box">
     <p class="label">定理 1.1</p>
     <p>设 $A \in \mathbb{R}^{n \times n}$ 为非奇异矩阵,$\|\cdot\|$ 是 $\mathbb{R}^n$ 中的任意范数,则
-      $$\|x\|_A = \|Ax\|$$
+      $$\|x\|_A = \|Ax\|\tag{1.2}$$
       定义了 $\mathbb{R}^n$ 中的一个新范数。
     </p>
   </div>
@@ -102,7 +102,7 @@
   <div class="def-box">
     <p class="label">定义 1.2<span class="label-name">距离</span></p>
     <p>
-      $$d(x, y) = \|x - y\|,$$
+      $$d(x, y) = \|x - y\|,\tag{1.3}$$
       则赋范空间是特殊的距离空间,因为范数可以导出距离。距离满足:非负、对称($d(x, y) = 0 \iff x = y$)、三角不等式。
     </p>
     <p style="text-align:center; margin: 16px 0;">内积空间 $\subset$ 赋范空间 $\subset$ 距离空间</p>
@@ -112,7 +112,7 @@
   <div class="def-box">
     <p class="label">定义 1.3<span class="label-name">极限</span></p>
     <p>向量 $x^* = (x_1^*, \ldots, x_n^*)^T$ 称为向量序列 $x^{(k)} = (x_1^{(k)}, \ldots, x_n^{(k)})^T$ 的<strong>极限</strong>,若 $x^*$ 的分量为 $x^{(k)}$ 相应分量的极限,即
-      $$\lim_{k \to \infty} x_i^{(k)} = x_i^*, \quad i = 1, 2, \ldots, n.$$
+      $$\lim_{k \to \infty} x_i^{(k)} = x_i^*, \quad i = 1, 2, \ldots, n.\tag{1.4}$$
       记为 $x^* = \lim_{k \to \infty} x^{(k)}$。
     </p>
     <p>极限满足加法、数乘运算,且范数具有连续性。</p>
@@ -122,9 +122,9 @@
     <p class="label">定理 1.2<span class="label-name">范数的连续性</span></p>
     <p>$\mathbb{R}^n$ 中的任意范数均为 $x$ 的连续函数。</p>
     <p><em>证明.</em> 利用反向三角不等式
-      $$\big| \|x\| - \|y\| \big| \le \|x - y\|.$$
+      $$\big| \|x\| - \|y\| \big| \le \|x - y\|.\tag{1.5}$$
       已知 $x_k \to x$,即 $\|x_k - x\| \to 0$,则
-      $$0 \le \big| \|x_k\| - \|x\| \big| \le \|x_k - x\| \to 0,$$
+      $$0 \le \big| \|x_k\| - \|x\| \big| \le \|x_k - x\| \to 0,\tag{1.6}$$
       故 $\|x_k\| \to \|x\|$。$\square$
     </p>
   </div>
@@ -132,21 +132,21 @@
   <div class="thm-box">
     <p class="label">定理 1.3<span class="label-name">范数的等价性</span></p>
     <p>在 $\mathbb{R}^n$ 中任取两个范数 $\|\cdot\|_I, \|\cdot\|_{II}$,则存在不依赖于 $x$ 的常数 $d_1, d_2$,使得 $\forall\, x \in \mathbb{R}^n$,有
-      $$d_1 \|x\|_I \le \|x\|_{II} \le d_2 \|x\|_I.$$
+      $$d_1 \|x\|_I \le \|x\|_{II} \le d_2 \|x\|_I.\tag{1.7}$$
     </p>
     <p><em>证明.</em> 只需证明 $\mathbb{R}^n$ 中的任意范数 $\|\cdot\|$ 与 $\|\cdot\|_2$ 等价即可。</p>
     <p>若存在 $c_1, c_2$ 使得 $c_1 \|x\|_2 \le \|x\|_I \le c_2 \|x\|_2$,以及 $d_1 \|x\|_2 \le \|x\|_{II} \le d_2 \|x\|_2$,则
-      $$\frac{d_1}{c_2} \|x\|_I \le \|x\|_{II} \le \frac{d_2}{c_1} \|x\|_I.$$
+      $$\frac{d_1}{c_2} \|x\|_I \le \|x\|_{II} \le \frac{d_2}{c_1} \|x\|_I.\tag{1.8}$$
     </p>
     <p>构造集合
-      $$S = \{ x \mid \|x\|_2 = 1, x \in \mathbb{R}^n \},$$
+      $$S = \{ x \mid \|x\|_2 = 1, x \in \mathbb{R}^n \},\tag{1.9}$$
       则 $S$ 是 $\mathbb{R}^n$ 中的有界闭集。设 $\|\cdot\|$ 是 $\mathbb{R}^n$ 中任意范数,则其为连续函数。
     </p>
     <p>由 Weierstrass 定理:$\|\cdot\|$ 在 $S$ 上可以取到极大值(记为 $d_2$)与极小值(记为 $d_1$)。</p>
     <p>$\forall\, x \in \mathbb{R}^n,\, x \ne 0$,有
-      $$\left\| \frac{x}{\|x\|_2} \right\|_2 = 1 \;\Rightarrow\; \frac{x}{\|x\|_2} \in S \;\Rightarrow\; d_1 \le \left\| \frac{x}{\|x\|_2} \right\| \le d_2,$$
+      $$\left\| \frac{x}{\|x\|_2} \right\|_2 = 1 \;\Rightarrow\; \frac{x}{\|x\|_2} \in S \;\Rightarrow\; d_1 \le \left\| \frac{x}{\|x\|_2} \right\| \le d_2,\tag{1.10}$$
       从而
-      $$d_1 \|x\|_2 \le \|x\| \le d_2 \|x\|_2.$$
+      $$d_1 \|x\|_2 \le \|x\| \le d_2 \|x\|_2.\tag{1.11}$$
       $\square$
     </p>
   </div>
@@ -173,15 +173,15 @@
   <div class="thm-box">
     <p class="label">定理 1.5<span class="label-name">Cauchy 收敛准则</span></p>
     <p>向量序列 $x^{(k)}$ 有极限存在 $\iff$ $x^{(k)}$ 为 Cauchy 序列,即
-      $$\forall\, \varepsilon > 0,\, \exists\, N \in \mathbb{N}^*,\, \text{s.t. } k, l \ge N \text{ 时, } \left\| x^{(k)} - x^{(l)} \right\| < \varepsilon,$$
+      $$\forall\, \varepsilon > 0,\, \exists\, N \in \mathbb{N}^*,\, \text{s.t. } k, l \ge N \text{ 时, } \left\| x^{(k)} - x^{(l)} \right\| < \varepsilon,\tag{1.12}$$
       其中 $\|\cdot\|$ 为 $\mathbb{R}^n$ 中某一范数。
     </p>
     <p><em>证明.</em> 由范数的等价性,只需证明对 $\infty$-范数成立。</p>
     <p>($\Leftarrow$) 若 $\left\| x^{(k)} - x^{(l)} \right\|_\infty = \max_{1 \le j \le n} \left| x_j^{(k)} - x_j^{(l)} \right| < \varepsilon$,则对每个 $j = 1, 2, \ldots, n$,$x_j^{(k)}$ 是 Cauchy 序列,从而 $x_j^{(k)}$ 有极限存在。因此向量序列 $x^{(k)}$ 有极限存在。</p>
     <p>($\Rightarrow$) 若向量序列 $x^{(k)}$ 有极限存在,则每个分量 $x_j^{(k)}$ 有极限存在。于是
-      $$\forall\, \varepsilon > 0,\, \exists\, N_j \in \mathbb{N}^*,\, \text{s.t. } k, l \ge N_j \text{ 时, } \left| x_j^{(k)} - x_j^{(l)} \right| < \varepsilon.$$
+      $$\forall\, \varepsilon > 0,\, \exists\, N_j \in \mathbb{N}^*,\, \text{s.t. } k, l \ge N_j \text{ 时, } \left| x_j^{(k)} - x_j^{(l)} \right| < \varepsilon.\tag{1.13}$$
       取 $N = \max\{N_1, N_2, \ldots, N_n\}$,则 $\forall\, k, l \ge N$,有
-      $$\left\| x^{(k)} - x^{(l)} \right\|_\infty < \varepsilon.$$
+      $$\left\| x^{(k)} - x^{(l)} \right\|_\infty < \varepsilon.\tag{1.14}$$
       $\square$
     </p>
   </div>
@@ -190,7 +190,7 @@
   <h2>1.2 矩阵范数</h2>
 
   <p>设 $A \in \mathbb{R}^{m \times n}$。相应于向量 $2$-范数的矩阵范数为
-    $$\|A\|_F = \left( \sum_{i=1}^{m} \sum_{j=1}^{n} a_{ij}^2 \right)^{1/2},$$
+    $$\|A\|_F = \left( \sum_{i=1}^{m} \sum_{j=1}^{n} a_{ij}^2 \right)^{1/2},\tag{2.1}$$
     称为 <strong>Frobenius 范数</strong>(简称 $F$-范数)。
   </p>
 
@@ -208,7 +208,7 @@
   <div class="def-box">
     <p class="label">定义 1.5<span class="label-name">相容范数</span></p>
     <p>在 $\mathbb{R}^{m \times n}, \mathbb{R}^{n \times p}, \mathbb{R}^{m \times p}$ 中分别定义了 $\|\cdot\|_u, \|\cdot\|_v, \|\cdot\|_w$。若
-      $$\forall\, A \in \mathbb{R}^{m \times n},\, B \in \mathbb{R}^{n \times p},\, \|AB\|_w \le \|A\|_u \|B\|_v,$$
+      $$\forall\, A \in \mathbb{R}^{m \times n},\, B \in \mathbb{R}^{n \times p},\, \|AB\|_w \le \|A\|_u \|B\|_v,\tag{2.2}$$
       则称 $\|\cdot\|_v, \|\cdot\|_w$ 和 $\|\cdot\|_u$ <strong>相容</strong>。若 $\|\cdot\|$ 对自己相容,则称 $\|\cdot\|$ 为<strong>相容范数</strong>。
     </p>
   </div>
@@ -221,10 +221,10 @@
     <p class="label">定理 1.6</p>
     <p>矩阵的 $F$-范数是相容范数,且与向量的 $2$-范数相容。</p>
     <p><em>证明.</em> 先证 $F$-范数与向量 $2$-范数相容。由 Cauchy 不等式,
-      $$\|Ax\|_2^2 = \sum_{i=1}^{m} \left( \sum_{j=1}^{n} a_{ij} x_j \right)^2 \le \sum_{i=1}^{m} \left( \sum_{j=1}^{n} a_{ij}^2 \right) \left( \sum_{j=1}^{n} x_j^2 \right) = \|x\|_2^2 \cdot \sum_{i=1}^{m} \sum_{j=1}^{n} a_{ij}^2 = \|x\|_2^2 \cdot \|A\|_F^2.$$
+      $$\|Ax\|_2^2 = \sum_{i=1}^{m} \left( \sum_{j=1}^{n} a_{ij} x_j \right)^2 \le \sum_{i=1}^{m} \left( \sum_{j=1}^{n} a_{ij}^2 \right) \left( \sum_{j=1}^{n} x_j^2 \right) = \|x\|_2^2 \cdot \sum_{i=1}^{m} \sum_{j=1}^{n} a_{ij}^2 = \|x\|_2^2 \cdot \|A\|_F^2.\tag{2.3}$$
     </p>
     <p>再证 $F$-范数自身相容。设 $B = (b_1, b_2, \ldots, b_p) \in \mathbb{R}^{n \times p}$,其中 $b_j$ 为 $B$ 的列向量,则
-      $$\|AB\|_F^2 = \|A(b_1, b_2, \ldots, b_p)\|_F^2 = \sum_{j=1}^{p} \|Ab_j\|_2^2 \le \sum_{j=1}^{p} \|A\|_F^2 \|b_j\|_2^2 = \|A\|_F^2 \cdot \sum_{j=1}^{p} \|b_j\|_2^2 = \|A\|_F^2 \cdot \|B\|_F^2.$$
+      $$\|AB\|_F^2 = \|A(b_1, b_2, \ldots, b_p)\|_F^2 = \sum_{j=1}^{p} \|Ab_j\|_2^2 \le \sum_{j=1}^{p} \|A\|_F^2 \|b_j\|_2^2 = \|A\|_F^2 \cdot \sum_{j=1}^{p} \|b_j\|_2^2 = \|A\|_F^2 \cdot \|B\|_F^2.\tag{2.4}$$
     </p>
     <p>故 $F$-范数是相容范数。$\square$</p>
   </div>
@@ -232,24 +232,24 @@
   <div class="thm-box">
     <p class="label">定理 1.7<span class="label-name">诱导范数</span></p>
     <p>设 $\|\cdot\|$ 是 $\mathbb{R}^n$ 中的范数,$\forall\, A \in \mathbb{R}^{n \times n}$,定义
-      $$\|A\| = \max_{\|x\| = 1} \|Ax\|,$$
+      $$\|A\| = \max_{\|x\| = 1} \|Ax\|,\tag{2.5}$$
       则 $\|A\|$ 是矩阵范数,称为 $\|\cdot\|$ 的<strong>诱导范数</strong>,且与 $\|\cdot\|$ 相容。
     </p>
     <p><em>证明.</em> 由于 $\{ x \in \mathbb{R}^n \mid \|x\| = 1 \}$ 是 $\mathbb{R}^n$ 中的有界闭集,故 $\max_{\|x\|=1} \|Ax\|$ 有意义。</p>
     <p><strong>(1) 非负性</strong>:$\|A\| \ge 0$。
-      $$\|A\| = 0 \iff \|Ax\| = 0,\, \forall\, \|x\| = 1 \iff Ax = 0,\, \forall\, \|x\| = 1 \iff A = 0.$$
+      $$\|A\| = 0 \iff \|Ax\| = 0,\, \forall\, \|x\| = 1 \iff Ax = 0,\, \forall\, \|x\| = 1 \iff A = 0.\tag{2.6}$$
       反之,$A = 0 \Rightarrow Ax = 0,\, \forall\, \|x\| = 1 \Rightarrow \|A\| = 0$。
     </p>
     <p><strong>(2) 齐次性</strong>:$\forall\, \alpha \in \mathbb{R}$,
-      $$\|\alpha A\| = \max_{\|x\|=1} \|\alpha A x\| = |\alpha| \max_{\|x\|=1} \|Ax\| = |\alpha| \cdot \|A\|.$$
+      $$\|\alpha A\| = \max_{\|x\|=1} \|\alpha A x\| = |\alpha| \max_{\|x\|=1} \|Ax\| = |\alpha| \cdot \|A\|.\tag{2.7}$$
     </p>
     <p><strong>(3) 三角不等式</strong>:
-      $$\|A + B\| = \max_{\|x\|=1} \|Ax + Bx\| \le \max_{\|x\|=1} \|Ax\| + \max_{\|x\|=1} \|Bx\| = \|A\| + \|B\|.$$
+      $$\|A + B\| = \max_{\|x\|=1} \|Ax + Bx\| \le \max_{\|x\|=1} \|Ax\| + \max_{\|x\|=1} \|Bx\| = \|A\| + \|B\|.\tag{2.8}$$
     </p>
     <p>下面证明相容性。当 $x = 0$ 时结论显然成立。当 $x \ne 0$ 时,
-      $$\left\| \frac{x}{\|x\|} \right\| = 1, \quad \|A\| = \max_{\|y\|=1} \|Ay\| \ge \left\| A \cdot \frac{x}{\|x\|} \right\|,$$
+      $$\left\| \frac{x}{\|x\|} \right\| = 1, \quad \|A\| = \max_{\|y\|=1} \|Ay\| \ge \left\| A \cdot \frac{x}{\|x\|} \right\|,\tag{2.9}$$
       故 $\|Ax\| \le \|A\| \cdot \|x\|$。进而
-      $$\|AB\| = \max_{\|x\|=1} \|A(Bx)\| \le \max_{\|x\|=1} \|A\| \cdot \|Bx\| = \|A\| \cdot \max_{\|x\|=1} \|Bx\| = \|A\| \cdot \|B\|.$$
+      $$\|AB\| = \max_{\|x\|=1} \|A(Bx)\| \le \max_{\|x\|=1} \|A\| \cdot \|Bx\| = \|A\| \cdot \max_{\|x\|=1} \|Bx\| = \|A\| \cdot \|B\|.\tag{2.10}$$
       $\square$
     </p>
   </div>
@@ -266,18 +266,18 @@
   <div class="thm-box">
     <p class="label">命题 1.3<span class="label-name">$1$-范数的诱导范数(列和范数)</span></p>
     <p>
-      $$\|A\|_1 = \max_{1 \le j \le n} \sum_{i=1}^{m} |a_{ij}|,$$
+      $$\|A\|_1 = \max_{1 \le j \le n} \sum_{i=1}^{m} |a_{ij}|,\tag{2.11}$$
       称为<strong>列和范数</strong>。
     </p>
     <p><em>证明.</em> 当 $\|x\|_1 = 1$ 时,
-      $$\|Ax\|_1 = \sum_{i=1}^{m} \left| \sum_{j=1}^{n} a_{ij} x_j \right| \le \sum_{i=1}^{m} \sum_{j=1}^{n} |a_{ij}| \cdot |x_j| = \sum_{j=1}^{n} |x_j| \sum_{i=1}^{m} |a_{ij}| \le \sum_{j=1}^{n} |x_j| \cdot \max_{1 \le j \le n} \sum_{i=1}^{m} |a_{ij}| = \max_{1 \le j \le n} \sum_{i=1}^{m} |a_{ij}|.$$
+      $$\|Ax\|_1 = \sum_{i=1}^{m} \left| \sum_{j=1}^{n} a_{ij} x_j \right| \le \sum_{i=1}^{m} \sum_{j=1}^{n} |a_{ij}| \cdot |x_j| = \sum_{j=1}^{n} |x_j| \sum_{i=1}^{m} |a_{ij}| \le \sum_{j=1}^{n} |x_j| \cdot \max_{1 \le j \le n} \sum_{i=1}^{m} |a_{ij}| = \max_{1 \le j \le n} \sum_{i=1}^{m} |a_{ij}|.\tag{2.12}$$
     </p>
     <p>设 $\max_{1 \le j \le n} \sum_{i=1}^{m} |a_{ij}| = \sum_{i=1}^{m} |a_{ik}|$。构造向量 $y \in \mathbb{R}^n$:
-      $$y_j = \begin{cases} 1, & j = k, \\ 0, & j \ne k, \end{cases}$$
+      $$y_j = \begin{cases} 1, & j = k, \\ 0, & j \ne k, \end{cases}\tag{2.13}$$
       则 $\|y\|_1 = 1$,且
-      $$\|Ay\|_1 = \sum_{i=1}^{m} \left| \sum_{j=1}^{n} a_{ij} y_j \right| = \sum_{i=1}^{m} |a_{ik}| = \max_{1 \le j \le n} \sum_{i=1}^{m} |a_{ij}|,$$
+      $$\|Ay\|_1 = \sum_{i=1}^{m} \left| \sum_{j=1}^{n} a_{ij} y_j \right| = \sum_{i=1}^{m} |a_{ik}| = \max_{1 \le j \le n} \sum_{i=1}^{m} |a_{ij}|,\tag{2.14}$$
       可以取等。因此
-      $$\|A\|_1 = \max_{1 \le j \le n} \sum_{i=1}^{m} |a_{ij}|.$$
+      $$\|A\|_1 = \max_{1 \le j \le n} \sum_{i=1}^{m} |a_{ij}|.\tag{2.15}$$
       $\square$
     </p>
   </div>
@@ -285,21 +285,21 @@
   <div class="thm-box">
     <p class="label">命题 1.4<span class="label-name">$\infty$-范数的诱导范数(行和范数)</span></p>
     <p>
-      $$\|A\|_\infty = \max_{1 \le i \le m} \sum_{j=1}^{n} |a_{ij}|,$$
+      $$\|A\|_\infty = \max_{1 \le i \le m} \sum_{j=1}^{n} |a_{ij}|,\tag{2.16}$$
       称为<strong>行和范数</strong>。
     </p>
     <p><em>证明.</em> 由诱导范数的定义,
-      $$\|A\|_\infty = \max_{\|x\|_\infty = 1} \|Ax\|_\infty = \max_{\|x\|_\infty = 1} \max_{1 \le i \le m} \left| \sum_{j=1}^{n} a_{ij} x_j \right|.$$
+      $$\|A\|_\infty = \max_{\|x\|_\infty = 1} \|Ax\|_\infty = \max_{\|x\|_\infty = 1} \max_{1 \le i \le m} \left| \sum_{j=1}^{n} a_{ij} x_j \right|.\tag{2.17}$$
     </p>
     <p>当 $\|x\|_\infty = 1$ 时,
-      $$\|Ax\|_\infty = \max_{1 \le i \le m} \left| \sum_{j=1}^{n} a_{ij} x_j \right| \le \max_{1 \le i \le m} \sum_{j=1}^{n} |a_{ij}| \cdot |x_j| \le \max_{1 \le i \le m} \sum_{j=1}^{n} |a_{ij}|.$$
+      $$\|Ax\|_\infty = \max_{1 \le i \le m} \left| \sum_{j=1}^{n} a_{ij} x_j \right| \le \max_{1 \le i \le m} \sum_{j=1}^{n} |a_{ij}| \cdot |x_j| \le \max_{1 \le i \le m} \sum_{j=1}^{n} |a_{ij}|.\tag{2.18}$$
     </p>
     <p>下面验证可以取等。设第 $k$ 行取到最大值,即
-      $$\sum_{j=1}^{n} |a_{kj}| = \max_{1 \le i \le m} \sum_{j=1}^{n} |a_{ij}|.$$
+      $$\sum_{j=1}^{n} |a_{kj}| = \max_{1 \le i \le m} \sum_{j=1}^{n} |a_{ij}|.\tag{2.19}$$
       构造向量 $y \in \mathbb{R}^n$,令 $y_j = \operatorname{sgn}(a_{kj})$,即
-      $$y_j = \begin{cases} 1, & a_{kj} \ge 0, \\ -1, & a_{kj} < 0, \end{cases}$$
+      $$y_j = \begin{cases} 1, & a_{kj} \ge 0, \\ -1, & a_{kj} < 0, \end{cases}\tag{2.20}$$
       则 $\|y\|_\infty = 1$,且
-      $$\|Ay\|_\infty \ge \left| \sum_{j=1}^{n} a_{kj} y_j \right| = \sum_{j=1}^{n} |a_{kj}| = \max_{1 \le i \le m} \sum_{j=1}^{n} |a_{ij}|.$$
+      $$\|Ay\|_\infty \ge \left| \sum_{j=1}^{n} a_{kj} y_j \right| = \sum_{j=1}^{n} |a_{kj}| = \max_{1 \le i \le m} \sum_{j=1}^{n} |a_{ij}|.\tag{2.21}$$
     </p>
     <p>故可以取等,从而命题得证。$\square$</p>
   </div>
