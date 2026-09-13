@@ -601,3 +601,98 @@ pre:hover .code-copy-btn,
   transition: border-color 0.15s, color 0.15s;
 }
 .theme-toggle:hover { border-color: var(--accent); color: var(--fg); }
+
+/* ============================================================
+   Cross-reference (related lectures) section
+   ============================================================ */
+.xref-section {
+  max-width: var(--max-w);
+  margin: 64px auto 0;
+  padding: 24px 28px 0;
+  border-top: 1px solid var(--rule);
+}
+.xref-section h2 {
+  margin: 0 0 16px;
+  padding: 0;
+  border: 0;
+  font-size: 18px;
+}
+.xref-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.xref-card {
+  display: block;
+  padding: 16px 20px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--fg);
+  transition: border-color 0.15s, background 0.15s;
+}
+.xref-card:hover {
+  border-color: var(--accent);
+  background: var(--code-bg);
+}
+.xref-tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.xref-title {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--fg);
+  margin-bottom: 4px;
+}
+.xref-desc {
+  display: block;
+  font-size: 14px;
+  color: var(--fg-soft);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   KaTeX source view (toggle on click)
+   ============================================================ */
+.katex-source-toggle {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--fg-mute);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s, border-color 0.15s;
+  z-index: 2;
+}
+.katex-display:hover .katex-source-toggle { opacity: 1; }
+.katex-source-toggle:hover { color: var(--accent); border-color: var(--accent); }
+.katex-source {
+  display: none;
+  padding: 12px 16px;
+  background: var(--code-bg);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--fg);
+  margin: 12px 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.katex-source.visible { display: block; }
+.katex-source.hidden-by-toggle { display: none; }
