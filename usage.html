@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>使用须知 · WXG.math and computer science</title>
+  <meta name="description" content="如何阅读、引用、贡献、报告错误。许可与联系。" />
+  <link rel="canonical" href="https://silverwolf57.github.io/lecture-notes-website/usage.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="WXG.math and computer science" />
+  <meta property="og:title" content="使用须知 · WXG.math and computer science" />
+  <meta property="og:description" content="如何阅读、引用、贡献、报告错误。许可与联系。" />
+  <meta property="og:url" content="https://silverwolf57.github.io/lecture-notes-website/usage.html" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:image" content="https://silverwolf57.github.io/lecture-notes-website/assets/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="WXG.math and computer science" />
+  <meta name="twitter:image" content="https://silverwolf57.github.io/lecture-notes-website/assets/og-image.svg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="使用须知 · WXG.math and computer science" />
+  <meta name="twitter:description" content="如何阅读、引用、贡献、报告错误。许可与联系。" />
+  <link rel="alternate" type="application/rss+xml" title="WXG.math and computer science" href="feed.xml" />
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/style.css" />
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "使用须知 · WXG.math and computer science", "url": "https://silverwolf57.github.io/lecture-notes-website/usage.html", "inLanguage": "zh-CN"}
+  </script>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="brand" href="index.html"><span class="mark">¶</span> WXG.math</a>
+    <nav>
+      <a href="index.html">首页</a>
+    </nav>
+    <button type="button" class="theme-toggle" aria-label="切换主题">☾</button>
+  </div>
+</header>
+
+<main class="page">
+
+  <p class="lecture-title">使用须知</p>
+  <h1>如何阅读、引用、贡献</h1>
+  <p class="lede">
+    本页说明本站的用法、引用规范、贡献方式,以及遇到错误时怎么办。
+  </p>
+
+  <h2>1. 如何阅读</h2>
+  <p>每篇讲义页面顶部会显示:</p>
+  <ul>
+    <li><strong>课程编号</strong>(如 MATH 401)+ 章/节信息</li>
+    <li><strong>阅读时间</strong>(中英文加权估算)</li>
+    <li><strong>目录</strong>(章节 ≥ 4 时自动出现,右侧浮窗)</li>
+    <li><strong>顶部进度条</strong>(暗红,实时显示阅读进度)</li>
+  </ul>
+  <p>页面右下角"↑"按钮点击回顶。键盘 <code>Ctrl+P</code> / <code>⌘+P</code> 可打印讲义(打印版自动隐藏导航、TOC、评论等 UI 元素)。</p>
+
+  <h2>2. 数学公式</h2>
+  <p>公式用 LaTeX 语法写,KaTeX 实时渲染:</p>
+  <ul>
+    <li>行内:<code>$x^2 + y^2 = r^2$</code></li>
+    <li>独立行:<code>$$ \int_a^b f(x)\,dx $$</code></li>
+    <li>编号:在独立公式末尾加 <code>\tag{1.1}</code></li>
+  </ul>
+
+  <h2>3. 引用本文(BibTeX)</h2>
+  <p>每篇讲义底部有"📚 引用本文"展开,自动生成 BibTeX 条目。例:</p>
+  <pre><code>@misc{wxgmath_abstract_algebra_2026,
+  author       = {WXG.math},
+  title        = {抽象代数 · 第 1 章 群、环、域},
+  year         = {2026},
+  howpublished = {GitHub Pages},
+  url          = {https://silverwolf57.github.io/lecture-notes-website/math/abstract-algebra.html},
+  note         = {Accessed: 2026-09-13}
+}</code></pre>
+
+  <h2>4. 报告错误 / 提建议</h2>
+  <p>所有讲义底部都有"✏️ 在 GitHub 编辑此页"链接,点进去直接编辑:</p>
+  <ol>
+    <li>点击 → 跳到 GitHub 编辑器</li>
+    <li>改 typo、补例子、加链接</li>
+    <li>页面下方写 commit message → <strong>Propose file change</strong></li>
+    <li>我(维护者)review 后合并</li>
+  </ol>
+  <p>也可在每篇讲义底部的 Giscus 评论区直接留言。</p>
+
+  <h2>5. 贡献新讲义</h2>
+  <p>欢迎投递。流程:</p>
+  <ol>
+    <li>Fork 仓库</li>
+    <li>从 `math/abstract-algebra.html` 复制做模板</li>
+    <li>写讲义(遵循现有排版规范:def-box / thm-box / ex-box)</li>
+    <li>在 `index.html` 加链接,更新 `sitemap.xml` + `feed.xml`</li>
+    <li>提 Pull Request</li>
+  </ol>
+  <p>详细见 <a href="https://github.com/silverwolf57/lecture-notes-website/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>。</p>
+
+  <h2>6. 许可</h2>
+  <ul>
+    <li><strong>讲义文本</strong>:CC BY 4.0(署名即可使用,允许商用)</li>
+    <li><strong>代码与样式</strong>:MIT</li>
+  </ul>
+  <p>详细见 <a href="https://github.com/silverwolf57/lecture-notes-website/blob/main/LICENSE">LICENSE</a>。</p>
+
+  <h2>7. 订阅</h2>
+  <p>用 RSS 阅读器订阅新讲义:</p>
+  <ul>
+    <li>Feedly / NetNewsWire / Inoreader 等</li>
+    <li>订阅地址:<a href="https://silverwolf57.github.io/lecture-notes-website/feed.xml">https://silverwolf57.github.io/lecture-notes-website/feed.xml</a></li>
+  </ul>
+
+  <h2>8. 联系</h2>
+  <p>无独立联系方式。请用以下任一方式:</p>
+  <ul>
+    <li>GitHub Issues:<a href="https://github.com/silverwolf57/lecture-notes-website/issues">github.com/silverwolf57/lecture-notes-website/issues</a></li>
+    <li>Email:<code>Hilbert.Gauss@outlook.com</code></li>
+  </ul>
+
+  <h2>9. 隐私</h2>
+  <p>本站:</p>
+  <ul>
+    <li>❌ 不用 cookie</li>
+    <li>❌ 不用 fingerprinting</li>
+    <li>❌ 不用第三方追踪器(Google Analytics / Facebook Pixel 等)</li>
+    <li>✅ 唯一统计:GoatCounter(聚合访问量,无个人标识)</li>
+    <li>✅ 评论:Giscus(基于你自己的 GitHub 账号)</li>
+  </ul>
+  <p>你的访问不留下任何本地痕迹(除 GoatCounter 的聚合数)。</p>
+
+  <hr />
+
+  <p style="text-align:center; color: var(--fg-mute); font-size: 14px;">
+    本页内容 CC BY 4.0 · 代码 MIT · 最后更新 2026-09-13
+  </p>
+
+</main>
+
+<footer class="site-foot">
+  <p>WXG.math and computer science · Last updated 2026-09-13</p>
+</footer>
+
+  <script defer src="assets/site.js"></script>
+</body>
+</html>

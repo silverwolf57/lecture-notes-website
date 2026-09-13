@@ -1,0 +1,43 @@
+name: IndexNow Submit
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Read IndexNow key
+        id: readkey
+        run: |
+          KEY=$(cat indexnow-key.txt)
+          echo "key=$KEY" >> $GITHUB_OUTPUT
+          echo "IndexNow key: $KEY"
+
+      - name: Submit URLs to IndexNow
+        run: |
+          KEY="${{ steps.readkey.outputs.key }}"
+          # 从 sitemap.xml 提取所有 URL
+          URLS=$(grep -oE 'https://silverwolf57\.github\.io/lecture-notes-website/[^<]*' sitemap.xml | head -50 | tr '\n' '\n')
+          COUNT=$(echo "$URLS" | wc -l)
+          echo "Submitting $COUNT URLs to IndexNow..."
+
+          # IndexNow 一次最多 10000 个 URL,我们远小于这个
+          # 格式: key=xxx&url=url1&url=url2...
+          PAYLOAD="key=$KEY"
+          for U in $URLS; do
+            PAYLOAD="$PAYLOAD&url=$(printf '%s' "$U" | python3 -c 'import urllib.parse, sys; print(urllib.parse.quote(sys.stdin.read(), safe=""))')"
+          done
+
+          curl -sS -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json" \
+            --data "{\"host\":\"silverwolf57.github.io\",\"key\":\"$KEY\",\"keyLocation\":\"https://silverwolf57.github.io/lecture-notes-website/indexnow-key.txt\",\"urlList\":[$(echo "$URLS" | sed 's/.*/"&"/' | tr '\n' ',')]}"
+
+          echo "Submitted."
