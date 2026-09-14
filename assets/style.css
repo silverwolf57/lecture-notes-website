@@ -978,6 +978,7 @@ pre {
   border-radius: 0 3px 3px 0;
   overflow-x: auto;
   margin: 0 0 24px;
+  position: relative;  /* anchor for the .code-copy-btn positioned in the corner */
 }
 
 /* KaTeX display: give display equations a bit more breathing room */
