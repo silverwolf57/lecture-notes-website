@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="alternate" type="application/rss+xml" title="WXG.math and computer science" href="feed.xml">
   <title>WXG.math and computer science</title>
-  <meta name="description" content="WXG.math and computer science — 数学与计算机讲义集。" />
+  <meta name="description" content="WXG.math and computer science — 数学与计算机讲义集。群环域、唯一分解整环、域扩张、群论初步、矩阵范数。" />
   <link rel="canonical" href="https://silverwolf57.github.io/lecture-notes-website/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="WXG.math and computer science" />
@@ -21,7 +21,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="WXG.math and computer science" />
   <meta name="twitter:description" content="WXG.math and computer science — 数学与计算机讲义集。" />
-  
+
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -52,26 +52,62 @@
 
 <main class="page">
 
-  <p class="lecture-title">Lectures</p>
-  <h1>WXG.math and computer science</h1>
+  <section class="site-hero">
+    <p class="lecture-eyebrow">讲义集</p>
+    <h1>WXG.math<br>and computer science</h1>
+    <p class="lede">
+      一座慢慢长出来的笔记库。从公理化的代数系统,到把抽象落到数值上的矩阵范数,
+      写成可读、可引用、可长期维护的网页。
+    </p>
+  </section>
 
-  <ul class="lecture-list">
-    <li>
-      <span class="num">01</span>
-      <a href="math/abstract-algebra.html"><strong>抽象代数</strong></a>
-      <span class="meta">群、环、域、同态与同构</span>
-    </li>
-    <li>
-      <span class="num">02</span>
-      <a href="math/matrix-analysis.html"><strong>矩阵论</strong></a>
-      <span class="meta">向量范数、矩阵范数、Frobenius、诱导范数</span>
-    </li>
+  <ul class="site-stats">
+    <li class="stat"><span class="stat-n">2</span><span class="stat-l">门课</span></li>
+    <li class="stat"><span class="stat-n">4</span><span class="stat-l">章</span></li>
+    <li class="stat"><span class="stat-n">160</span><span class="stat-l">公式</span></li>
+    <li class="stat"><span class="stat-n">CC&nbsp;BY&nbsp;4.0</span><span class="stat-l">许可</span></li>
   </ul>
 
+  <article class="featured-lecture">
+    <h2><a href="math/abstract-algebra.html">抽象代数 · 第 1–4 章</a></h2>
+    <p>
+      从公理化的代数系统出发,走过群环域的唯一分解整环,经由域扩张的可分性、可分扩张与 Galois 群的可解性,
+      最后在 Abel-Ruffini 与五次方程的不可解处收束。共 4 章 15 节 80 个公式。
+    </p>
+    <div class="meta">
+      <span><span class="k">主题</span> 群环域 / 唯一分解整环 / 域扩张 / 群论初步</span>
+      <span><span class="k">范围</span> 全 4 章</span>
+      <span><span class="k">源</span> 中山大学数学学院(珠海)</span>
+    </div>
+  </article>
+
+  <section class="all-lectures">
+    <h2>所有讲义</h2>
+    <ul class="lecture-list">
+      <li>
+        <span class="num">01</span>
+        <div class="info">
+          <a href="math/abstract-algebra.html">抽象代数</a>
+          <span class="meta">群、环、域、唯一分解整环、域扩张、群论初步</span>
+        </div>
+        <span class="count">4 章 · 80 公式</span>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <div class="info">
+          <a href="math/matrix-analysis.html">矩阵论 · 引论</a>
+          <span class="meta">向量范数、矩阵范数、Frobenius 范数、诱导范数</span>
+        </div>
+        <span class="count">2 节 · 35 公式</span>
+      </li>
+    </ul>
+  </section>
 
 
   <div class="page-actions">
     <a href="https://github.com/silverwolf57/lecture-notes-website/edit/main/index.html" target="_blank" rel="noopener">✏️ 在 GitHub 编辑此页</a>
+    <a href="usage.html">📖 使用须知</a>
+    <a href="feed.xml" target="_blank" rel="noopener">📡 RSS 订阅</a>
     <details class="cite-block">
       <summary>📚 引用本文(BibTeX)</summary>
       <pre><code>@misc{wxgmath_index_2026,
@@ -87,7 +123,7 @@
 </main>
 
 <footer class="site-foot">
-  <p>WXG.math and computer science · Last updated 2026-09-12</p>
+  <p>WXG.math and computer science · CC BY 4.0 · Last updated 2026-09-12</p>
 </footer>
 
 

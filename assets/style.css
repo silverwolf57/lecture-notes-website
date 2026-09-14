@@ -7,14 +7,17 @@ html { -webkit-text-size-adjust: 100%; }
   --fg: #1a1a1a;
   --fg-soft: #4a4a4a;
   --fg-mute: #888;
-  --bg: #fdfcf8;            /* 仿纸张米白 */
-  --bg-card: #ffffff;
-  --rule: #e5e2d8;
-  --rule-strong: #c9c4b3;
+  --bg: #faf6ed;            /* 暖米白 — 印刷纸感 */
+  --bg-card: #fffef9;
+  --bg-tint: #f4eed9;       /* 章节块的浅暖底 */
+  --rule: #e8e2d0;          /* 偏暖 */
+  --rule-strong: #c9c0a8;
   --accent: #8b1a1a;        /* 暗红 - 印刷教材常见 */
+  --accent-2: #2d5a2d;      /* 森绿 - "new" / featured 标签 */
+  --accent-3: #b8860b;      /* 古铜金 - 章节装饰 */
   --link: #1f3a5f;          /* 海军蓝 */
   --link-hover: #8b1a1a;
-  --code-bg: #f3efe2;
+  --code-bg: #f0eadb;
   --code-fg: #1a1a1a;
   --font-serif: "Charter", "Source Serif Pro", "Latin Modern Roman", "Iowan Old Style", "Apple Garamond", Georgia, "Times New Roman", serif;
   --font-sans: "Inter", "Source Sans Pro", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
@@ -72,16 +75,35 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
 
 /* ----------  typography  ---------- */
 h1, h2, h3, h4 { font-family: var(--font-sans); font-weight: 600; color: var(--fg); line-height: 1.25; }
-h1 { font-size: 36px; margin: 0 0 12px; letter-spacing: -0.01em; }
-h2 { font-size: 24px; margin: 56px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+h1 { font-size: 44px; margin: 0 0 18px; letter-spacing: -0.015em; line-height: 1.15; }
+h2 { font-size: 24px; margin: 56px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
 h3 { font-size: 19px; margin: 32px 0 12px; }
 h4 { font-size: 16px; margin: 24px 0 8px; color: var(--fg-soft); }
 p { margin: 0 0 16px; }
 .lede {
-  font-size: 19px;
+  font-size: 20px;
   color: var(--fg-soft);
-  line-height: 1.6;
-  margin-bottom: 32px;
+  line-height: 1.55;
+  margin-bottom: 36px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  max-width: 38em;
+  font-weight: 400;
+}
+
+/* Editorial drop cap on the chapter's first paragraph (the .lede after h1).
+   Only when there's a real h1 -> .lede sequence; skips TOC pages, etc. */
+.page > h1 + .lede::first-letter,
+.page > .lede:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-serif);
+  font-size: 4.4em;
+  line-height: 0.85;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0.05em 0.12em -0.05em -0.04em;
+  font-feature-settings: "kern";
+  font-style: normal;
 }
 .muted { color: var(--fg-mute); }
 hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
@@ -111,14 +133,31 @@ pre {
 }
 pre code { padding: 0; background: transparent; font-size: inherit; }
 
-/* ----------  front matter  ---------- */
-.front-matter {
+/* ----------  front matter / cover eyebrow  ----------
+   Editorial-style: small all-caps tag with a short accent line on the left.
+   Used at the top of each lecture as the chapter mark.
+*/
+.front-matter, .lecture-eyebrow {
   font-family: var(--font-sans);
-  font-size: 13px;
-  color: var(--fg-mute);
-  margin-bottom: 36px;
-  letter-spacing: 0.02em;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  margin: 0 0 18px;
+  position: relative;
+  padding-left: 32px;
+  display: inline-block;
+}
+.front-matter::before, .lecture-eyebrow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
 }
 .front-matter .course-tag {
   display: inline-block;
@@ -128,6 +167,7 @@ pre code { padding: 0; background: transparent; font-size: inherit; }
   border-radius: 2px;
   margin-right: 10px;
   font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
 .lecture-title {
@@ -194,33 +234,49 @@ pre code { padding: 0; background: transparent; font-size: inherit; }
   text-transform: uppercase;
 }
 
-/* ----------  definition / theorem boxes  ---------- */
-.def-box, .thm-box, .ex-box {
-  margin: 24px 0;
-  padding: 18px 22px 8px;
-  background: var(--bg-card);
-  border: 1px solid var(--rule);
-  border-left: 3px solid var(--accent);
-  border-radius: 0 3px 3px 0;
+/* ----------  definition / theorem boxes  ----------
+   Editorial style: no border, no background — a thin vertical accent line
+   on the left (1.5px). The label is bold serif uppercase; the optional
+   .label-name is italic. Body is upright serif. The accent color shifts
+   subtly by kind:
+     .def-box   -> accent   (dark red, primary)
+     .thm-box   -> link     (navy)
+     .ex-box    -> accent-2 (forest green)
+     .remark-box-> fg-mute  (neutral)
+*/
+.def-box, .thm-box, .ex-box, .remark-box {
+  margin: 22px 0;
+  padding: 4px 0 4px 20px;
+  background: transparent;
+  border: 0;
+  border-left: 1.5px solid var(--accent);
+  border-radius: 0;
 }
-.def-box .label, .thm-box .label, .ex-box .label {
+.thm-box { border-left-color: var(--link); }
+.ex-box  { border-left-color: var(--accent-2); }
+.remark-box { border-left-color: var(--fg-mute); }
+.def-box .label, .thm-box .label, .ex-box .label, .remark-box .label {
   font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
   margin: 0 0 8px;
 }
-.def-box .label-name, .thm-box .label-name, .ex-box .label-name {
+.thm-box .label { color: var(--link); }
+.ex-box  .label { color: var(--accent-2); }
+.remark-box .label { color: var(--fg-mute); }
+.def-box .label-name, .thm-box .label-name, .ex-box .label-name, .remark-box .label-name {
   font-style: italic;
-  color: var(--fg);
-  margin-left: 6px;
+  font-weight: 400;
+  color: var(--fg-soft);
+  margin-left: 8px;
+  letter-spacing: 0.02em;
   text-transform: none;
-  letter-spacing: 0;
 }
-.def-box p, .thm-box p, .ex-box p { margin-bottom: 8px; }
-.def-box p:last-child, .thm-box p:last-child, .ex-box p:last-child { margin-bottom: 0; }
+.def-box p, .thm-box p, .ex-box p, .remark-box p { margin-bottom: 8px; }
+.def-box p:last-child, .thm-box p:last-child, .ex-box p:last-child, .remark-box p:last-child { margin-bottom: 0; }
 
 /* ----------  footer  ---------- */
 .site-foot {
@@ -564,9 +620,12 @@ pre:hover .code-copy-btn,
   --fg-mute: #7a7870;
   --bg: #1a1a1a;
   --bg-card: #242424;
+  --bg-tint: #202020;
   --rule: #383838;
   --rule-strong: #4a4a4a;
   --accent: #d67d7d;
+  --accent-2: #6b9b6b;
+  --accent-3: #d4a347;
   --link: #7ba6d4;
   --link-hover: #d67d7d;
   --code-bg: #2a2a2a;
@@ -585,7 +644,8 @@ pre:hover .code-copy-btn,
 :root[data-theme="dark"] .katex .mathnormal { color: #e8e6df !important; }
 :root[data-theme="dark"] .def-box,
 :root[data-theme="dark"] .thm-box,
-:root[data-theme="dark"] .ex-box { background: #242424; }
+:root[data-theme="dark"] .ex-box,
+:root[data-theme="dark"] .remark-box { background: transparent; }
 
 /* theme toggle button in nav */
 .theme-toggle {
@@ -695,4 +755,253 @@ pre:hover .code-copy-btn,
   word-break: break-word;
 }
 .katex-source.visible { display: block; }
+
+/* ============================================================
+   Editorial redesign: drop caps, § ornament, hero, stats,
+   featured card, refined lecture list
+   ============================================================ */
+
+/* ---------- § ornament before h2 (skip on small pages) ---------- */
+.page h2::before {
+  content: "§";
+  display: inline-block;
+  color: var(--accent-3);
+  font-family: var(--font-serif);
+  font-weight: normal;
+  font-size: 0.85em;
+  margin-right: 0.5em;
+  vertical-align: 0.05em;
+}
+
+/* ---------- index page: hero / stats / featured ---------- */
+.site-hero {
+  margin: 24px 0 56px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+.site-hero h1 {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin: 0 0 18px;
+  color: var(--fg);
+}
+.site-hero .lede {
+  font-size: 22px;
+  font-style: italic;
+  color: var(--fg-soft);
+  max-width: 42em;
+  line-height: 1.5;
+  margin: 0 0 20px;
+  font-weight: 400;
+}
+.site-hero .lede::first-letter {
+  font-size: inherit;
+  float: none;
+  color: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+.site-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+  margin: 0 0 56px;
+  padding: 0;
+  list-style: none;
+}
+.site-stats .stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.site-stats .stat-n {
+  font-family: var(--font-serif);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.site-stats .stat-l {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+}
+
+.featured-lecture {
+  position: relative;
+  margin: 0 0 56px;
+  padding: 32px 36px 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+}
+.featured-lecture::before {
+  content: "featured";
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  background: var(--accent-2);
+  color: white;
+  padding: 3px 12px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+.featured-lecture h2 {
+  margin: 0 0 8px;
+  padding: 0;
+  border: 0;
+  font-size: 26px;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.featured-lecture h2::before { content: none; }   /* no § on featured */
+.featured-lecture h2 a { color: var(--fg); }
+.featured-lecture h2 a:hover { color: var(--accent); }
+.featured-lecture p {
+  margin: 0 0 18px;
+  color: var(--fg-soft);
+  font-size: 16px;
+  line-height: 1.55;
+}
+.featured-lecture .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--fg-mute);
+  letter-spacing: 0.04em;
+}
+.featured-lecture .meta span { display: inline-flex; gap: 6px; align-items: baseline; }
+.featured-lecture .meta .k { font-weight: 600; color: var(--fg-soft); }
+
+.all-lectures h2 {
+  font-size: 13px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+  border: 0;
+  padding: 0;
+  margin: 0 0 16px;
+}
+.all-lectures h2::before { content: none; }   /* no § on the section heading */
+
+.lecture-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 48px;
+}
+.lecture-list li {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 20px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-top: 1px solid var(--rule);
+}
+.lecture-list li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.lecture-list .num {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.lecture-list .info { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.lecture-list .info a {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--fg);
+  text-decoration: none;
+  border: 0;
+  font-family: var(--font-sans);
+  letter-spacing: -0.005em;
+}
+.lecture-list .info a:hover { color: var(--accent); }
+.lecture-list .info .meta {
+  font-size: 14px;
+  color: var(--fg-soft);
+  line-height: 1.45;
+}
+.lecture-list .count {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fg-mute);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ---------- misc editorial polish ---------- */
+a[href^="http"] {
+  word-break: break-word;
+}
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--rule);
+  margin: 56px auto;
+  max-width: 80px;
+}
+
+/* code block: subtle warm tint + sharper hairline */
+pre {
+  font-size: 13.5px;
+  line-height: 1.6;
+  padding: 18px 22px;
+  background: var(--code-bg);
+  border: 1px solid var(--rule);
+  border-left: 2px solid var(--rule-strong);
+  border-radius: 0 3px 3px 0;
+  overflow-x: auto;
+  margin: 0 0 24px;
+}
+
+/* KaTeX display: give display equations a bit more breathing room */
+.katex-display { margin: 22px 0 !important; }
+.katex-display > .katex { font-size: 1.05em; }
+
+/* responsive: stack the hero and stats on narrow screens */
+@media (max-width: 640px) {
+  .site-hero h1 { font-size: 38px; }
+  .site-hero .lede { font-size: 18px; }
+  .site-stats { gap: 28px; }
+  .site-stats .stat-n { font-size: 28px; }
+  .featured-lecture { padding: 24px 20px 20px; }
+  .lecture-list li {
+    grid-template-columns: 48px 1fr;
+    gap: 14px;
+  }
+  .lecture-list .count {
+    grid-column: 1 / -1;
+    text-align: left;
+    margin-top: 4px;
+  }
+  .page h1 { font-size: 32px; }
+  .page > h1 + .lede::first-letter,
+  .page > .lede:first-of-type::first-letter { font-size: 3.4em; }
+}
 .katex-source.hidden-by-toggle { display: none; }
