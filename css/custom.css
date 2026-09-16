@@ -240,8 +240,21 @@ code, pre, .code-block, .hljs, kbd, samp {
   object-fit: cover;
 }
 
-/* Hide the cover on the chapter listing cards — they look noisy in a grid */
-.article-list .article-image { display: none; }
+/* Listing cards on the homepage — show the cover as a slim 96px strip
+   along the top of each card, so the card has presence without becoming
+   a giant image. */
+.article-list .article-image {
+  display: block;
+  margin: 0;
+  max-height: 96px;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+}
+.article-list .article-image img {
+  max-height: 96px;
+  object-fit: cover;
+  width: 100%;
+}
 
 /* ============================================================
    7. CHAPTER DIVIDER TEXT
@@ -407,7 +420,8 @@ code, pre, .code-block, .hljs, kbd, samp {
 .article-list article {
   box-shadow: var(--shadow-l1);
   padding: 0;
+  margin: 0 0 24px;
 }
 .article-list article .article-details {
-  padding: 20px 24px 18px;
+  padding: 18px 24px 20px;
 }
