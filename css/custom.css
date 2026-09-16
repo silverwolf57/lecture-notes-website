@@ -2,8 +2,20 @@
 
 :root {
   --wxg-accent: #8b1a1a;
+  --wxg-accent-2: #1f3a5f;
+  --wxg-accent-3: #2d5a2d;
+  --wxg-accent-4: #b8860b;
   --wxg-link: #1f3a5f;
   --wxg-bg: #fdfcf8;
+  --wxg-bg-tint: #f5f1e8;
+}
+
+/* Dark mode: more vivid accent than Stack's default #d67d7d */
+:root[data-scheme="dark"] {
+  --wxg-accent: #e87570;
+  --wxg-accent-2: #8fb4e0;
+  --wxg-accent-3: #7ab07a;
+  --wxg-accent-4: #d4a347;
 }
 
 /* Theorem boxes (def / thm / ex / remark) — close to LaTeX book class style */
@@ -15,9 +27,9 @@
   border-left: 1.5px solid var(--wxg-accent);
   border-radius: 0;
 }
-.thm-box { border-left-color: var(--wxg-link); }
-.ex-box { border-left-color: #2d5a2d; }
-.remark-box { border-left-color: #888; }
+.thm-box { border-left-color: var(--wxg-accent-2); }
+.ex-box { border-left-color: var(--wxg-accent-3); }
+.remark-box { border-left-color: var(--wxg-accent-4); }
 
 .def-box .label, .thm-box .label, .ex-box .label, .remark-box .label {
   font-family: var(--stack-font-sans);
@@ -28,9 +40,9 @@
   color: var(--wxg-accent);
   margin: 0 0 8px;
 }
-.thm-box .label { color: var(--wxg-link); }
-.ex-box .label { color: #2d5a2d; }
-.remark-box .label { color: #888; }
+.thm-box .label { color: var(--wxg-accent-2); }
+.ex-box .label { color: var(--wxg-accent-3); }
+.remark-box .label { color: var(--wxg-accent-4); }
 
 .def-box .label-name, .thm-box .label-name, .ex-box .label-name, .remark-box .label-name {
   font-style: italic;
