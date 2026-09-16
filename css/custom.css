@@ -1,38 +1,117 @@
 /* Custom styles for the WXG.math lecture site — extends Stack theme */
 
+/* ============================================================
+   1. DESIGN TOKENS — single source of truth for color + fonts
+   ============================================================ */
 :root {
-  --wxg-accent: #8b1a1a;
-  --wxg-accent-2: #1f3a5f;
-  --wxg-accent-3: #2d5a2d;
-  --wxg-accent-4: #b8860b;
-  --wxg-link: #1f3a5f;
-  --wxg-bg: #fdfcf8;
-  --wxg-bg-tint: #f5f1e8;
+  /* Type stack — Charter-first, falls back gracefully */
+  --wxg-serif: "Charter", "Bitstream Charter", "Sitka Text", Cambria, "Source Serif Pro", "Iowan Old Style", Georgia, serif;
+  --wxg-sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --wxg-mono:  "SF Mono", Menlo, Consolas, "Courier New", monospace;
+
+  /* Brand palette — warm academic */
+  --wxg-accent:    #8b1a1a; /* def, links, eyebrow */
+  --wxg-accent-2:  #1f3a5f; /* thm */
+  --wxg-accent-3:  #2d5a2d; /* ex */
+  --wxg-accent-4:  #b8860b; /* remark, § ornament */
+  --wxg-link:      #1f3a5f;
+  --wxg-text:      #1a1a1a;
+  --wxg-text-soft: #4a4a4a;
+  --wxg-text-mute: #888;
+  --wxg-bg:        #fdfcf8;
+  --wxg-bg-card:   #ffffff;
+  --wxg-border:    rgba(127, 127, 127, 0.18);
 }
 
-/* Dark mode: more vivid accent than Stack's default #d67d7d */
+/* Dark mode — override Stack's defaults to keep the academic feel */
 :root[data-scheme="dark"] {
-  --wxg-accent: #e87570;
-  --wxg-accent-2: #8fb4e0;
-  --wxg-accent-3: #7ab07a;
-  --wxg-accent-4: #d4a347;
+  --wxg-accent:    #e87570;
+  --wxg-accent-2:  #8fb4e0;
+  --wxg-accent-3:  #7ab07a;
+  --wxg-accent-4:  #d4a347;
+  --wxg-link:      #8fb4e0;
+  --wxg-text:      #e8e6e1;
+  --wxg-text-soft: #b0aea8;
+  --wxg-text-mute: #8a8a85;
+  --wxg-bg:        #1a1a1a;
+  --wxg-bg-card:   #232323;
+  --wxg-border:    rgba(255, 255, 255, 0.12);
 }
 
-/* Theorem boxes (def / thm / ex / remark) — close to LaTeX book class style */
+/* ============================================================
+   2. STACK-LEVEL OVERRIDES — body, fonts, links
+   ============================================================ */
+
+/* Body background: warm cream (light) / deep charcoal (dark) */
+html { background: var(--wxg-bg); }
+body {
+  background: var(--wxg-bg) !important;
+  font-family: var(--wxg-serif) !important;
+  color: var(--wxg-text) !important;
+  line-height: 1.75 !important;
+}
+
+/* All article text uses our serif stack */
+.article-content,
+.article-content p,
+.article-content li,
+.article-content blockquote,
+.article-content td,
+.article-content th {
+  font-family: var(--wxg-serif);
+  color: var(--wxg-text);
+}
+
+/* Sans for UI chrome (nav, labels, eyebrow) */
+.site-name, .site-description,
+.menu, .menu-social,
+.article-title, .article-meta,
+.widget-title, .section-title,
+.front-matter {
+  font-family: var(--wxg-sans);
+}
+
+/* Mono for code */
+code, pre, .code-block, .hljs, kbd, samp {
+  font-family: var(--wxg-mono);
+}
+
+/* Links: accent color, no underline by default */
+.article-content a,
+.article-content a:visited {
+  color: var(--wxg-link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+.article-content a:hover {
+  border-bottom-color: var(--wxg-link);
+}
+
+/* Site name / sidebar */
+.site-name a { color: var(--wxg-text); }
+.site-description { color: var(--wxg-text-soft); }
+
+/* ============================================================
+   3. THEOREM BOXES — def / thm / ex / remark
+   ============================================================ */
 .def-box, .thm-box, .ex-box, .remark-box {
   margin: 22px 0;
-  padding: 4px 0 4px 20px;
+  padding: 6px 0 6px 18px;
   background: transparent;
   border: 0;
-  border-left: 1.5px solid var(--wxg-accent);
+  border-left: 2px solid var(--wxg-accent);
   border-radius: 0;
 }
-.thm-box { border-left-color: var(--wxg-accent-2); }
-.ex-box { border-left-color: var(--wxg-accent-3); }
+.thm-box  { border-left-color: var(--wxg-accent-2); }
+.ex-box   { border-left-color: var(--wxg-accent-3); }
 .remark-box { border-left-color: var(--wxg-accent-4); }
 
-.def-box .label, .thm-box .label, .ex-box .label, .remark-box .label {
-  font-family: var(--stack-font-sans);
+.def-box .label,
+.thm-box .label,
+.ex-box .label,
+.remark-box .label {
+  font-family: var(--wxg-sans);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -40,56 +119,47 @@
   color: var(--wxg-accent);
   margin: 0 0 8px;
 }
-.thm-box .label { color: var(--wxg-accent-2); }
-.ex-box .label { color: var(--wxg-accent-3); }
+.thm-box   .label { color: var(--wxg-accent-2); }
+.ex-box    .label { color: var(--wxg-accent-3); }
 .remark-box .label { color: var(--wxg-accent-4); }
 
-.def-box .label-name, .thm-box .label-name, .ex-box .label-name, .remark-box .label-name {
+.def-box .label-name,
+.thm-box .label-name,
+.ex-box .label-name,
+.remark-box .label-name {
+  font-family: var(--wxg-serif);
   font-style: italic;
   font-weight: 400;
-  color: var(--fg-soft, #4a4a4a);
+  color: var(--wxg-text-soft);
   margin-left: 8px;
   letter-spacing: 0.02em;
   text-transform: none;
+  font-size: 13px;
 }
 
 .def-box p, .thm-box p, .ex-box p, .remark-box p { margin-bottom: 8px; }
-.def-box p:last-child, .thm-box p:last-child, .ex-box p:last-child, .remark-box p:last-child { margin-bottom: 0; }
+.def-box p:last-child,
+.thm-box p:last-child,
+.ex-box p:last-child,
+.remark-box p:last-child { margin-bottom: 0; }
 
-/* KaTeX display equations — a touch more vertical breathing room */
+/* ============================================================
+   4. KATEX — display math spacing
+   ============================================================ */
 .katex-display { margin: 22px 0 !important; }
 .katex-display > .katex { font-size: 1.05em; }
+.katex          { font-size: 1.02em; }
 
-/* Drop cap on the chapter's first paragraph (the .lede after h1) */
-.article-page .article-content h1 + p.lede::first-letter,
-.article-page .article-content p.lede:first-of-type::first-letter {
-  float: left;
-  font-family: var(--stack-font-serif);
-  font-size: 4.4em;
-  line-height: 0.85;
-  font-weight: 700;
-  color: var(--wxg-accent);
-  margin: 0.05em 0.12em -0.05em -0.04em;
-}
+/* Equation tags (right-side numbers) — slightly muted */
+.eq-no { color: var(--wxg-text-mute); }
 
-/* § ornament before h2 */
-.article-page .article-content h2 {
-  position: relative;
-}
-.article-page .article-content h2::before {
-  content: "§";
-  display: inline-block;
-  color: #b8860b;
-  font-family: var(--stack-font-serif);
-  font-weight: normal;
-  font-size: 0.85em;
-  margin-right: 0.5em;
-  vertical-align: 0.05em;
-}
+/* ============================================================
+   5. CHAPTER HEADER — eyebrow + drop cap + § ornament
+   ============================================================ */
 
-/* Front matter / cover eyebrow */
+/* Eyebrow line above the chapter h1 */
 .front-matter {
-  font-family: var(--stack-font-sans);
+  font-family: var(--wxg-sans);
   font-size: 12px;
   font-weight: 600;
   color: var(--wxg-accent);
@@ -111,15 +181,82 @@
   background: var(--wxg-accent);
 }
 
-/* Chapter divider text */
+/* Drop cap on the chapter's lede paragraph (h1 + p) */
+.article-page .article-content h1 + p::first-letter {
+  float: left;
+  font-family: var(--wxg-serif);
+  font-size: 4.4em;
+  line-height: 0.85;
+  font-weight: 700;
+  color: var(--wxg-accent);
+  margin: 0.05em 0.12em -0.05em -0.04em;
+}
+
+/* § ornament before each h2 inside article-content */
+.article-page .article-content h2 {
+  position: relative;
+  font-family: var(--wxg-serif);
+}
+.article-page .article-content h2::before {
+  content: "§";
+  display: inline-block;
+  color: var(--wxg-accent-4);
+  font-family: var(--wxg-serif);
+  font-weight: normal;
+  font-size: 0.85em;
+  margin-right: 0.5em;
+  vertical-align: 0.05em;
+}
+
+/* Article h1 (chapter title) — large serif */
+.article-page .article-content h1 {
+  font-family: var(--wxg-serif);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 18px;
+}
+
+/* h3 (subsection title) — slightly smaller */
+.article-page .article-content h3 {
+  font-family: var(--wxg-serif);
+  font-weight: 600;
+  color: var(--wxg-text);
+}
+
+/* ============================================================
+   6. CHAPTER COVER IMAGE — Stack's article-image wrapper
+   ============================================================ */
+.article-image {
+  margin: 0 0 24px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--wxg-bg-card);
+}
+.article-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: cover;
+}
+
+/* Hide the cover on the chapter listing cards — they look noisy in a grid */
+.article-list .article-image { display: none; }
+
+/* ============================================================
+   7. CHAPTER DIVIDER TEXT
+   ============================================================ */
 .chapter-divider {
   text-align: center;
-  color: var(--fg-mute, #888);
+  color: var(--wxg-text-mute);
+  font-family: var(--wxg-serif);
   font-style: italic;
   margin: 32px 0;
 }
 
-/* BibTeX cite block */
+/* ============================================================
+   8. BIBTEX CITE BLOCK
+   ============================================================ */
 .cite-block {
   margin: 32px 0;
   padding: 16px 20px;
@@ -128,7 +265,7 @@
 }
 .cite-block summary {
   cursor: pointer;
-  font-family: var(--stack-font-sans);
+  font-family: var(--wxg-sans);
   font-weight: 600;
   list-style: none;
 }
@@ -151,11 +288,13 @@
   border-radius: 3px;
 }
 
-/* Related lectures card */
+/* ============================================================
+   9. RELATED LECTURES CARD
+   ============================================================ */
 .related-lectures {
   margin: 64px 0 32px;
   padding: 24px 0 0;
-  border-top: 1px solid rgba(127, 127, 127, 0.2);
+  border-top: 1px solid var(--wxg-border);
 }
 .related-lectures h2 {
   font-size: 18px;
@@ -164,7 +303,7 @@
 .related-card {
   display: block;
   padding: 16px 20px;
-  border: 1px solid rgba(127, 127, 127, 0.2);
+  border: 1px solid var(--wxg-border);
   border-radius: 4px;
   text-decoration: none;
   color: inherit;
@@ -191,6 +330,30 @@
 }
 .related-card .xref-desc {
   font-size: 14px;
-  color: var(--fg-soft, #4a4a4a);
+  color: var(--wxg-text-soft);
   line-height: 1.5;
+}
+
+/* ============================================================
+   10. SIDEBAR / CARDS — keep Stack's card-on-bg rhythm
+   ============================================================ */
+.widget {
+  background: var(--wxg-bg-card);
+  border: 1px solid var(--wxg-border);
+  border-radius: 6px;
+  padding: 18px 20px;
+}
+
+/* Make sure dark mode widgets/cards still inherit correctly */
+:root[data-scheme="dark"] .widget { background: var(--wxg-bg-card); }
+
+/* Slightly soften Stack's hover background */
+.article-list article {
+  background: var(--wxg-bg-card);
+  border: 1px solid var(--wxg-border);
+  border-radius: 6px;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.article-list article:hover {
+  border-color: var(--wxg-accent);
 }
