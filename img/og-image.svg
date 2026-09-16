@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid meet">
+  <!-- 背景:纸面米白 -->
+  <rect width="1200" height="630" fill="#fdfcf8"/>
+
+  <!-- 顶边暗红细线 -->
+  <rect x="0" y="0" width="1200" height="6" fill="#8b1a1a"/>
+
+  <!-- 主标题 -->
+  <text x="600" y="270"
+        text-anchor="middle"
+        font-family="Charter, 'Source Serif Pro', 'Latin Modern Roman', Georgia, serif"
+        font-size="120"
+        font-weight="600"
+        fill="#1a1a1a"
+        letter-spacing="-2">WXG.math</text>
+
+  <!-- 副标题 -->
+  <text x="600" y="360"
+        text-anchor="middle"
+        font-family="Charter, 'Source Serif Pro', Georgia, serif"
+        font-size="48"
+        font-weight="400"
+        fill="#4a4a4a">and computer science</text>
+
+  <!-- 暗红分隔线 -->
+  <line x1="500" y1="430" x2="700" y2="430" stroke="#8b1a1a" stroke-width="2"/>
+
+  <!-- 底部标签 -->
+  <text x="600" y="490"
+        text-anchor="middle"
+        font-family="Inter, system-ui, sans-serif"
+        font-size="22"
+        fill="#888"
+        letter-spacing="6">LECTURE NOTES</text>
+
+  <!-- 底边细线 -->
+  <rect x="0" y="624" width="1200" height="6" fill="#1a1a1a"/>
+</svg>

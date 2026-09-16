@@ -1,0 +1,184 @@
+/* Custom styles for the WXG.math lecture site — extends Stack theme */
+
+:root {
+  --wxg-accent: #8b1a1a;
+  --wxg-link: #1f3a5f;
+  --wxg-bg: #fdfcf8;
+}
+
+/* Theorem boxes (def / thm / ex / remark) — close to LaTeX book class style */
+.def-box, .thm-box, .ex-box, .remark-box {
+  margin: 22px 0;
+  padding: 4px 0 4px 20px;
+  background: transparent;
+  border: 0;
+  border-left: 1.5px solid var(--wxg-accent);
+  border-radius: 0;
+}
+.thm-box { border-left-color: var(--wxg-link); }
+.ex-box { border-left-color: #2d5a2d; }
+.remark-box { border-left-color: #888; }
+
+.def-box .label, .thm-box .label, .ex-box .label, .remark-box .label {
+  font-family: var(--stack-font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--wxg-accent);
+  margin: 0 0 8px;
+}
+.thm-box .label { color: var(--wxg-link); }
+.ex-box .label { color: #2d5a2d; }
+.remark-box .label { color: #888; }
+
+.def-box .label-name, .thm-box .label-name, .ex-box .label-name, .remark-box .label-name {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--fg-soft, #4a4a4a);
+  margin-left: 8px;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.def-box p, .thm-box p, .ex-box p, .remark-box p { margin-bottom: 8px; }
+.def-box p:last-child, .thm-box p:last-child, .ex-box p:last-child, .remark-box p:last-child { margin-bottom: 0; }
+
+/* KaTeX display equations — a touch more vertical breathing room */
+.katex-display { margin: 22px 0 !important; }
+.katex-display > .katex { font-size: 1.05em; }
+
+/* Drop cap on the chapter's first paragraph (the .lede after h1) */
+.article-page .article-content h1 + p.lede::first-letter,
+.article-page .article-content p.lede:first-of-type::first-letter {
+  float: left;
+  font-family: var(--stack-font-serif);
+  font-size: 4.4em;
+  line-height: 0.85;
+  font-weight: 700;
+  color: var(--wxg-accent);
+  margin: 0.05em 0.12em -0.05em -0.04em;
+}
+
+/* § ornament before h2 */
+.article-page .article-content h2 {
+  position: relative;
+}
+.article-page .article-content h2::before {
+  content: "§";
+  display: inline-block;
+  color: #b8860b;
+  font-family: var(--stack-font-serif);
+  font-weight: normal;
+  font-size: 0.85em;
+  margin-right: 0.5em;
+  vertical-align: 0.05em;
+}
+
+/* Front matter / cover eyebrow */
+.front-matter {
+  font-family: var(--stack-font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--wxg-accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+  position: relative;
+  padding-left: 32px;
+  display: inline-block;
+}
+.front-matter::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 1px;
+  background: var(--wxg-accent);
+}
+
+/* Chapter divider text */
+.chapter-divider {
+  text-align: center;
+  color: var(--fg-mute, #888);
+  font-style: italic;
+  margin: 32px 0;
+}
+
+/* BibTeX cite block */
+.cite-block {
+  margin: 32px 0;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+}
+.cite-block summary {
+  cursor: pointer;
+  font-family: var(--stack-font-sans);
+  font-weight: 600;
+  list-style: none;
+}
+.cite-block summary::before {
+  content: "›";
+  display: inline-block;
+  width: 12px;
+  margin-right: 4px;
+  transition: transform 0.15s;
+}
+.cite-block[open] summary::before { transform: rotate(90deg); }
+.cite-block pre {
+  margin-top: 12px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-all;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 3px;
+}
+
+/* Related lectures card */
+.related-lectures {
+  margin: 64px 0 32px;
+  padding: 24px 0 0;
+  border-top: 1px solid rgba(127, 127, 127, 0.2);
+}
+.related-lectures h2 {
+  font-size: 18px;
+  margin: 0 0 16px;
+}
+.related-card {
+  display: block;
+  padding: 16px 20px;
+  border: 1px solid rgba(127, 127, 127, 0.2);
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, background 0.15s;
+}
+.related-card:hover {
+  border-color: var(--wxg-accent);
+  background: rgba(0, 0, 0, 0.02);
+}
+.related-card .xref-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--wxg-accent);
+  margin-bottom: 6px;
+}
+.related-card .xref-title {
+  display: block;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.related-card .xref-desc {
+  font-size: 14px;
+  color: var(--fg-soft, #4a4a4a);
+  line-height: 1.5;
+}
