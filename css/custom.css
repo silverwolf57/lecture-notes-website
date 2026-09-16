@@ -357,3 +357,57 @@ code, pre, .code-block, .hljs, kbd, samp {
 .article-list article:hover {
   border-color: var(--wxg-accent);
 }
+
+/* ============================================================
+   11. STACK DEFAULT OVERRIDES — strip textbook-style heading borders
+   ============================================================ */
+
+/* Stack adds a 4px accent border + negative left margin to every h1/h2/h3.
+   That conflicts with the §-ornament style we want; strip it back. */
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+  border-inline-start: 0 !important;
+  margin-inline-start: 0 !important;
+  padding-inline-start: 0 !important;
+}
+
+/* Stack's hover-revealed "#" anchor on each heading — keep it but align */
+.article-content h1 a.header-anchor,
+.article-content h2 a.header-anchor,
+.article-content h3 a.header-anchor {
+  margin-left: 0.5em;
+}
+
+/* Stack's article-content card — drop the shadow + card chrome; the
+   main article should sit directly on the warm cream body. */
+.article-page .main-article {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* TOC widget: same — flat, no shadow, accent border on hover */
+.widget--toc {
+  background: var(--wxg-bg-card);
+  box-shadow: none !important;
+  border: 1px solid var(--wxg-border);
+  border-radius: 6px;
+}
+
+/* TOC and right-sidebar widgets don't need the heavy card padding Stack gives */
+.widget { padding: 16px 18px; }
+.article-toc details { box-shadow: none !important; border: 1px solid var(--wxg-border); }
+
+/* Article list cards on the homepage — slightly heavier card so they read
+   as discrete entries on the warm body background */
+.article-list article {
+  box-shadow: var(--shadow-l1);
+  padding: 0;
+}
+.article-list article .article-details {
+  padding: 20px 24px 18px;
+}
