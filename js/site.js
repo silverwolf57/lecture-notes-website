@@ -1,4 +1,4 @@
-/* WXG.math — site interactions
+﻿/* WXG.math — site interactions
    Reading progress, back-to-top, code copy buttons, prev/next nav.
    No third-party trackers. */
 

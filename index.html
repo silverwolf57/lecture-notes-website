@@ -1,8 +1,438 @@
-<!doctype html><html lang=zh-CN><head><meta name=generator content="Hugo 0.166.0"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=alternate type=application/rss+xml title="WXG.math and computer science" href=https://silverwolf57.github.io/lecture-notes-website/index.xml><title>WXG.math and computer science</title><meta name=description content="数学与计算机讲义集。"><link rel=canonical href=https://silverwolf57.github.io/lecture-notes-website/><meta property="og:type" content="website"><meta property="og:site_name" content="WXG.math and computer science"><meta property="og:title" content="WXG.math and computer science"><meta property="og:url" content="https://silverwolf57.github.io/lecture-notes-website/"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://silverwolf57.github.io/lecture-notes-website/img/og-image.svg"><meta name=twitter:card content="summary"><meta name=twitter:title content="WXG.math and computer science"><link rel=icon href=/lecture-notes-website/img/favicon.ico sizes=any><link rel=icon type=image/png sizes=32x32 href=/lecture-notes-website/img/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/lecture-notes-website/img/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/lecture-notes-website/img/apple-touch-icon.png><link rel=stylesheet href=/lecture-notes-website/css/style.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css><script>(function(){try{var e=localStorage.getItem("wxg-theme");e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),e==="dark"&&(document.documentElement.dataset.theme="dark")}catch{}})()</script></head><body><header class=site-nav><div class=site-nav-inner><a class=brand href=/lecture-notes-website/><img class=brand-mark src=/lecture-notes-website/img/avatar.svg alt width=32 height=32>
-<span><span class=mark>¶</span> WXG.math and computer science</span></a><nav><a href=/lecture-notes-website/>首页</a>
-<a href=/lecture-notes-website/math/>数学</a>
-<a href=/lecture-notes-website/usage/>使用须知</a>
-<button type=button class=theme-toggle aria-label=切换主题 onclick='(function(){var e=document.documentElement.dataset.theme==="dark";document.documentElement.dataset.theme=e?"light":"dark";try{localStorage.setItem("wxg-theme",e?"light":"dark")}catch{}})()'>☾</button></nav></div></header><div class=home-layout><aside class=home-rail><a href=/lecture-notes-website/ aria-label=WXG.math><img class=rail-avatar src=/lecture-notes-website/img/avatar.svg alt width=88 height=88></a><h1 class=rail-brand><span class=mark>¶</span> WXG.math and computer science</h1><p class=rail-tag>Lecture Notes</p><ul class=rail-nav><li><a href=/lecture-notes-website/>首页</a></li><li><a href=/lecture-notes-website/math/>数学</a></li><li><a href=/lecture-notes-website/usage/>使用须知</a></li></ul></aside><main class=home-main><p class=lecture-title>Lecture Notes</p><h1>WXG.math and computer science</h1><p class=lede><p>讲义集。维护 <a class=link href=https://silverwolf57.github.io/lecture-notes-website/ target=_blank rel=noopener>GitHub Pages</a> 上的公开站点。
-内容以 CC BY 4.0 发布,样式与脚本以 MIT 许可。</p><h2 id=数学--mathematics>数学 · Mathematics</h2><ul><li><a class=link href=/math/abstract-algebra/>抽象代数</a> — 群、环、域、唯一分解整环、域扩张、群论初步(全 4 章)</li><li><a class=link href=/math/matrix-analysis/>矩阵论 · 引论</a> — 向量范数、矩阵范数、Frobenius 范数、诱导范数</li></ul><h2 id=站点说明>站点说明</h2><ul><li><a class=link href=/usage/>使用须知</a> — 阅读、引用、贡献</li><li><a class=link href=/index.xml>RSS 订阅</a></li><li><a class=link href=https://github.com/silverwolf57/lecture-notes-website target=_blank rel=noopener>GitHub 仓库</a></li></ul></p><hr><h2>数学</h2><p>数学讲义:抽象代数与矩阵论。</p><div class=toc-grid></div><hr><h2>使用说明</h2><ul><li>页面纯静态,无服务端依赖,可离线阅读。</li><li>公式采用 KaTeX 实时渲染。</li><li>所有讲义按章节拆分,可独立访问。</li><li>全部以 <a href=https://creativecommons.org/licenses/by/4.0/ target=_blank rel=noopener>CC BY 4.0</a> 许可发布。</li></ul></main></div><footer class=site-foot><div>© 2026–2026 WXG.math and computer science · 本讲义以
-<a href=https://creativecommons.org/licenses/by/4.0/ rel=noopener target=_blank>CC BY 4.0</a> 许可发布</div><div style=margin-top:6px;font-size:12px;color:var(--fg-mute)>使用 <a href=https://gohugo.io/ rel=noopener target=_blank>Hugo</a> 构建</div></footer><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\[",right:"\\]",display:!0},{left:"\\(",right:"\\)",display:!1}],throwOnError:!1})'></script><div class=reading-progress id=wxg-reading-progress aria-hidden=true></div><button type=button class=back-to-top id=wxg-back-to-top aria-label=回到顶部>↑</button>
-<script data-goatcounter=https://orion666.goatcounter.com/count async src=//gc.zgo.at/count.js></script><script src=/lecture-notes-website/js/site.js defer></script></body></html>
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta name="generator" content="Hugo 0.166.0">
+  
+
+
+  
+
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="WXG.math and computer science" href="https://silverwolf57.github.io/lecture-notes-website/index.xml">
+<title>WXG.math and computer science</title>
+
+
+  <meta name="description" content="数学与计算机讲义集。" />
+
+
+<link rel="canonical" href="https://silverwolf57.github.io/lecture-notes-website/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="WXG.math and computer science" />
+<meta property="og:title" content="WXG.math and computer science" />
+<meta property="og:url" content="https://silverwolf57.github.io/lecture-notes-website/" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:image" content="https://silverwolf57.github.io/lecture-notes-website/img/og-image.svg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="WXG.math and computer science" />
+
+<link rel="icon" href="/lecture-notes-website/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/lecture-notes-website/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/lecture-notes-website/img/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/lecture-notes-website/img/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/lecture-notes-website/css/style.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+
+
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("wxg-theme");
+      if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = t;
+    } catch (_) {}
+  })();
+</script>
+
+
+</head>
+<body>
+  
+    <header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="brand" href="/lecture-notes-website/">
+      <img class="brand-mark" src="/lecture-notes-website/img/avatar.svg" alt="" width="32" height="32" />
+      <span><span class="mark">¶</span> WXG.math and computer science</span>
+    </a>
+    <nav>
+      
+        <a href="/lecture-notes-website/">首页</a>
+      
+        <a href="/lecture-notes-website/math/">数学</a>
+      
+        <a href="/lecture-notes-website/usage/">使用须知</a>
+      
+      <button type="button" class="theme-toggle" aria-label="切换主题"
+              onclick="(function(){var d=document.documentElement.dataset.theme==='dark';document.documentElement.dataset.theme=d?'light':'dark';try{localStorage.setItem('wxg-theme',d?'light':'dark');}catch(e){}})();">☾</button>
+    </nav>
+  </div>
+</header>
+  
+
+  
+
+
+
+<div class="home-layout">
+  <aside class="home-rail">
+    <div class="rail-brand-block">
+      <a href="/lecture-notes-website/" aria-label="WXG.math and computer science">
+        <img class="rail-avatar" src="/lecture-notes-website/img/avatar.svg" alt="" width="88" height="88" />
+      </a>
+      <div class="rail-name"><span class="mark">¶</span> WXG.math and computer science</div>
+      <div class="rail-welcome">数学与计算机科学讲义集。<br>CC BY 4.0 · MIT</div>
+    </div>
+
+    <ul class="rail-nav">
+      <li>
+        <a href="/lecture-notes-website/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg>
+          主页
+        </a>
+      </li>
+      <li>
+        <a href="/lecture-notes-website/math/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h10"/></svg>
+          讲义集
+        </a>
+      </li>
+      <li>
+        <a href="/lecture-notes-website/usage/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01"/><path d="M11 12h1v4h1"/></svg>
+          站说明
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/silverwolf57/lecture-notes-website" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4 1.4-4-2-6-2"/><path d="M15 22v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 19 5.77a5.07 5.07 0 0 0-.09-3.77S17.73 1.65 15 3a13.4 13.4 0 0 0-7 0C5.27 1.65 4.03 2 4.03 2A5.07 5.07 0 0 0 3.94 5.77 5.44 5.44 0 0 0 2.5 8.5c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 8 18.13V22"/></svg>
+          仓库
+        </a>
+      </li>
+    </ul>
+
+    <button type="button" class="rail-mode theme-toggle" aria-label="切换主题">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg>
+      <span>切换主题</span>
+    </button>
+  </aside>
+
+  <main class="home-main">
+    <p class="lecture-title">Lecture Notes</p>
+    <h1>WXG.math and computer science</h1>
+    <div class="lede"><p>讲义集。维护 <a class="link" href="https://silverwolf57.github.io/lecture-notes-website/"  target="_blank" rel="noopener"
+    >GitHub Pages</a> 上的公开站点。
+内容以 CC BY 4.0 发布,样式与脚本以 MIT 许可。</p>
+<h2 id="数学--mathematics">数学 · Mathematics
+</h2><ul>
+<li><a class="link" href="/math/abstract-algebra/" >抽象代数</a> — 群、环、域、唯一分解整环、域扩张、群论初步(全 4 章)</li>
+<li><a class="link" href="/math/matrix-analysis/" >矩阵论 · 引论</a> — 向量范数、矩阵范数、Frobenius 范数、诱导范数</li>
+</ul>
+<h2 id="站点说明">站点说明
+</h2><ul>
+<li><a class="link" href="/usage/" >使用须知</a> — 阅读、引用、贡献</li>
+<li><a class="link" href="/index.xml" >RSS 订阅</a></li>
+<li><a class="link" href="https://github.com/silverwolf57/lecture-notes-website"  target="_blank" rel="noopener"
+    >GitHub 仓库</a></li>
+</ul>
+</div>
+
+    <hr />
+
+    <h2>讲义目录</h2>
+
+    
+    <div class="cards">
+      
+        
+        
+        
+        
+          
+          
+        
+
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+
+        <a class="card" href="/lecture-notes-website/math/abstract-algebra/chapter-1/">
+          
+            <div class="card-eyebrow">抽象代数 · 第 1–4 章</div>
+          
+          <div class="card-tags">
+            <span class="tag tag-math">数学</span>
+          </div>
+          <span class="card-title">群、环、域</span>
+          <span class="card-desc">本章起源:求解一元多项式方程。目的:研究并分类基本代数系统。特点:抽象化、公理化。</span>
+          <div class="card-meta">
+            
+              <span class="meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>
+                <time datetime="2026-09-12">2026-09-12</time>
+              </span>
+            
+            
+              <span class="meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                阅读时长:13 分钟
+              </span>
+            
+          </div>
+        </a>
+      
+        
+        
+        
+        
+          
+          
+        
+
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+
+        <a class="card" href="/lecture-notes-website/math/abstract-algebra/chapter-2/">
+          
+            <div class="card-eyebrow">抽象代数 · 第 1–4 章</div>
+          
+          <div class="card-tags">
+            <span class="tag tag-math">数学</span>
+          </div>
+          <span class="card-title">唯一分解整环</span>
+          <span class="card-desc">本章起源:商环与极大理想,刻画主理想整环与欧几里得整环,得到唯一分解性。</span>
+          <div class="card-meta">
+            
+              <span class="meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>
+                <time datetime="2026-09-12">2026-09-12</time>
+              </span>
+            
+            
+              <span class="meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                阅读时长:9 分钟
+              </span>
+            
+          </div>
+        </a>
+      
+        
+        
+        
+        
+          
+          
+        
+
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+
+        <a class="card" href="/lecture-notes-website/math/abstract-algebra/chapter-3/">
+          
+            <div class="card-eyebrow">抽象代数 · 第 1–4 章</div>
+          
+          <div class="card-tags">
+            <span class="tag tag-math">数学</span>
+          </div>
+          <span class="card-title">域扩张</span>
+          <span class="card-desc">本章起源:从单扩张到有限扩张,讨论代数扩张与超越扩张,并介绍 Galois 理论的基本框架。</span>
+          <div class="card-meta">
+            
+              <span class="meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>
+                <time datetime="2026-09-12">2026-09-12</time>
+              </span>
+            
+            
+              <span class="meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                阅读时长:9 分钟
+              </span>
+            
+          </div>
+        </a>
+      
+        
+        
+        
+        
+          
+          
+        
+
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+
+        <a class="card" href="/lecture-notes-website/math/abstract-algebra/chapter-4/">
+          
+            <div class="card-eyebrow">抽象代数 · 第 1–4 章</div>
+          
+          <div class="card-tags">
+            <span class="tag tag-math">数学</span>
+          </div>
+          <span class="card-title">群论初步</span>
+          <span class="card-desc">本章系统介绍群论基础:正规子群、商群、同态基本定理、群作用与 Sylow 定理。</span>
+          <div class="card-meta">
+            
+              <span class="meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>
+                <time datetime="2026-09-12">2026-09-12</time>
+              </span>
+            
+            
+              <span class="meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                阅读时长:9 分钟
+              </span>
+            
+          </div>
+        </a>
+      
+        
+        
+        
+        
+          
+          
+        
+
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+
+        <a class="card" href="/lecture-notes-website/math/matrix-analysis/chapter-1/">
+          
+            <div class="card-eyebrow">矩阵论 · 引论</div>
+          
+          <div class="card-tags">
+            <span class="tag tag-math">数学</span>
+          </div>
+          <span class="card-title">向量范数与诱导矩阵范数</span>
+          <span class="card-desc">本章从向量范数入手,定义诱导矩阵范数与 Frobenius 范数,讨论相容性、子乘性与谱范数。</span>
+          <div class="card-meta">
+            
+              <span class="meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>
+                <time datetime="2026-09-12">2026-09-12</time>
+              </span>
+            
+            
+              <span class="meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                阅读时长:6 分钟
+              </span>
+            
+          </div>
+        </a>
+      
+    </div>
+    
+
+    
+    <hr />
+    <h2>站点</h2>
+    <ul class="lecture-list">
+      
+        <li><a href="/lecture-notes-website/">首页</a></li>
+      
+        <li><a href="/lecture-notes-website/math/">数学</a></li>
+      
+        <li><a href="/lecture-notes-website/usage/">使用须知</a></li>
+      
+      <li><a href="/lecture-notes-website/usage/">使用须知</a></li>
+      <li><a href="/lecture-notes-website/index.xml">RSS 订阅</a></li>
+      <li><a href="https://github.com/silverwolf57/lecture-notes-website" target="_blank" rel="noopener">GitHub 仓库</a></li>
+    </ul>
+    
+  </main>
+</div>
+
+
+  
+    <footer class="site-foot">
+  <div>
+    © 2026–2026 WXG.math and computer science · 本讲义以
+    <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> 许可发布
+  </div>
+  <div style="margin-top:6px;font-size:12px;color:var(--fg-mute)">
+    使用 <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo</a> 构建
+  </div>
+</footer>
+  
+
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+
+  
+  <div class="reading-progress" id="wxg-reading-progress" aria-hidden="true"></div>
+
+  
+  <button type="button" class="back-to-top" id="wxg-back-to-top" aria-label="回到顶部">↑</button>
+
+  
+  
+    <script data-goatcounter="https://orion666.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+  
+
+  
+  <script src="/lecture-notes-website/js/site.js" defer></script>
+</body>
+</html>
