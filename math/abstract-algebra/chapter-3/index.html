@@ -119,7 +119,7 @@
 
   <h2 id="31-域扩张的基本概念">3.1 域扩张的基本概念
 </h2><h3 id="311-素域与域扩张">3.1.1 素域与域扩张
-</h3>  <p>回顾:环 $R$ 的最小子环称为**素环**,记为 $R_0$,且 $R_0 \cong \mathbb{Z}$ 或 $R_0 \cong \mathbb{Z}_n$。类似地,域 $K$ 的最小子域称为**素域**,记为 $K_0$。</p>
+</h3>  <p>回顾:环 $R$ 的最小子环称为<strong>素环</strong>,记为 $R_0$,且 $R_0 \cong \mathbb{Z}$ 或 $R_0 \cong \mathbb{Z}_n$。类似地,域 $K$ 的最小子域称为<strong>素域</strong>,记为 $K_0$。</p>
   <div class="thm-box">
 <p class="label">定理 3.1.1<span class="label-name">素域的结构</span></p>
 <p>设 $K$ 为域,则其素域 $K_0 \cong \mathbb{Q}$ 或 $K_0 \cong \mathbb{Z}_p$($p$ 为素数)。</p>
@@ -138,7 +138,7 @@ $$K_0 = \{0, 1_K, 2 \cdot 1_K, \dots, (p-1) \cdot 1_K\} \cong \mathbb{Z}_p.\tag{
 </div>
 <p>例:设 $K$ 为域,考虑
   $$K(x) = \left\{ \frac{f(x)}{g(x)} \;\Big|\; f(x), g(x) \in K[x],\ g(x) \ne 0 \right\},\tag{3.1.4}$$
-  则 $K(x)$ 为 $K$ 的扩域,称为 $K$ 上的**有理函数域**。若 $L$ 为 $K$ 的扩域,则 $L$ 自然地成为 $K$-向量空间。</p>
+  则 $K(x)$ 为 $K$ 的扩域,称为 $K$ 上的<strong>有理函数域</strong>。若 $L$ 为 $K$ 的扩域,则 $L$ 自然地成为 $K$-向量空间。</p>
   <div class="def-box">
 <p class="label">定义 3.1.2<span class="label-name">扩张次数</span></p>
 <p>设 $L$ 为 $K$ 的扩域,则 $\dim_K L$ 称为扩张 $K \subseteq L$ 的<strong>次数</strong>,记为</p>
@@ -261,7 +261,7 @@ $$K = K_0 \subseteq K_1 \subseteq \cdots \subseteq K_r = L,\tag{3.2.2}$$<p>
 <p>不能用尺规作图构造体积为给定立方体二倍的立方体的棱长。<em>证明</em>:即证点 $(\sqrt[3]{2}, 0)$ 不可构造。假设其可构造,即 $\sqrt[3]{2} \in C(z_1, z_2)$。则 $K = \mathbb{Q}$,由判别法 $[\mathbb{Q}[\sqrt[3]{2}] : \mathbb{Q}] = 2^t$。但 $\sqrt[3]{2}$ 在 $\mathbb{Q}$ 上的极小多项式为 $x^3 - 2$,故 $[\mathbb{Q}[\sqrt[3]{2}] : \mathbb{Q}] = 3 \ne 2^t$,矛盾。<span class="qed">$\square$</span></p>
 </div>
 <blockquote>
-    <p>**备注(正多边形的尺规作图)**:正 $p$ 边形($p$ 为素数)可由尺规作图构造当且仅当 $p - 1 = 2^k$($p$ 为 Fermat 素数)。</p>
+    <p><strong>备注(正多边形的尺规作图)</strong>:正 $p$ 边形($p$ 为素数)可由尺规作图构造当且仅当 $p - 1 = 2^k$($p$ 为 Fermat 素数)。</p>
   </blockquote>
   <p style="text-align:center; color: var(--fg-mute); font-style: italic; margin: 32px 0;">— 第三章第二节完 —</p>
 <h2 id="33-方程与扩域">3.3 方程与扩域
@@ -352,11 +352,11 @@ $$[L : K] = |\operatorname{Gal}(L / K)|.\tag{3.3.6}$$
 </div>
 <h3 id="335-完全域与正规扩张">3.3.5 完全域与正规扩张
 </h3>  <blockquote>
-    <p>**备注(特征零域的可分性)**:</p>
+    <p><strong>备注(特征零域的可分性)</strong>:</p>
 1. 若 $\operatorname{ch}(K) = 0$,则 $\forall\, f \in K[x]$ 不可约,$f' \ne 0$,故 $f$ 为可分多项式。因此特征零域上的任意代数扩张都是可分扩张。
 1. 若 $\operatorname{ch}(K) = p > 0$,情况有所不同。若 $K^p = \{a^p \mid a \in K\} \subsetneq K$(真包含),则存在 $\alpha \in K \setminus K^p$,考虑 $p(x) = x^p - \alpha \in K[x]$,则 $p(x)$ 是不可约不可分多项式。
   </blockquote>
-  <p>若 $K^p = K$,则称 $K$ 为**完全域**。此时 $\forall\, f(x) \in K[x]$,若 $f'(x) = 0$,则 $f(x)$ 只含 $x$ 的 $p$ 次幂项,故 $f(x)$ 可约。</p>
+  <p>若 $K^p = K$,则称 $K$ 为<strong>完全域</strong>。此时 $\forall\, f(x) \in K[x]$,若 $f'(x) = 0$,则 $f(x)$ 只含 $x$ 的 $p$ 次幂项,故 $f(x)$ 可约。</p>
   <div class="thm-box">
 <p class="label">定理 3.3.4<span class="label-name">完全域的刻画</span></p>
 <p>设 $\operatorname{ch}(K) = p > 0$,则 $K$ 是完全域($K = K^p$)当且仅当 $K$ 的任意代数扩张都是可分扩张。</p>
@@ -508,9 +508,9 @@ $$K_2 = K_1[\sqrt[n_1]{a_1}],\ \dots,\ K_{i+1} = K_i[\sqrt[n_i]{a_i}],\tag{3.4.5
     <h2>相关讲义</h2>
     <div class="xref-grid">
       
-        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-2/">
+        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-1/">
           <span class="xref-tag">抽象代数</span>
-          <span class="xref-title">抽象代数 · 第 2 章</span>
+          <span class="xref-title">抽象代数 · 第 1 章</span>
           <span class="xref-desc"></span>
         </a>
       
@@ -526,9 +526,9 @@ $$K_2 = K_1[\sqrt[n_1]{a_1}],\ \dots,\ K_{i+1} = K_i[\sqrt[n_i]{a_i}],\tag{3.4.5
           <span class="xref-desc"></span>
         </a>
       
-        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-1/">
+        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-3/">
           <span class="xref-tag">抽象代数</span>
-          <span class="xref-title">抽象代数 · 第 1 章</span>
+          <span class="xref-title">抽象代数 · 第 3 章</span>
           <span class="xref-desc"></span>
         </a>
       
