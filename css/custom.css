@@ -430,15 +430,15 @@ code, pre, .code-block, .hljs, kbd, samp {
   color: var(--wxg-text);
 }
 
-/* Article-page article title — slightly muted since the real title is h1 inside */
+/* Article-page article title — the real chapter title is the h1 inside
+   article-content, so the article-header h2 is a redundant "series · number"
+   eyebrow. Hide it visually but keep it in DOM for breadcrumbs/SEO. */
 .article-page .article-header .article-title {
-  font-family: var(--wxg-sans);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--wxg-text-mute);
-  margin: 0 0 8px;
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 /* ============================================================
@@ -469,3 +469,69 @@ code, pre, .code-block, .hljs, kbd, samp {
   margin: 0 6px;
   color: var(--wxg-text-mute);
 }
+
+/* ============================================================
+   13. CHAPTER-END DIVIDER + BLOCKQUOTE + PARAGRAPH RHYTHM
+   ============================================================ */
+
+/* Chapter-end divider: inline-styled by html_to_md.py as
+   <p style="text-align:center;color:var(--fg-mute);font-style:italic;
+   margin:32px 0">— 第一章第一节完 —</p>
+   Map to a proper class so the theme controls it consistently. */
+.article-content p[style*="text-align:center"][style*="font-style:italic"] {
+  text-align: center;
+  color: var(--wxg-text-mute);
+  font-style: italic;
+  font-family: var(--wxg-serif);
+  margin: 40px 0;
+  position: relative;
+}
+.article-content p[style*="text-align:center"][style*="font-style:italic"]::before,
+.article-content p[style*="text-align:center"][style*="font-style:italic"]::after {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 1px;
+  background: var(--wxg-border);
+  vertical-align: middle;
+  margin: 0 14px;
+}
+
+/* Blockquote (notes that sit outside def/thm/ex/remark boxes) */
+.article-content blockquote {
+  margin: 22px 0;
+  padding: 8px 18px;
+  border-left: 2px solid var(--wxg-text-mute);
+  color: var(--wxg-text-soft);
+  background: transparent;
+  font-style: italic;
+  border-radius: 0;
+}
+.article-content blockquote p { margin-bottom: 6px; }
+.article-content blockquote p:last-child { margin-bottom: 0; }
+
+/* Code blocks: keep a slim margin */
+.article-content pre {
+  margin: 22px 0;
+  padding: 14px 18px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  font-size: 0.92em;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+/* Lists inside article-content — comfortable indent + spacing */
+.article-content ul,
+.article-content ol {
+  margin: 12px 0 12px 0;
+  padding-left: 26px;
+}
+.article-content li {
+  margin-bottom: 6px;
+  line-height: 1.75;
+}
+.article-content li > p { margin-bottom: 4px; }
+
+/* Inline math wrapping — make $...$ a tiny bit smaller than body text */
+.article-content .katex { font-size: 1.04em; }
