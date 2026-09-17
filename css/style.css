@@ -393,27 +393,35 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
   font-family: var(--font-serif);
   font-size: 21px;
   font-weight: 700;
-  margin: 28px 0 12px;
+  margin: 38px 0 14px;
   line-height: 1.25;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--rule);
 }
 .page h3 {
   font-family: var(--font-serif);
   font-size: 17px;
   font-weight: 700;
-  margin: 22px 0 10px;
+  margin: 26px 0 10px;
+  color: var(--fg);
 }
 .page h4 {
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 700;
   color: var(--fg-soft);
-  margin: 18px 0 8px;
+  margin: 20px 0 8px;
+  letter-spacing: 0.02em;
 }
 
 .page p {
   margin: 0;
   text-indent: 1.5em;
   hyphens: auto;
+}
+/* Small breathing room between consecutive body paragraphs */
+.page p + p {
+  margin-top: 0.55em;
 }
 .page h1 + p,
 .page h2 + p,
@@ -494,11 +502,30 @@ pre {
 }
 pre code { padding: 0; background: transparent; font-size: inherit; }
 
-/* Theorem boxes — amsthm default: no border, bold inline label */
+/* Theorem boxes — academic style: subtle tinted background, accent
+   left border, label separated from body by a thin rule. Each box
+   type has its own accent color so definitions / theorems / examples
+   / remarks / proofs read as distinct units on the page. */
 .def-box, .thm-box, .ex-box, .remark-box, .proof-box {
-  margin: 18px 0;
-  padding: 0;
+  margin: 22px 0;
+  padding: 10px 18px 12px 20px;
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 0 4px 4px 0;
+  border-left: 3px solid var(--fg-mute);
 }
+:root[data-theme="light"] .def-box,
+:root[data-theme="light"] .thm-box,
+:root[data-theme="light"] .ex-box,
+:root[data-theme="light"] .remark-box,
+:root[data-theme="light"] .proof-box {
+  background: rgba(0, 0, 0, 0.025);
+}
+.thm-box    { border-left-color: #d67d7d; }   /* accent red — theorem */
+.def-box    { border-left-color: #8fb4e0; }   /* link blue — definition */
+.ex-box     { border-left-color: #5fa777; }   /* math green — example */
+.remark-box { border-left-color: #c0a062; }   /* tan — remark */
+.proof-box  { border-left-color: #6c7075; background: transparent; border-left-style: dashed; }
+
 .def-box .label,
 .thm-box .label,
 .ex-box .label,
@@ -506,13 +533,20 @@ pre code { padding: 0; background: transparent; font-size: inherit; }
 .proof-box .label {
   font-family: var(--font-serif);
   font-weight: 700;
-  font-size: inherit;
+  font-size: 14.5px;
+  letter-spacing: 0.02em;
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--rule);
   color: var(--fg);
-  margin: 0 0 4px;
   display: block;
 }
+.def-box .label { color: #8fb4e0; }
+.thm-box .label { color: #d67d7d; }
+.ex-box .label  { color: #5fa777; }
 .remark-box .label,
 .proof-box .label { font-style: italic; }
+
 .def-box .label-name,
 .thm-box .label-name,
 .ex-box .label-name,
@@ -522,10 +556,26 @@ pre code { padding: 0; background: transparent; font-size: inherit; }
   font-weight: 400;
   font-style: italic;
   color: var(--fg-soft);
-  margin-left: 4px;
+  margin-left: 6px;
 }
+
+/* Inside a theorem/definition box, the body paragraphs should keep
+   first-line indent suppressed (already handled globally above). */
 .def-box p, .thm-box p, .ex-box p { font-style: normal; }
-.remark-box p, .proof-box p { font-style: italic; }
+.remark-box p, .proof-box p { font-style: normal; }
+
+/* Make <em> markers inside theorem-family boxes stand out — this is
+   where *证明.* / *Proof.* / *注.* / etc. land. */
+.thm-box em,
+.def-box em,
+.ex-box em,
+.remark-box em,
+.proof-box em {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--fg);
+  margin-right: 4px;
+}
 
 /* KaTeX */
 .katex { font-size: 1.04em; }
