@@ -31,7 +31,7 @@ html { -webkit-text-size-adjust: 100%; }
   --font-serif: "Charter", "Source Serif 4", "Latin Modern Roman", Cambria, Georgia, serif;
   --font-sans: "Inter", "Source Sans 3", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", "Source Code Pro", Menlo, Consolas, monospace;
-  --measure: 740px;
+  --measure: 820px;
 }
 
 :root[data-theme="light"] {
@@ -353,21 +353,24 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
    Chapter page — main prose column + right-side sticky TOC sidebar
    ===================================================================== */
 .page-with-toc {
-  max-width: 1100px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 32px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px;
-  gap: 56px;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 64px;
   align-items: start;
 }
 .page-with-toc > .page {
   padding: 48px 0 80px;
+  max-width: none;  /* grid column controls width */
 }
 .toc-sidebar {
   position: sticky;
   top: 80px;
   padding-top: 48px;
+  padding-left: 16px;
+  border-left: 1px solid var(--rule);
   font-family: var(--font-sans);
   font-size: 13px;
   line-height: 1.5;
@@ -381,7 +384,7 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--fg-mute);
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   padding: 0 0 8px;
   border-bottom: 1px solid var(--rule);
 }
@@ -395,7 +398,7 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
 .toc-sidebar #TableOfContents li { margin: 0; padding: 0; }
 .toc-sidebar #TableOfContents a {
   display: block;
-  padding: 5px 0 5px 12px;
+  padding: 6px 0 6px 12px;
   border-left: 2px solid transparent;
   color: var(--fg-soft);
   border-bottom: 0;
@@ -409,10 +412,10 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
 .toc-sidebar #TableOfContents ul ul {
   padding-left: 14px;
   border-left: 1px dashed var(--rule);
-  margin: 2px 0 4px;
+  margin: 2px 0 6px;
 }
 .toc-sidebar #TableOfContents ul ul a {
-  padding: 3px 0 3px 10px;
+  padding: 4px 0 4px 10px;
   font-size: 12.5px;
   color: var(--fg-mute);
 }
@@ -420,8 +423,8 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
   color: var(--accent);
   border-left-color: var(--accent);
 }
-@media (max-width: 960px) {
-  .page-with-toc { grid-template-columns: 1fr; padding: 0 20px; }
+@media (max-width: 1100px) {
+  .page-with-toc { grid-template-columns: 1fr; padding: 0 24px; }
   .toc-sidebar { display: none; }
 }
 
@@ -640,26 +643,89 @@ pre code { padding: 0; background: transparent; font-size: inherit; }
 .def-box p, .thm-box p, .ex-box p { font-style: normal; }
 .remark-box p, .proof-box p { font-style: normal; }
 
-/* Make <em> markers inside theorem-family boxes render as hanging
-   labels — this is where *证明.* / *Proof.* / *证.* / *注.* / etc.
-   land. Style is bold + non-italic + serif so it reads as a label,
-   not italic body text. Color follows the box type. */
-.thm-box em { color: #d67d7d; }
-.def-box em { color: #8fb4e0; }
-.ex-box em  { color: #5fa777; }
-.remark-box em,
-.proof-box em { color: var(--fg-soft); }
-.thm-box em,
-.def-box em,
-.ex-box em,
+/* Proof / claim markers inside theorem-family boxes — Springer-style
+   hanging tag. *证明.* / *证.* / *Proof.* / *注.* / etc. land here.
+
+   The label is a small sans-serif uppercase badge filled with the
+   box's accent color, with a top rule and margin so it starts on its
+   own visual line above the proof body. */
+.thm-box em {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  margin: 18px 0 6px;
+  padding: 3px 10px;
+  background: #d67d7d;
+  color: #16181c;
+  border-radius: 3px;
+  line-height: 1.5;
+}
+.def-box em {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  margin: 18px 0 6px;
+  padding: 3px 10px;
+  background: #8fb4e0;
+  color: #16181c;
+  border-radius: 3px;
+  line-height: 1.5;
+}
+.ex-box em {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  margin: 18px 0 6px;
+  padding: 3px 10px;
+  background: #5fa777;
+  color: #0d1a14;
+  border-radius: 3px;
+  line-height: 1.5;
+}
 .remark-box em,
 .proof-box em {
   display: inline-block;
+  font-family: var(--font-sans);
   font-style: normal;
   font-weight: 700;
-  font-family: var(--font-serif);
-  margin-right: 8px;
-  letter-spacing: 0.01em;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  margin: 18px 0 6px;
+  padding: 3px 10px;
+  background: var(--fg-soft);
+  color: var(--bg);
+  border-radius: 3px;
+  line-height: 1.5;
+}
+/* Paragraphs that start with a proof label shouldn't double-indent */
+.thm-box p:has(> em:first-child),
+.def-box p:has(> em:first-child),
+.ex-box p:has(> em:first-child),
+.remark-box p:has(> em:first-child),
+.proof-box p:has(> em:first-child) {
+  text-indent: 0;
+}
+/* Subtle 32px rule above any paragraph that starts with a proof label */
+.thm-box p:has(> em:first-child)::before,
+.def-box p:has(> em:first-child)::before,
+.ex-box p:has(> em:first-child)::before,
+.remark-box p:has(> em:first-child)::before,
+.proof-box p:has(> em:first-child)::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--rule-strong);
+  margin: 0 0 8px;
 }
 
 /* KaTeX */
@@ -766,11 +832,14 @@ pre code { padding: 0; background: transparent; font-size: inherit; }
    ===================================================================== */
 .reading-progress {
   position: fixed; top: 0; left: 0;
-  height: 3px; width: 0;
+  height: 4px; width: 0;
   background: var(--accent);
   z-index: 9999; transition: width 0.08s linear;
   pointer-events: none;
-  box-shadow: 0 0 6px rgba(214, 125, 125, 0.5);
+  box-shadow: 0 0 10px rgba(214, 125, 125, 0.7), 0 0 4px rgba(214, 125, 125, 0.9);
+}
+:root[data-theme="light"] .reading-progress {
+  box-shadow: 0 0 10px rgba(139, 26, 26, 0.5), 0 0 4px rgba(139, 26, 26, 0.7);
 }
 
 pre { position: relative; }
