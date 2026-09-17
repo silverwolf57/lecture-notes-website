@@ -50,12 +50,22 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
   flex-wrap: wrap;
 }
 .site-nav .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 17px;
   color: var(--fg);
   border: 0;
   letter-spacing: 0.01em;
+}
+.site-nav .brand-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background: var(--bg-card);
+  flex-shrink: 0;
 }
 .site-nav .brand .mark { color: var(--accent); }
 .site-nav nav { display: flex; gap: 24px; font-family: var(--font-sans); font-size: 14px; }
