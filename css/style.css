@@ -347,7 +347,27 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
   font-size: 16.5px;
   line-height: 1.6;
   color: var(--fg);
+  overflow-x: auto;          /* let long math scroll horizontally instead of overflowing the page */
+  word-wrap: break-word;     /* break long identifiers / paths that lack natural breaks */
+  overflow-wrap: anywhere;
 }
+
+/* QED marker (\square / \blacksquare) — float right at end of proof line,
+   color matched to the surrounding theorem box */
+.qed {
+  float: right;
+  clear: both;
+  margin: 2px 0 0 12px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1;
+}
+.qed .katex { font-size: 1.05em; }
+.thm-box    .qed { color: #d67d7d; }
+.def-box    .qed { color: #8fb4e0; }
+.ex-box     .qed { color: #5fa777; }
+.remark-box .qed,
+.proof-box  .qed { color: var(--fg-soft); }
 
 /* =====================================================================
    Chapter page — main prose column + right-side sticky TOC sidebar

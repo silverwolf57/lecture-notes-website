@@ -252,7 +252,7 @@ $$G^{(1)} := \{ [x_1, y_1] \cdots [x_k, y_k] \mid x_i, y_i \in G,\ k \in \mathbb
 <p>若 $|G| = p^m$($p$ 为素数,$m \ge 1$),则 $p \mid |C(G)|$。</p>
 <p><em>证明.</em> 在 $G$ 上定义共轭关系:$x \sim y \iff \exists\, z \in G$ 使 $y = zxz^{-1}$,这是良定义的等价关系。$\forall\, x \in G$,其共轭类为 $O_x := \{zxz^{-1} \mid z \in G\}$。令 $G_x := \{z \in G \mid zx = xz\}$,则 $G_x < G$。映射 $\{zG_x \mid z \in G\} \to O_x$,$zG_x \mapsto zxz^{-1}$ 是双射。因此 $|O_x| = [G : G_x] = |G| / |G_x|$。由类方程</p>
 $$|G| = |C(G)| + \sum_{|O_x| > 1} |O_x| = p^m,\tag{4.2.7}$$<p>
-且每个 $|O_x| > 1$ 的共轭类满足 $p \mid |O_x|$,故 $p \mid |C(G)|$。$\square$</p>
+且每个 $|O_x| > 1$ 的共轭类满足 $p \mid |O_x|$,故 $p \mid |C(G)|$。<span class="qed">$\square$</span></p>
 </div>
 <div class="thm-box">
 <p class="label">定理 4.2.2<span class="label-name">p-群可解</span></p>
@@ -310,7 +310,7 @@ $$U_n(K) := \{ a \in K \mid a^n = 1 \}\tag{4.3.1}$$<p>
 <p class="label">定理 4.3.1<span class="label-name">单位根群是循环群</span></p>
 <p>对任意域 $K$ 和任意 $n > 0$,$U_n(K)$ 是循环群。</p>
 <p><em>证明.</em> 取 $\alpha \in U_n(K)$ 使得 $N = \operatorname{ord}(\alpha)$ 最大。下证 $U_n(K) = \langle \alpha \rangle$。</p>
-<p>对任意域 $K$,$|U_n(K)| \le n$(因 $x^n - 1 = 0$ 在 $K$ 中至多有 $n$ 个不同的根)。由引理 4.3.1(2),$\forall\, y \in U_n(K)$,$y^N = 1$,即 $U_n(K)$ 中元素均为 $x^N - 1 = 0$ 的根。故 $|U_n(K)| \le N = |\langle \alpha \rangle|$。结合 $\langle \alpha \rangle \subseteq U_n(K)$,得 $U_n(K) = \langle \alpha \rangle$。$\square$</p>
+<p>对任意域 $K$,$|U_n(K)| \le n$(因 $x^n - 1 = 0$ 在 $K$ 中至多有 $n$ 个不同的根)。由引理 4.3.1(2),$\forall\, y \in U_n(K)$,$y^N = 1$,即 $U_n(K)$ 中元素均为 $x^N - 1 = 0$ 的根。故 $|U_n(K)| \le N = |\langle \alpha \rangle|$。结合 $\langle \alpha \rangle \subseteq U_n(K)$,得 $U_n(K) = \langle \alpha \rangle$。<span class="qed">$\square$</span></p>
 </div>
 <div class="def-box">
 <p class="label">定义 4.3.3<span class="label-name">本原单位根</span></p>
@@ -413,7 +413,7 @@ $$\pi: \operatorname{Gal}(L_1 / K_1) \to \operatorname{Gal}(L / K),\quad \varphi
 $$\{e\} = G_1 \triangleleft G_2 \triangleleft \cdots \triangleleft G_r = \operatorname{Gal}(L_1 / K_1),\tag{4.4.9}$$<p>
 使得每个 $G_{k+1} / G_k$ 为素数阶循环群。由 Galois 理论基本定理,对应中间域链</p>
 $$L_1 \supseteq L_1^{G_2} \supseteq \cdots \supseteq L_1^{G_r} = K_1.\tag{4.4.10}$$<p>
-每个 $G_k / G_{k-1}$ 为素数阶循环群,故对应的扩张 $L_1^{G_k} \subseteq L_1^{G_{k-1}}$ 为循环扩张。设其次数为 $p_k$,则 $p_k \mid |\operatorname{Gal}(L_1 / K_1)| \mid m$。因 $K_1$ 包含 $m$ 次本原单位根,故也包含 $p_k$ 次本原单位根。由引理 4.3.2(2),每个循环扩张可由添加 $p_k$ 次根得到。因此 $L_1$(从而 $L$)可由 $K$ 经有限次四则运算和开方得到,即 $f(x) = 0$ 可用根式解。$\square$</p>
+每个 $G_k / G_{k-1}$ 为素数阶循环群,故对应的扩张 $L_1^{G_k} \subseteq L_1^{G_{k-1}}$ 为循环扩张。设其次数为 $p_k$,则 $p_k \mid |\operatorname{Gal}(L_1 / K_1)| \mid m$。因 $K_1$ 包含 $m$ 次本原单位根,故也包含 $p_k$ 次本原单位根。由引理 4.3.2(2),每个循环扩张可由添加 $p_k$ 次根得到。因此 $L_1$(从而 $L$)可由 $K$ 经有限次四则运算和开方得到,即 $f(x) = 0$ 可用根式解。<span class="qed">$\square$</span></p>
 </div>
 <div class="thm-box">
 <p class="label">定理 4.4.2<span class="label-name">方程可解 $\Rightarrow$ Galois 群可解</span></p>
@@ -506,21 +506,21 @@ $$L_1 \supseteq L_1^{G_2} \supseteq \cdots \supseteq L_1^{G_r} = K_1.\tag{4.4.10
           <span class="xref-desc"></span>
         </a>
       
-        <a class="xref-card" href="/lecture-notes-website/usage/">
-          <span class="xref-tag">WXG.math and computer science</span>
-          <span class="xref-title">如何阅读、引用、贡献</span>
-          <span class="xref-desc">使用须知:如何阅读、引用、贡献。</span>
+        <a class="xref-card" href="/lecture-notes-website/math/matrix-analysis/chapter-1/">
+          <span class="xref-tag">矩阵论 · 引论</span>
+          <span class="xref-title">矩阵论 · 第 1 章</span>
+          <span class="xref-desc"></span>
+        </a>
+      
+        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-3/">
+          <span class="xref-tag">抽象代数</span>
+          <span class="xref-title">抽象代数 · 第 3 章</span>
+          <span class="xref-desc"></span>
         </a>
       
         <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-1/">
           <span class="xref-tag">抽象代数</span>
           <span class="xref-title">抽象代数 · 第 1 章</span>
-          <span class="xref-desc"></span>
-        </a>
-      
-        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-2/">
-          <span class="xref-tag">抽象代数</span>
-          <span class="xref-title">抽象代数 · 第 2 章</span>
           <span class="xref-desc"></span>
         </a>
       

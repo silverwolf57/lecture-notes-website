@@ -148,16 +148,16 @@ $$\varphi_1: K \times K \to K, \quad (a, b) \mapsto a + b \quad \text{(加法)},
 <p><strong>域中的零元 $0$ 和单位元 $1$ 都是唯一存在的。</strong></p>
 <p><em>证明.</em> 若 $0, 0'$ 均为零元,则</p>
 $$0 = 0 + 0' = 0',\tag{1.1.4}$$<p>即 $0 = 0'$。若 $1, 1'$ 均为单位元,则</p>
-$$1 = 1 \cdot 1' = 1',\tag{1.1.5}$$<p>即 $1 = 1'$。$\square$</p>
+$$1 = 1 \cdot 1' = 1',\tag{1.1.5}$$<p>即 $1 = 1'$。<span class="qed">$\square$</span></p>
 <p><strong>负元唯一,记为 $-a$。</strong></p>
 <p><em>证明.</em> 设 $b_1, b_2 \in K$ 且 $b_1 + a = b_2 + a = 0$,则</p>
-$$b_1 = b_1 + 0 = b_1 + (b_2 + a) = (b_1 + a) + b_2 = 0 + b_2 = b_2.\tag{1.1.6}$$<p>注:每一步均依据加法结合律。$\square$</p>
+$$b_1 = b_1 + 0 = b_1 + (b_2 + a) = (b_1 + a) + b_2 = 0 + b_2 = b_2.\tag{1.1.6}$$<p>注:每一步均依据加法结合律。<span class="qed">$\square$</span></p>
 <p>可逆元唯一,记为 $a^{-1}$。证明与加法同理。</p>
 <p><strong>当 $|K| \ge 2$ 时,$0 \ne 1$。</strong></p>
 <p><em>证明.</em> $\forall\, a \in K$,有</p>
 $$0 \cdot 0 + 0 \cdot a = 0 \cdot (0 + a) = 0 \cdot a,\tag{1.1.7}$$<p>两边加 $-(0 \cdot a)$,得 $0 \cdot 0 = 0$。又</p>
 $$0 \cdot a + 1 \cdot a = 1 \cdot a = a \quad\Rightarrow\quad 0 \cdot a = 0,\tag{1.1.8}$$<p>设 $0 = 1$,则 $\forall\, a \in K$,</p>
-$$0 = 0 \cdot a = 1 \cdot a = a,\tag{1.1.9}$$<p>矛盾。从而 $0 \ne 1$。$\square$</p>
+$$0 = 0 \cdot a = 1 \cdot a = a,\tag{1.1.9}$$<p>矛盾。从而 $0 \ne 1$。<span class="qed">$\square$</span></p>
 </div>
 <div class="def-box">
 <p class="label">定义 1.1.3<span class="label-name">整数倍与幂</span></p>
@@ -219,7 +219,7 @@ $$[i] + [j] := [(i+j) \bmod p], \quad [i] \cdot [j] := [(ij) \bmod p].$$<p>则 $
 <p><strong>3. 分配律.</strong> $[k]([i] + [j]) = [k][i] + [k][j]$。</p>
 <p><strong>4. 无零因子.</strong> 若 $[i][j] = [0]$,则 $p | ij$。因 $p$ 是素数,$p | i$ 或 $p | j$,即 $[i] = [0]$ 或 $[j] = [0]$。</p>
 <p><strong>5. 乘法逆元.</strong> 若 $[i] \ne [0]$,则 $\gcd(i, p) = 1$。由 Bézout 定理,$\exists\, a, b \in \mathbb{Z}$,使得 $ai + bp = 1$。故 $[i]^{-1} = [a]$。</p>
-<p>综上,$(\mathbb{F}_p, +, \cdot)$ 满足域的全部 9 个条件,故是一个域。$\square$</p>
+<p>综上,$(\mathbb{F}_p, +, \cdot)$ 满足域的全部 9 个条件,故是一个域。<span class="qed">$\square$</span></p>
 <p style="text-align:center;color:var(--fg-mute);font-style:italic;margin:32px 0">— 第一章第一节完 —</p>
 <h2 id="12-环">1.2 环
 </h2><h3 id="121-环的定义与基本性质">1.2.1 环的定义与基本性质
@@ -262,7 +262,7 @@ $$U(R) := \{ a \in R \mid a \text{ 可逆} \}\tag{1.2.1}$$<p>为 $R$ 的可逆�
 <li>加法结合律、零元、负元、交换律:由 $a - b \in S$ 推出;</li>
 <li>乘法结合律、单位元、分配律:由 $ab \in S$ 推出。</li>
 </ul>
-<p>$\square$</p>
+<p><span class="qed">$\square$</span></p>
   <div class="ex-box">
 <p class="label">例 1.2.2<span class="label-name">$\mathbb{Z}[\sqrt{2}]$</span></p>
 <p>$\mathbb{Z}[\sqrt{2}] = \{a + b\sqrt{2} : a, b \in \mathbb{Z}\}$ 是 $\mathbb{R}$ 的子环。</p>
@@ -287,7 +287,7 @@ $$R[u] := \left\{ \sum_{i=0}^n a_i u^i : n \ge 0, a_i \in R \right\}$$<p>称为 
 <p>设 $R$ 为交换环,$f, g \in R[u]$ 且 $g$ 的最高次项系数在 $R$ 中可逆,则 $\exists\, q, r \in R[u]$ 使得 $f = qg + r$,且 $\deg r < \deg g$。</p>
 </div>
 <p><em>证明.</em> 模仿 $\mathbb{Z}[x]$ 上的带余除法,对 $\deg f$ 归纳。</p>
-<p>$\square$</p>
+<p><span class="qed">$\square$</span></p>
   <div class="thm-box">
 <p class="label">定理 1.2.1<span class="label-name">带余除法</span></p>
 <p>设 $R$ 为交换环,$f, g \in R[u]$,$g \ne 0$,$g$ 的最高次项系数在 $R$ 中可逆。则 $\exists!\, q, r \in R[u]$ 使得 $f = qg + r$,且 $\deg r < \deg g$。</p>
@@ -403,25 +403,25 @@ $n$ 较大时,$[0], [1], \ldots, [n-1]$ 参与运算。</p>
 </ol>
 </div>
 <p><em>证明.</em> 略。</p>
-<p>$\square$</p>
+<p><span class="qed">$\square$</span></p>
   <div class="ex-box">
 <p class="label">例 1.3.6<span class="label-name">$S_3$ 不是循环群</span></p>
 <p>$|S_3| = 6$,但 $S_3$ 中没有 6 阶元素(只有 1, 2, 3 阶元素)。故 $S_3$ 不是循环群。</p>
 </div>
 <p><em>证明.</em> 假设 $S_3$ 由某个 $a$ 生成,$|a| = 6$,但 $S_3$ 中只有 $|a| = 1, 2, 3$ 阶元素,无 $|a| = 6$ 阶元素,矛盾。</p>
-<p>$\square$</p>
+<p><span class="qed">$\square$</span></p>
   <div class="thm-box">
 <p class="label">定理 1.3.1<span class="label-name">循环子群</span></p>
 <p>设 $G$ 为群,$\forall\, a \in G$,$\langle a \rangle := \{a^n : n \in \mathbb{Z}\}$ 是 $G$ 的一个循环子群,且 $\langle a \rangle \cong \mathbb{Z}/\operatorname{order}(a)\mathbb{Z}$。</p>
 </div>
 <p><em>证明.</em> 直接验证 $\langle a \rangle$ 是 $G$ 的子群。映射 $n \mapsto a^n$ 是 $\mathbb{Z}$ 到 $\langle a \rangle$ 的满同态,核为 $\operatorname{order}(a)\mathbb{Z}$。</p>
-<p>$\square$</p>
+<p><span class="qed">$\square$</span></p>
   <div class="remark-box">
 <p class="label">备注 1.3.2<span class="label-name">阶的整除性质</span></p>
 <p>若 $\operatorname{order}(a) = n$,且 $a^m = 1$,则 $n \mid m$。</p>
 </div>
 <p><em>证明.</em> 写 $m = qn + r$,$0 \le r < n$。则 $a^m = a^{qn + r} = (a^n)^q a^r = a^r$。由 $a^m = 1$ 得 $a^r = 1$。但 $0 \le r < n = \operatorname{order}(a)$,故 $r = 0$。即 $n \mid m$。</p>
-<p>$\square$</p>
+<p><span class="qed">$\square$</span></p>
 <p style="text-align:center;color:var(--fg-mute);font-style:italic;margin:32px 0">— 第一章第三节完 —</p>
 <h2 id="14-同态与同构">1.4 同态与同构
 </h2><h3 id="141-群同态与环同态">1.4.1 群同态与环同态
@@ -436,7 +436,7 @@ $$\varphi(a \cdot b) = \varphi(a) * \varphi(b), \quad \forall\, a, b \in G.\tag{
 <p>设 $\sigma: G \to G$ 为 $G$ 上的内自同构,$\sigma(a) = gag^{-1}$,则 $\sigma$ 是同构。</p>
 </div>
 <p><em>证明.</em> $\sigma(ab) = g ab \sigma$ 中的 $\sigma$ 不一定指内自同构,需整体一致理解。</p>
-<p>$\square$</p>
+<p><span class="qed">$\square$</span></p>
   <div class="def-box">
 <p class="label">定义 1.4.2<span class="label-name">环同态</span></p>
 <p>设 $(R, +, \cdot), (R', +, \cdot)$ 是环,映射 $\varphi: R \to R'$ 称为<strong>环同态</strong>,如果</p>
@@ -462,7 +462,7 @@ $$\varphi(a \cdot b) = \varphi(a) * \varphi(b), \quad \forall\, a, b \in G.\tag{
 <p>(1) $\varphi(e_G) = \varphi(e_G e_G) = \varphi(e_G) \varphi(e_G)$。两边乘以 $\varphi(e_G)^{-1}$ 得 $\varphi(e_G) = e_{G'}$。</p>
 <p>(2) $\varphi(a) \varphi(a^{-1}) = \varphi(a a^{-1}) = \varphi(e_G) = e_{G'}$。故 $\varphi(a^{-1}) = \varphi(a)^{-1}$。</p>
 <p>(3) 验证 $\ker \varphi$ 是子群:封闭性、单位元、逆元。</p>
-<p>$\square$</p>
+<p><span class="qed">$\square$</span></p>
   <div class="def-box">
 <p class="label">定义 1.4.3<span class="label-name">同态像</span></p>
 <p>设 $\varphi: G \to G'$ 是群同态,则 $\varphi(G) := \{\varphi(a) : a \in G\}$ 是 $G'$ 的子群,称为<strong>同态像</strong>。</p>
@@ -473,7 +473,7 @@ $$\varphi(a \cdot b) = \varphi(a) * \varphi(b), \quad \forall\, a, b \in G.\tag{
 <p>设 $\varphi: G \to G'$ 是群同态,则 $G / \ker \varphi \cong \operatorname{im} \varphi$。</p>
 </div>
 <p><em>证明.</em> 构造映射 $\bar\varphi: G / \ker \varphi \to \operatorname{im} \varphi$,$\bar\varphi(a \ker \varphi) = \varphi(a)$。验证它是良定义的、同态、双射。</p>
-<p>$\square$</p>
+<p><span class="qed">$\square$</span></p>
 <h3 id="143-自同态环">1.4.3 自同态环
 </h3>  <div class="def-box">
 <p class="label">定义 1.4.4<span class="label-name">自同态环</span></p>
@@ -490,19 +490,20 @@ $$\operatorname{End}(R) := \{\varphi: R \to R \mid \varphi \text{ 是环同态} 
 <p>(2) 单位元:$\varphi_1(x) = 1 \cdot x = x = \operatorname{id}(x)$,故 $\varphi_1 = \operatorname{id}$。</p>
 <p>(3) 单射性:若 $\varphi_a = 0$,则 $\varphi_a(1) = a = 0$。</p>
 <p>(4) 满射性:任何 $\varphi \in \operatorname{End}(R)$ 满足 $\varphi(1) = a$,$\varphi(a) \in \operatorname{Hom}(R)$。同态性与单射性的验证与 (1) 类似,故 $R \cong \varphi(R) < \operatorname{End}(R)$。</p>
-<p>$\square$</p>
+<p><span class="qed">$\square$</span></p>
 <h3 id="144-cayley-定理">1.4.4 Cayley 定理
 </h3>  <div class="thm-box">
 <p class="label">定理 1.4.4<span class="label-name">Cayley 定理</span></p>
 <p>设 $G$ 为群,则 $G$ 同构于 $S$ 上某个变换群,其中 $S = G$。</p>
 </div>
 <p><em>证明.</em> 构造映射 $\varphi: G \to \operatorname{Aut}(S)$,$\varphi(a)$ 是左乘映射 $L_a: x \mapsto ax$。验证 $\varphi$ 是单同态。</p>
-<p>$\square$</p>
+<p><span class="qed">$\square$</span></p>
   <div class="remark-box">
 <p class="label">备注 1.4.1<span class="label-name">Cayley 定理的意义</span></p>
 <p>Cayley 定理说明每个群都可以用置换来表示,这为有限群的研究提供了具体模型。</p>
 </div>
 <p style="text-align:center;color:var(--fg-mute);font-style:italic;margin:32px 0">— 第一章完 —</p>
+
 
 </main>
 
@@ -585,27 +586,27 @@ $$\operatorname{End}(R) := \{\varphi: R \to R \mid \varphi \text{ 是环同态} 
     <h2>相关讲义</h2>
     <div class="xref-grid">
       
-        <a class="xref-card" href="/lecture-notes-website/usage/">
-          <span class="xref-tag">WXG.math and computer science</span>
-          <span class="xref-title">如何阅读、引用、贡献</span>
-          <span class="xref-desc">使用须知:如何阅读、引用、贡献。</span>
-        </a>
-      
         <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-3/">
           <span class="xref-tag">抽象代数</span>
           <span class="xref-title">抽象代数 · 第 3 章</span>
           <span class="xref-desc"></span>
         </a>
       
-        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-1/">
-          <span class="xref-tag">抽象代数</span>
-          <span class="xref-title">抽象代数 · 第 1 章</span>
-          <span class="xref-desc"></span>
-        </a>
-      
         <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-4/">
           <span class="xref-tag">抽象代数</span>
           <span class="xref-title">抽象代数 · 第 4 章</span>
+          <span class="xref-desc"></span>
+        </a>
+      
+        <a class="xref-card" href="/lecture-notes-website/math/matrix-analysis/chapter-1/">
+          <span class="xref-tag">矩阵论 · 引论</span>
+          <span class="xref-title">矩阵论 · 第 1 章</span>
+          <span class="xref-desc"></span>
+        </a>
+      
+        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-1/">
+          <span class="xref-tag">抽象代数</span>
+          <span class="xref-title">抽象代数 · 第 1 章</span>
           <span class="xref-desc"></span>
         </a>
       

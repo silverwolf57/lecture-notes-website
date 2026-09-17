@@ -161,7 +161,7 @@ $$\mathbf{i}^2 = \mathbf{j}^2 = \mathbf{k}^2 = -\mathbf{1},\tag{2.1.3}$$$$\mathb
 <p>设 $f: R \to R'$ 为环同态,则 $\ker f := \{ r \in R \mid f(r) = 0_{R'} \}$ 是 $R$ 的理想。</p>
 <p><em>证明.</em> $0_R \in \ker f$,故 $\ker f \ne \emptyset$。</p>
 <p>$\forall\, a, b \in \ker f$,$f(a + b) = f(a) + f(b) = 0 + 0 = 0$,故 $a + b \in \ker f$;$f(-a) = -f(a) = 0$,故 $-a \in \ker f$。</p>
-<p>$\forall\, r \in R$,$\forall\, b \in \ker f$,$f(rb) = f(r) f(b) = f(r) \cdot 0 = 0$,故 $rb \in \ker f$。$\square$</p>
+<p>$\forall\, r \in R$,$\forall\, b \in \ker f$,$f(rb) = f(r) f(b) = f(r) \cdot 0 = 0$,故 $rb \in \ker f$。<span class="qed">$\square$</span></p>
 </div>
 <p>**商环的构造**:设 $I \triangleleft R$,$\forall\, a \in R$,令
   $$\bar{a} := a + I = \{ a + x \mid x \in I \},\quad R / I := \{ \bar{a} \mid a \in R \}.\tag{2.1.5}$$
@@ -176,7 +176,7 @@ $$\mathbf{i}^2 = \mathbf{j}^2 = \mathbf{k}^2 = -\mathbf{1},\tag{2.1.3}$$$$\mathb
 <p>设 $f: R \to R'$ 为环同态,$I = \ker f$,则存在唯一的单环同态</p>
 $$\bar{f}: R / I \to R',\tag{2.1.6}$$<p>
 使得 $f = \bar{f} \circ \pi$,其中 $\pi: R \to R / I$ 为自然同态。</p>
-<p><em>证明.</em> 定义 $\bar{f}: R / I \to R'$,$\bar{f}(\bar{a}) := f(a)$。良定性:若 $\bar{a}_1 = \bar{a}_2$,则 $a_1 - a_2 \in I = \ker f$,故 $f(a_1) = f(a_2)$。同态性由 $f$ 的同态性直接推出。单射性:若 $\bar{f}(\bar{a}_1) = \bar{f}(\bar{a}_2)$,则 $a_1 - a_2 \in \ker f = I$,故 $\bar{a}_1 = \bar{a}_2$。唯一性由 $\pi$ 满射显然。$\square$</p>
+<p><em>证明.</em> 定义 $\bar{f}: R / I \to R'$,$\bar{f}(\bar{a}) := f(a)$。良定性:若 $\bar{a}_1 = \bar{a}_2$,则 $a_1 - a_2 \in I = \ker f$,故 $f(a_1) = f(a_2)$。同态性由 $f$ 的同态性直接推出。单射性:若 $\bar{f}(\bar{a}_1) = \bar{f}(\bar{a}_2)$,则 $a_1 - a_2 \in \ker f = I$,故 $\bar{a}_1 = \bar{a}_2$。唯一性由 $\pi$ 满射显然。<span class="qed">$\square$</span></p>
 </div>
 <div class="thm-box">
 <p class="label">定理 2.1.1<span class="label-name">同态分解</span></p>
@@ -214,7 +214,7 @@ $$R / I \cong R' / f(I)\tag{2.1.9}$$<p>
 <div class="thm-box">
 <p class="label">定理 2.1.3<span class="label-name">素环的结构</span></p>
 <p>对任意环 $R$,其素环 $R_0 \cong \mathbb{Z}$ 或 $R_0 \cong \mathbb{Z}_n$。</p>
-<p><em>证明.</em> 作为加法群,$R_0 = \langle 1_R \rangle$ 是由 $1_R$ 生成的循环群。若 $1_R$ 的阶为 $n < \infty$,则 $R_0 \cong \mathbb{Z}_n$;若 $1_R$ 阶为无穷,则 $R_0 \cong \mathbb{Z}$。$\square$</p>
+<p><em>证明.</em> 作为加法群,$R_0 = \langle 1_R \rangle$ 是由 $1_R$ 生成的循环群。若 $1_R$ 的阶为 $n < \infty$,则 $R_0 \cong \mathbb{Z}_n$;若 $1_R$ 阶为无穷,则 $R_0 \cong \mathbb{Z}$。<span class="qed">$\square$</span></p>
 </div>
 <div class="def-box">
 <p class="label">定义 2.1.6<span class="label-name">特征</span></p>
@@ -223,7 +223,7 @@ $$R / I \cong R' / f(I)\tag{2.1.9}$$<p>
 <div class="thm-box">
 <p class="label">定理 2.1.4<span class="label-name">无零因子环的特征</span></p>
 <p>若 $R$ 无零因子,则 $\operatorname{ch}(R) = 0$ 或为素数。</p>
-<p><em>证明.</em> 若 $\operatorname{ch}(R) \ne 0$,设 $\operatorname{ch}(R) = n$。若 $n = st$($s, t > 1$),则 $n \cdot 1_R = 0 \Rightarrow (s \cdot 1_R)(t \cdot 1_R) = 0$。因 $R$ 无零因子,不妨 $s \cdot 1_R = 0$,与 $n$ 最小性矛盾。故 $n$ 为素数。$\square$</p>
+<p><em>证明.</em> 若 $\operatorname{ch}(R) \ne 0$,设 $\operatorname{ch}(R) = n$。若 $n = st$($s, t > 1$),则 $n \cdot 1_R = 0 \Rightarrow (s \cdot 1_R)(t \cdot 1_R) = 0$。因 $R$ 无零因子,不妨 $s \cdot 1_R = 0$,与 $n$ 最小性矛盾。故 $n$ 为素数。<span class="qed">$\square$</span></p>
 </div>
 <p style="text-align:center; color: var(--fg-mute); font-style: italic; margin: 32px 0;">— 第二章第一节完 —</p>
 <h2 id="22-唯一分解整环">2.2 唯一分解整环
@@ -256,7 +256,7 @@ $$I = R x_1 + R x_2 + \cdots + R x_n = \{ r_1 x_1 + \cdots + r_n x_n \mid r_i \i
 <div class="thm-box">
 <p class="label">定理 2.2.1<span class="label-name">诺特整环中不可约分解的存在性</span></p>
 <p>设 $R$ 为诺特整环,则 $\forall\, a \in R$ 非零不可逆,$a$ 可分解为 $R$ 中有限个不可约元之积。</p>
-<p><em>证明.</em> 反证。设 $a \in R \setminus (U(R) \cup \{0\})$ 不能分解为有限个不可约元之积。则 $a$ 不是不可约元,故 $a = a_1 b_1$,$a_1, b_1$ 均不可逆。同理 $a_1 = a_2 b_2$,…,$a_n = a_{n+1} b_{n+1}$,…,得序列 $\{a_n\}$。令 $I_n = R \cdot a_n$,则 $I_0 \subseteq I_1 \subseteq I_2 \subseteq \cdots$。令 $I = \bigcup_{n \ge 0} I_n$,则 $I \triangleleft R$。因 $R$ 诺特,$I$ 有限生成,即 $I = R x_1 + \cdots + R x_m$。设 $x_i \in I_{k_i}$,取 $k = \max\{k_1, \dots, k_m\}$,则 $I \subseteq I_k$,故 $I = I_k = R \cdot a_k$。但 $I_{k+1} = R \cdot a_{k+1} = R \cdot a_k b_{k+1} = I_k$,故 $a_{k+1} \in R a_k$,从而 $a_k = a_{k+1} x$ 对某 $x$ 成立,得 $x b_{k+1} = 1$,与 $b_{k+1}$ 不可逆矛盾。$\square$</p>
+<p><em>证明.</em> 反证。设 $a \in R \setminus (U(R) \cup \{0\})$ 不能分解为有限个不可约元之积。则 $a$ 不是不可约元,故 $a = a_1 b_1$,$a_1, b_1$ 均不可逆。同理 $a_1 = a_2 b_2$,…,$a_n = a_{n+1} b_{n+1}$,…,得序列 $\{a_n\}$。令 $I_n = R \cdot a_n$,则 $I_0 \subseteq I_1 \subseteq I_2 \subseteq \cdots$。令 $I = \bigcup_{n \ge 0} I_n$,则 $I \triangleleft R$。因 $R$ 诺特,$I$ 有限生成,即 $I = R x_1 + \cdots + R x_m$。设 $x_i \in I_{k_i}$,取 $k = \max\{k_1, \dots, k_m\}$,则 $I \subseteq I_k$,故 $I = I_k = R \cdot a_k$。但 $I_{k+1} = R \cdot a_{k+1} = R \cdot a_k b_{k+1} = I_k$,故 $a_{k+1} \in R a_k$,从而 $a_k = a_{k+1} x$ 对某 $x$ 成立,得 $x b_{k+1} = 1$,与 $b_{k+1}$ 不可逆矛盾。<span class="qed">$\square$</span></p>
 </div>
 <h3 id="222-最大公因子与-ufd-的等价刻画">2.2.2 最大公因子与 UFD 的等价刻画
 </h3>  <div class="def-box">
@@ -297,7 +297,7 @@ $$a = qb + r,\tag{2.2.2}$$<p>
 <p>欧氏环 $R$ 是主理想整环。</p>
 <p><em>证明.</em> $\forall\, a, b \in R$,$b \ne 0$,由欧氏环定义 $a = q_1 b + r_1$。若 $r_1 = 0$ 则 $(a, b) = b$;若 $r_1 \ne 0$ 则 $\delta(r_1) < \delta(b)$,对 $\delta(b)$ 归纳,假设 $(b, r_1)$ 存在且 $(b, r_1) = sb + t r_1$。下证 $(a, b) = (b, r_1)$:</p>
 $$(a, b) = (q_1 b + r_1, b) = (r_1, b),\tag{2.2.3}$$<p>
-而 $(b, r_1) = sb + tr_1 = sb + t(a - q_1 b) = (s - t q_1) b + ta$,故 $(a, b) = (s - tq_1) b + ta$,由 Bézout 刻画知 $R$ 为 PID。$\square$</p>
+而 $(b, r_1) = sb + tr_1 = sb + t(a - q_1 b) = (s - t q_1) b + ta$,故 $(a, b) = (s - tq_1) b + ta$,由 Bézout 刻画知 $R$ 为 PID。<span class="qed">$\square$</span></p>
 </div>
 <p style="text-align:center; color: var(--fg-mute); font-style: italic; margin: 32px 0;">— 第二章第二节完 —</p>
 <h2 id="23-单变元多项式">2.3 单变元多项式
@@ -318,7 +318,7 @@ $$(a, b) = (q_1 b + r_1, b) = (r_1, b),\tag{2.2.3}$$<p>
 <div class="thm-box">
 <p class="label">定理 2.3.2<span class="label-name">多项式环的单位群</span></p>
 <p>若 $R$ 无零因子,则 $U(R[x]) = U(R)$。</p>
-<p><em>证明.</em> $R \subseteq R[x]$,故 $U(R) \subseteq U(R[x])$。反之,设 $f \in R[x]$ 可逆,则 $\exists\, g \in R[x]$ 使得 $fg = 1 = gf$。设 $f = a_n x^n + \cdots$($a_n \ne 0$),$g = b_m x^m + \cdots$($b_m \ne 0$),则 $fg$ 的首项为 $a_n b_m x^{n+m}$。因 $R$ 无零因子,$a_n b_m \ne 0$,故 $n + m = 0$,即 $n = m = 0$,从而 $f, g \in R$。$\square$</p>
+<p><em>证明.</em> $R \subseteq R[x]$,故 $U(R) \subseteq U(R[x])$。反之,设 $f \in R[x]$ 可逆,则 $\exists\, g \in R[x]$ 使得 $fg = 1 = gf$。设 $f = a_n x^n + \cdots$($a_n \ne 0$),$g = b_m x^m + \cdots$($b_m \ne 0$),则 $fg$ 的首项为 $a_n b_m x^{n+m}$。因 $R$ 无零因子,$a_n b_m \ne 0$,故 $n + m = 0$,即 $n = m = 0$,从而 $f, g \in R$。<span class="qed">$\square$</span></p>
 </div>
 <h3 id="232-本原多项式与高斯引理">2.3.2 本原多项式与高斯引理
 </h3>  <p>设 $R$ 为 UFD,$\forall\, f = a_0 + a_1 x + \cdots + a_n x^n \in R[x]$,记
@@ -364,13 +364,14 @@ $$f(x+1) = \frac{(x+1)^p - 1}{x} = x^{p-1} + \binom{p}{1} x^{p-2} + \cdots + \bi
 <p class="label">定理 2.3.3<span class="label-name">代数基本定理</span></p>
 <p>若 $p(x) \in \mathbb{C}[x]$ 不可约,则 $\deg p(x) = 1$。等价地,$\forall\, f(x) \in \mathbb{C}[x]$,若 $\deg f(x) > 0$,则 $\exists\, a \in \mathbb{C}$ 使得 $f(a) = 0$。</p>
 <p><em>证明.</em> &ldquo;$\Rightarrow$&quot;:任一非常数复系数多项式可分解为一次因式之积 $f(x) = a(x - \alpha_1) \cdots (x - \alpha_n)$,$\alpha_i \in \mathbb{C}$,故必有根。</p>
-<p>&ldquo;$\Leftarrow$&quot;:设 $f(x) \in \mathbb{C}[x]$ 不可约。由假定 $\exists\, a \in \mathbb{C}$ 使 $f(a) = 0$,故 $(x - a) \mid f(x)$。因 $f$ 不可约,$f(x) \sim x - a$,从而 $\deg f = 1$。$\square$</p>
+<p>&ldquo;$\Leftarrow$&quot;:设 $f(x) \in \mathbb{C}[x]$ 不可约。由假定 $\exists\, a \in \mathbb{C}$ 使 $f(a) = 0$,故 $(x - a) \mid f(x)$。因 $f$ 不可约,$f(x) \sim x - a$,从而 $\deg f = 1$。<span class="qed">$\square$</span></p>
 </div>
 <blockquote>
     <p>**备注(实系数不可约多项式)**:$\mathbb{R}[x]$ 中的不可约多项式要么为一次多项式,要么为二次多项式 $ax^2 + bx + c$($b^2 - 4ac < 0$)。</p>
   </blockquote>
   <p style="text-align:center; color: var(--fg-mute); font-style: italic; margin: 32px 0;">— 第二章完 —</p>
   <!-- ============== 第三章 域扩张 ============== -->
+
 
 </main>
 
@@ -449,9 +450,9 @@ $$f(x+1) = \frac{(x+1)^p - 1}{x} = x^{p-1} + \binom{p}{1} x^{p-2} + \cdots + \bi
     <h2>相关讲义</h2>
     <div class="xref-grid">
       
-        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-1/">
+        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-2/">
           <span class="xref-tag">抽象代数</span>
-          <span class="xref-title">抽象代数 · 第 1 章</span>
+          <span class="xref-title">抽象代数 · 第 2 章</span>
           <span class="xref-desc"></span>
         </a>
       
@@ -461,16 +462,16 @@ $$f(x+1) = \frac{(x+1)^p - 1}{x} = x^{p-1} + \binom{p}{1} x^{p-2} + \cdots + \bi
           <span class="xref-desc"></span>
         </a>
       
-        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-4/">
+        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-3/">
           <span class="xref-tag">抽象代数</span>
-          <span class="xref-title">抽象代数 · 第 4 章</span>
+          <span class="xref-title">抽象代数 · 第 3 章</span>
           <span class="xref-desc"></span>
         </a>
       
-        <a class="xref-card" href="/lecture-notes-website/usage/">
-          <span class="xref-tag">WXG.math and computer science</span>
-          <span class="xref-title">如何阅读、引用、贡献</span>
-          <span class="xref-desc">使用须知:如何阅读、引用、贡献。</span>
+        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-1/">
+          <span class="xref-tag">抽象代数</span>
+          <span class="xref-title">抽象代数 · 第 1 章</span>
+          <span class="xref-desc"></span>
         </a>
       
     </div>
