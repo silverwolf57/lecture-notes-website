@@ -349,6 +349,82 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
   color: var(--fg);
 }
 
+/* =====================================================================
+   Chapter page — main prose column + right-side sticky TOC sidebar
+   ===================================================================== */
+.page-with-toc {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 56px;
+  align-items: start;
+}
+.page-with-toc > .page {
+  padding: 48px 0 80px;
+}
+.toc-sidebar {
+  position: sticky;
+  top: 80px;
+  padding-top: 48px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg-soft);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+.toc-sidebar .toc-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+  margin: 0 0 12px;
+  padding: 0 0 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.toc-sidebar nav#TableOfContents { background: transparent; }
+.toc-sidebar #TableOfContents ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.toc-sidebar #TableOfContents > ul { padding-left: 0; }
+.toc-sidebar #TableOfContents li { margin: 0; padding: 0; }
+.toc-sidebar #TableOfContents a {
+  display: block;
+  padding: 5px 0 5px 12px;
+  border-left: 2px solid transparent;
+  color: var(--fg-soft);
+  border-bottom: 0;
+  line-height: 1.35;
+  transition: color 0.12s, border-color 0.12s;
+}
+.toc-sidebar #TableOfContents a:hover {
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+.toc-sidebar #TableOfContents ul ul {
+  padding-left: 14px;
+  border-left: 1px dashed var(--rule);
+  margin: 2px 0 4px;
+}
+.toc-sidebar #TableOfContents ul ul a {
+  padding: 3px 0 3px 10px;
+  font-size: 12.5px;
+  color: var(--fg-mute);
+}
+.toc-sidebar #TableOfContents ul ul a:hover {
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+@media (max-width: 960px) {
+  .page-with-toc { grid-template-columns: 1fr; padding: 0 20px; }
+  .toc-sidebar { display: none; }
+}
+
 .front-matter {
   font-family: var(--font-sans);
   font-size: 11px;
@@ -423,17 +499,17 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
 .page p + p {
   margin-top: 0.55em;
 }
+/* Indent suppression only for paragraphs that should flush left —
+   the lede, front-matter eyebrow, list items, after headings, and
+   the first paragraph immediately following a blockquote / display
+   math. Inside theorem/definition boxes we keep first-line indent so
+   body text reads like the rest of the prose. */
 .page h1 + p,
 .page h2 + p,
 .page h3 + p,
 .page h4 + p,
 .page .front-matter + p,
-.page .def-box > p,
-.page .thm-box > p,
-.page .ex-box > p,
-.page .remark-box > p,
-.page .proof-box > p,
-.page blockquote > p,
+.page blockquote + p,
 .page li > p,
 .page .katex-display + p,
 .page .lede {
@@ -564,17 +640,26 @@ pre code { padding: 0; background: transparent; font-size: inherit; }
 .def-box p, .thm-box p, .ex-box p { font-style: normal; }
 .remark-box p, .proof-box p { font-style: normal; }
 
-/* Make <em> markers inside theorem-family boxes stand out — this is
-   where *证明.* / *Proof.* / *注.* / etc. land. */
+/* Make <em> markers inside theorem-family boxes render as hanging
+   labels — this is where *证明.* / *Proof.* / *证.* / *注.* / etc.
+   land. Style is bold + non-italic + serif so it reads as a label,
+   not italic body text. Color follows the box type. */
+.thm-box em { color: #d67d7d; }
+.def-box em { color: #8fb4e0; }
+.ex-box em  { color: #5fa777; }
+.remark-box em,
+.proof-box em { color: var(--fg-soft); }
 .thm-box em,
 .def-box em,
 .ex-box em,
 .remark-box em,
 .proof-box em {
-  font-style: italic;
+  display: inline-block;
+  font-style: normal;
   font-weight: 700;
-  color: var(--fg);
-  margin-right: 4px;
+  font-family: var(--font-serif);
+  margin-right: 8px;
+  letter-spacing: 0.01em;
 }
 
 /* KaTeX */
@@ -681,10 +766,11 @@ pre code { padding: 0; background: transparent; font-size: inherit; }
    ===================================================================== */
 .reading-progress {
   position: fixed; top: 0; left: 0;
-  height: 2px; width: 0;
+  height: 3px; width: 0;
   background: var(--accent);
   z-index: 9999; transition: width 0.08s linear;
   pointer-events: none;
+  box-shadow: 0 0 6px rgba(214, 125, 125, 0.5);
 }
 
 pre { position: relative; }
