@@ -620,6 +620,7 @@ pre code { padding: 0; background: transparent; font-size: inherit; }
   background: rgba(0, 0, 0, 0.025);
 }
 .thm-box    { border-left-color: #d67d7d; }   /* accent red — theorem */
+.prop-box   { border-left-color: #c98aaa; }   /* dusty rose — proposition */
 .def-box    { border-left-color: #8fb4e0; }   /* link blue — definition */
 .ex-box     { border-left-color: #5fa777; }   /* math green — example */
 .remark-box { border-left-color: #c0a062; }   /* tan — remark */

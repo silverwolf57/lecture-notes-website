@@ -119,7 +119,7 @@
 
   <h2 id="11-向量范数">1.1 向量范数
 </h2>  <div class="def-box">
-<p class="label">定义 1.1<span class="label-name">向量范数</span></p>
+<p class="label">定义 1.1.1<span class="label-name">向量范数</span></p>
 <p>在 $\mathbb{R}^n$ 中定义一个 $n$ 元实值函数 $\|\cdot\|$,若它满足以下三个性质:</p>
 <ol>
 <li>
@@ -138,32 +138,32 @@
     <p><strong>备注</strong>:若存在常数 $C$,使得 $\|x + y\| \le C(\|x\| + \|y\|)$,且满足非负性与齐次性,则称其为<strong>拟范数</strong>,最小的 $C$ 称为<strong>拟范数常数</strong>。</p>
   </blockquote>
   <div class="ex-box">
-<p class="label">例 1.1<span class="label-name">$p$-范数</span></p>
+<p class="label">例 1.1.1<span class="label-name">$p$-范数</span></p>
 $$\|x\|_p = \left( \sum_{i=1}^{n} |x_i|^p \right)^{1/p}\tag{1.1}$$<p><p>
 当 $p \ge 1$ 时为范数;当 $0 < p < 1$ 时为拟范数。</p></p>
 </div>
 <div class="thm-box">
-<p class="label">定理 1.1</p>
+<p class="label">定理 1.1.1</p>
 <p>设 $A \in \mathbb{R}^{n \times n}$ 为非奇异矩阵,$\|\cdot\|$ 是 $\mathbb{R}^n$ 中的任意范数,则</p>
 $$\|x\|_A = \|Ax\|\tag{1.2}$$<p>
 定义了 $\mathbb{R}^n$ 中的一个新范数。</p>
 </div>
 <div class="def-box">
-<p class="label">定义 1.2<span class="label-name">距离</span></p>
+<p class="label">定义 1.1.2<span class="label-name">距离</span></p>
 $$d(x, y) = \|x - y\|,\tag{1.3}$$<p><p>
 则赋范空间是特殊的距离空间,因为范数可以导出距离。距离满足:非负、对称($d(x, y) = 0 \iff x = y$)、三角不等式。</p></p>
 <p>内积空间 $\subset$ 赋范空间 $\subset$ 距离空间
 其中内积空间满足 $\|x\| = \sqrt{\langle x, x \rangle}$,赋范空间满足 $d(x, y) = \|x - y\|$。</p>
 </div>
 <div class="def-box">
-<p class="label">定义 1.3<span class="label-name">极限</span></p>
+<p class="label">定义 1.1.3<span class="label-name">极限</span></p>
 <p>向量 $x^* = (x_1^*, \ldots, x_n^*)^T$ 称为向量序列 $x^{(k)} = (x_1^{(k)}, \ldots, x_n^{(k)})^T$ 的<strong>极限</strong>,若 $x^*$ 的分量为 $x^{(k)}$ 相应分量的极限,即</p>
 $$\lim_{k \to \infty} x_i^{(k)} = x_i^*, \quad i = 1, 2, \ldots, n.\tag{1.4}$$<p>
 记为 $x^* = \lim_{k \to \infty} x^{(k)}$。</p>
 <p>极限满足加法、数乘运算,且范数具有连续性。</p>
 </div>
 <div class="thm-box">
-<p class="label">定理 1.2<span class="label-name">范数的连续性</span></p>
+<p class="label">定理 1.1.2<span class="label-name">范数的连续性</span></p>
 <p>$\mathbb{R}^n$ 中的任意范数均为 $x$ 的连续函数。</p>
 <p><em>证明.</em> 利用反向三角不等式</p>
 $$\big| \|x\| - \|y\| \big| \le \|x - y\|.\tag{1.5}$$<p>
@@ -172,7 +172,7 @@ $$0 \le \big| \|x_k\| - \|x\| \big| \le \|x_k - x\| \to 0,\tag{1.6}$$<p>
 故 $\|x_k\| \to \|x\|$。<span class="qed">$\square$</span></p>
 </div>
 <div class="thm-box">
-<p class="label">定理 1.3<span class="label-name">范数的等价性</span></p>
+<p class="label">定理 1.1.3<span class="label-name">范数的等价性</span></p>
 <p>在 $\mathbb{R}^n$ 中任取两个范数 $\|\cdot\|_I, \|\cdot\|_{II}$,则存在不依赖于 $x$ 的常数 $d_1, d_2$,使得 $\forall\, x \in \mathbb{R}^n$,有</p>
 $$d_1 \|x\|_I \le \|x\|_{II} \le d_2 \|x\|_I.\tag{1.7}$$<p>
 <em>证明.</em> 只需证明 $\mathbb{R}^n$ 中的任意范数 $\|\cdot\|$ 与 $\|\cdot\|_2$ 等价即可。</p>
@@ -193,27 +193,27 @@ $$\begin{aligned}
 &\dfrac{1}{\sqrt{n}} \|x\|_1 \le \|x\|_2 \le \|x\|_1,\\
 &\|x\|_\infty \le \|x\|_1 \le n \|x\|_\infty,\\
 &\|x\|_\infty \le \|x\|_2 \le \sqrt{n} \|x\|_\infty\text{。}
-\end{aligned}\tag{1.15}$$<div class="thm-box">
-<p class="label">定理 1.4</p>
+\end{aligned}$$<div class="thm-box">
+<p class="label">定理 1.1.4</p>
 <p>向量序列 $x^{(k)} \to 0 \iff$ 对任意范数 $\|\cdot\|$,均有 $\left\| x^{(k)} \right\| \to 0$。</p>
 <p><em>证明.</em> ($\Rightarrow$) 由范数的连续性即得。</p>
 <p>($\Leftarrow$) 由范数的等价性,利用无穷范数即可。<span class="qed">$\square$</span></p>
 </div>
-<div class="thm-box">
-<p class="label">定理 1.1</p>
+<div class="thm-box prop-box">
+<p class="label">命题 1.1.1</p>
 <p>$x^{(k)} \to x^* \iff$ 对任意范数 $\|\cdot\|$,有 $\left\| x^{(k)} - x^* \right\| \to 0$。</p>
 </div>
 <div class="thm-box">
-<p class="label">定理 1.5<span class="label-name">Cauchy 收敛准则</span></p>
+<p class="label">定理 1.1.5<span class="label-name">Cauchy 收敛准则</span></p>
 <p>向量序列 $x^{(k)}$ 有极限存在 $\iff$ $x^{(k)}$ 为 Cauchy 序列,即</p>
 $$\forall\, \varepsilon > 0,\, \exists\, N \in \mathbb{N}^*,\, \text{s.t. } k, l \ge N \text{ 时, } \left\| x^{(k)} - x^{(l)} \right\| < \varepsilon,\tag{1.12}$$<p>
 其中 $\|\cdot\|$ 为 $\mathbb{R}^n$ 中某一范数。</p>
 <p><em>证明.</em> 由范数的等价性,只需证明对 $\infty$-范数成立。</p>
 <p>($\Leftarrow$) 若 $\left\| x^{(k)} - x^{(l)} \right\|_\infty = \max_{1 \le j \le n} \left| x_j^{(k)} - x_j^{(l)} \right| < \varepsilon$,则对每个 $j = 1, 2, \ldots, n$,$x_j^{(k)}$ 是 Cauchy 序列,从而 $x_j^{(k)}$ 有极限存在。因此向量序列 $x^{(k)}$ 有极限存在。</p>
 <p>($\Rightarrow$) 若向量序列 $x^{(k)}$ 有极限存在,则每个分量 $x_j^{(k)}$ 有极限存在。于是</p>
-$$\forall\, \varepsilon > 0,\, \exists\, N_j \in \mathbb{N}^*,\, \text{s.t. } k, l \ge N_j \text{ 时, } \left| x_j^{(k)} - x_j^{(l)} \right| < \varepsilon.\tag{1.13}$$<p>
+$$\forall\, \varepsilon > 0,\, \exists\, N_j \in \mathbb{N}^*,\, \text{s.t. } k, l \ge N_j \text{ 时, } \left| x_j^{(k)} - x_j^{(l)} \right| < \varepsilon.$$<p>
 取 $N = \max\{N_1, N_2, \ldots, N_n\}$,则 $\forall\, k, l \ge N$,有</p>
-$$\left\| x^{(k)} - x^{(l)} \right\|_\infty < \varepsilon.\tag{1.14}$$<p>
+$$\left\| x^{(k)} - x^{(l)} \right\|_\infty < \varepsilon.$$<p>
 <span class="qed">$\square$</span></p>
 </div>
 <!-- ============== 1.2 矩阵范数 ============== -->
@@ -347,27 +347,27 @@ $$\|Ay\|_\infty \ge \left| \sum_{j=1}^{n} a_{kj} y_j \right| = \sum_{j=1}^{n} |a
     <h2>相关讲义</h2>
     <div class="xref-grid">
       
-        <a class="xref-card" href="/lecture-notes-website/usage/">
-          <span class="xref-tag">WXG.math and computer science</span>
-          <span class="xref-title">如何阅读、引用、贡献</span>
-          <span class="xref-desc">使用须知:如何阅读、引用、贡献。</span>
-        </a>
-      
         <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-3/">
           <span class="xref-tag">抽象代数</span>
           <span class="xref-title">抽象代数 · 第 3 章</span>
           <span class="xref-desc"></span>
         </a>
       
-        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-2/">
+        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-1/">
           <span class="xref-tag">抽象代数</span>
-          <span class="xref-title">抽象代数 · 第 2 章</span>
+          <span class="xref-title">抽象代数 · 第 1 章</span>
           <span class="xref-desc"></span>
         </a>
       
-        <a class="xref-card" href="/lecture-notes-website/math/abstract-algebra/chapter-4/">
-          <span class="xref-tag">抽象代数</span>
-          <span class="xref-title">抽象代数 · 第 4 章</span>
+        <a class="xref-card" href="/lecture-notes-website/usage/">
+          <span class="xref-tag">WXG.math and computer science</span>
+          <span class="xref-title">如何阅读、引用、贡献</span>
+          <span class="xref-desc">使用须知:如何阅读、引用、贡献。</span>
+        </a>
+      
+        <a class="xref-card" href="/lecture-notes-website/math/matrix-analysis/chapter-1/">
+          <span class="xref-tag">矩阵论 · 引论</span>
+          <span class="xref-title">矩阵论 · 第 1 章</span>
           <span class="xref-desc"></span>
         </a>
       
