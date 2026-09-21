@@ -3,19 +3,106 @@
 <a href=/lecture-notes-website/math/>数学</a>
 <a href=/lecture-notes-website/usage/>使用须知</a>
 <button type=button class=theme-toggle aria-label=切换主题 onclick='(function(){var e=document.documentElement.dataset.theme==="dark";document.documentElement.dataset.theme=e?"light":"dark";try{localStorage.setItem("wxg-theme",e?"light":"dark")}catch{}})()'>☾</button></nav></div></header><div class=page-with-toc><main class=page><p class=front-matter><span class=course-tag>数值代数 · 引论</span>
-数值代数 · 第 2 章 線性方程組的敏度分析與消去法的舍入誤差分析</p><h1>線性方程組的敏度分析與消去法的舍入誤差分析</h1><p class=lede>本章討論線性方程組 $Ax = b$ 的敏度分析與消去法的舍入誤差分析,從向量範數與矩陣範數入手,逐步建立擾動分析、條件數與誤差估計的理論框架.</p><h2 id=21-向量范数和矩阵范数>2.1 向量范数和矩阵范数</h2><blockquote><p>待续: 章節骨架待補,以下為擬覆蓋的小節與定理/定義/命題/例預告,內容將隨章節推進逐步填寫.小節 (a) 對應 $\mathbb{R}^n$ 上的向量範數及其性質;(b) 對應 $\mathbb{R}^{n\times n}$ 上的矩陣範數與算子範數;(c) 對應譜半徑 $\rho(A)$ 及其在冪級數收斂中的角色.</p></blockquote><h3 id=a-向量范数>(a) 向量范数</h3><blockquote><p>待续:</p><ul><li>定义 2.1 (向量范数 — 正定性、齐次性、三角不等式)</li><li>命题 2.1 (反向三角不等式 $\bigl|\|x\|-\|y\|\bigr|\le\|x-y\|$)</li><li>定理 2.1 (范数的连续性)</li><li>例 2.1 ($p$-范数 $\|x\|_p$,以及 $p=1,2,\infty$ 三种常用特例)</li><li>定理 2.2 (Cauchy–Schwarz 不等式 $|x^T y|\le\|x\|_2\|y\|_2$,以及 Hölder 不等式)</li><li>定理 2.3 (范数的等价性 — 利用单位球面的紧性与 Weierstrass 定理)</li><li>定理 2.4 (向量序列收敛 $\iff$ 其范数收敛 $\iff$ 其分量收敛)</li></ul></blockquote><h3 id=b-矩阵范数>(b) 矩阵范数</h3><blockquote><p>待续:</p><ul><li>定义 2.2 (矩阵范数 — 正定性、齐次性、三角不等式、相容性 $\|AB\|\le\|A\|\|B\|$)</li><li>命题 2.2 (矩阵范数的两条基本性质: 任意两范数等价; 矩阵序列收敛 $\iff$ 元素收敛)</li><li>定义 2.3 (矩阵范数与向量范数的相容性 $\|Ax\|_v\le\|A\|_M\|x\|_v$)</li><li>定理 2.5 (诱导范数 / 算子范数 $\|A\|=\max_{\|x\|=1}\|Ax\|$)</li><li>定理 2.6 (常用算子范数 $\|A\|_1$ 列和范数、$\|A\|_\infty$ 行和范数、$\|A\|_2$ 谱范数 $\sqrt{\lambda_{\max}(A^T A)}$)</li><li>定理 2.7 (谱范数的性质: $\|A^T\|_2=\|A\|_2$;对正交 $U,V$ 有 $\|UA\|_2=\|AV\|_2=\|A\|_2$)</li><li>定义 2.4 (Frobenius 范数 $\|A\|_F=\bigl(\sum_{i,j}|a_{ij}|^2\bigr)^{1/2}$)</li></ul></blockquote><h3 id=c-谱半径>(c) 谱半径</h3><blockquote><p>待续:</p><ul><li>定义 2.5 (谱半径 $\rho(A)=\max\{|\lambda|:\lambda\in\lambda(A)\}$)</li><li>定理 2.8 (谱半径与矩阵范数的关系 $\rho(A)\le\|A\|$,以及对任意 $\varepsilon>0$ 存在算子范数使 $\|A\|\le\rho(A)+\varepsilon$ — 由 Jordan 分解构造)</li><li>定理 2.9 ($A^k\to 0$ 的充要条件 $\rho(A)<1$)</li><li>定理 2.10 (Neumann 级数 $\sum_{k=0}^{\infty}A^k$ 收敛 $\iff \rho(A)<1$;收敛时和为 $(I-A)^{-1}$ 且有误差估计)</li><li>推论 2.1 ($\|A\|<1$ 时 $\|(I-A)^{-1}\|\le 1/(1-\|A\|)$)</li></ul></blockquote><blockquote><p>待续: 后續小節將覆蓋線性方程組的擾動分析與敏度 (條件數 $\kappa(A)=\|A\|\|A^{-1}\|$、前向/後向誤差)、Gauss 消元法的捨入誤差傳播 (向後誤差分析)、以及對角占優矩陣與三對角矩陣的直接法等內容.</p></blockquote></main><aside class=toc-sidebar aria-label=章节目录><p class=toc-title>目录</p><nav id=TableOfContents><ul><li><a href=#21-向量范数和矩阵范数>2.1 向量范数和矩阵范数</a><ul><li><a href=#a-向量范数>(a) 向量范数</a></li><li><a href=#b-矩阵范数>(b) 矩阵范数</a></li><li><a href=#c-谱半径>(c) 谱半径</a></li></ul></li></ul></nav></aside></div><nav class=lecture-nav><span></span>
+数值代数 · 第 2 章 線性方程組的敏度分析與消去法的舍入誤差分析</p><h1>線性方程組的敏度分析與消去法的舍入誤差分析</h1><p class=lede>本章討論線性方程組 $Ax = b$ 的敏度分析與消去法的舍入誤差分析,從向量範數與矩陣範數入手,逐步建立擾動分析、條件數與誤差估計的理論框架.</p><h2 id=21-向量范数和矩阵范数>2.1 向量范数和矩阵范数</h2><p>我們已在上一章詳細地介紹了如何用 Gauss 消去法求解線性方程組,但從數值計算的角度來看,這是不夠的.這是因為在實際計算時,我們不僅要面對<strong>如何求解</strong>的問題,還要面對<strong>數據不精確</strong>的問題和<strong>機器有限精度</strong>的問題.只有討論了後面這兩個問題,我們才可能知道所求得的解是否可靠.而要討論這兩個問題,我們需要用範數來描述向量與矩陣擾動的大小等概念.</p><h3 id=向量范数>向量范数</h3><p>向量范数的概念是复数模的概念的自然推广。</p><div class=def-box><p class=label>定义 2.1.1<span class=label-name>向量范数</span></p><p>一个从 $\mathbb{R}^n$ 到 $\mathbb{R}$ 的非负函数 $\|\cdot\|$ 叫做 $\mathbb{R}^n$ 上的<strong>向量范数</strong>,如果它满足:</p><ol><li><strong>正定性</strong>:对所有的 $x\in\mathbb{R}^n$,有 $\|x\|\ge 0$,而且 $\|x\|=0$ 当且仅当 $x=0$;</li><li><strong>齐次性</strong>:对所有的 $x\in\mathbb{R}^n$ 和 $\alpha\in\mathbb{R}$,有 $\|\alpha x\|=|\alpha|\,\|x\|$;</li><li><strong>三角不等式</strong>:对所有的 $x,y\in\mathbb{R}^n$,有 $\|x+y\|\le\|x\|+\|y\|$.</li></ol></div><div class="thm-box prop-box"><p class=label>命题 2.1.1<span class=label-name>反向三角不等式</span></p><p>对任意 $x,y\in\mathbb{R}^n$,有</p>$$
+\bigl|\|x\|-\|y\|\bigr|\le\|x-y\|.
+$$</div><p><em>证明.</em> 由三角不等式,$\|x\|=\|(x-y)+y\|\le\|x-y\|+\|y\|$,移项得 $\|x\|-\|y\|\le\|x-y\|$. 同理交换 $x,y$ 得 $\|y\|-\|x\|\le\|x-y\|$. 两式合并即得. <span class=qed>$\square$</span></p><p>由此即知,$\|\cdot\|$ 作为 $\mathbb{R}^n$ 上的实函数是连续的.</p><div class=thm-box><p class=label>定理 2.1.1<span class=label-name>范数的连续性</span></p><p>$\mathbb{R}^n$ 中的任意范数 $\|\cdot\|$ 均为 $x$ 的连续函数.</p></div><p><em>证明.</em> 若向量序列 $x_k\to x$,则由反向三角不等式,</p>$$
+0\le|\|x_k\|-\|x\||\le\|x_k-x\|\to 0,
+$$<p>故 $\|x_k\|\to\|x\|$. <span class=qed>$\square$</span></p><p>最常用的向量范数是 $p$-范数(亦称 Hölder 范数).</p><div class=ex-box><p class=label>例 2.1.1<span class=label-name>$p$-范数</span></p>$$
+\|x\|_p=\bigl(|x_1|^p+\cdots+|x_n|^p\bigr)^{\frac{1}{p}},\qquad p\ge 1.
+$$<p><p>其中 $p=1,2,\infty$ 是最重要的:</p></p>$$
+\|x\|_1=|x_1|+\cdots+|x_n|,
+$$<p></p>$$
+\|x\|_2=\bigl(|x_1|^2+\cdots+|x_n|^2\bigr)^{\frac{1}{2}}=\sqrt{x^T x},
+$$<p></p>$$
+\|x\|_\infty=\max\{|x_i|:i=1,\dots,n\}.
+$$<p>它们分别称为 $1$-范数、$2$-范数和 $\infty$-范数.</p></div><div class=thm-box><p class=label>定理 2.1.2<span class=label-name>Cauchy–Schwarz 不等式</span></p>$$
+|x^T y|\le\|x\|_2\|y\|_2,\qquad x,y\in\mathbb{R}^n.
+$$<p><p>更一般地有 Hölder 不等式 $|x^T y|\le\|x\|_p\|y\|_q$,其中 $\dfrac{1}{p}+\dfrac{1}{q}=1$.</p></p></div><p><em>证明.</em> 利用 Cauchy–Schwarz 不等式,</p>$$
+\begin{aligned}
+\|x+y\|_2^2&=(x+y)^T(x+y)=\|x\|_2^2+x^T y+y^T x+\|y\|_2^2\\
+&\le\|x\|_2^2+2\|x\|_2\|y\|_2+\|y\|_2^2=\bigl(\|x\|_2+\|y\|_2\bigr)^2.
+\end{aligned}
+$$<p>两边开方即得 $2$-范数的三角不等式. <span class=qed>$\square$</span></p><div class=thm-box><p class=label>定理 2.1.3<span class=label-name>范数的等价性</span></p><p>设 $\|\cdot\|_\alpha$ 和 $\|\cdot\|_\beta$ 是 $\mathbb{R}^n$ 上任意两个范数,则存在正常数 $c_1,c_2$,使得对一切 $x\in\mathbb{R}^n$,有</p>$$
+c_1\|x\|_\alpha\le\|x\|_\beta\le c_2\|x\|_\alpha.
+$$</div><blockquote class="alert alert-note"><div class=alert-header><span class=alert-icon>📝</span>
+<span class=alert-title>备注</span></div><div class=alert-body><p><strong>关键提示.</strong> 教材指出此定理证明较复杂.思路:任意范数与 $2$-范数等价,利用单位球面 $S=\{x:\|x\|_2=1\}$ 的紧性和 Weierstrass 定理(连续函数在紧集上取到最大最小值).</p></div></blockquote><p><em>证明.</em> 只需证任意范数 $\|\cdot\|$ 与 $\|\cdot\|_2$ 等价.构造单位球面</p>$$
+S=\{x\in\mathbb{R}^n:\|x\|_2=1\},
+$$<p>$S$ 是有界闭集(紧集).由范数连续性,$\|\cdot\|$ 在 $S$ 上连续,由 Weierstrass 定理取到最大值 $c_2$ 与最小值 $c_1>0$.对 $x\ne 0$,$x/\|x\|_2\in S$,故</p>$$
+c_1\|x\|_2\le\|x\|\le c_2\|x\|_2.
+$$<p>任意两范数都与 $\|\cdot\|_2$ 等价,联立即得. <span class=qed>$\square$</span></p><p>三种常用范数的等价关系:</p>$$
+\begin{aligned}
+\|x\|_2 &\le \|x\|_1 \le \sqrt{n}\,\|x\|_2,\\
+\|x\|_\infty &\le \|x\|_2 \le \sqrt{n}\,\|x\|_\infty,\\
+\|x\|_\infty &\le \|x\|_1 \le n\,\|x\|_\infty.
+\end{aligned}
+$$<div class=thm-box><p class=label>定理 2.1.4<span class=label-name>序列收敛</span></p><p>设 $x_k\in\mathbb{R}^n$,则</p>$$
+\lim_{k\to\infty}\|x_k-x\|=0 \iff \lim_{k\to\infty}x_i^{(k)}=x_i,\quad i=1,\dots,n,
+$$<p>即向量序列的范数收敛等价于其分量收敛.</p></div><p><em>证明.</em> 由范数等价性,只需对 $\infty$-范数证明.若每个分量 $x_i^{(k)}\to x_i$,则对任意 $\varepsilon>0$,取 $N=\max_i N_i$,当 $k\ge N$ 时 $\|x_k-x\|_\infty=\max_i|x_i^{(k)}-x_i|<\varepsilon$. 反之若 $\|x_k-x\|_\infty\to0$,则每个分量也收敛. <span class=qed>$\square$</span></p><h3 id=矩阵范数>矩阵范数</h3><p>若用 $E_{ij}$ 表示在 $(i,j)$ 位置上的元素是 $1$、其余元素都是零的 $n\times n$ 矩阵,则 $E_{ij}$ 线性无关,任一个 $n\times n$ 矩阵 $A=[a_{ij}]$ 都可表示为</p>$$
+A=\sum_{i=1}^{n}\sum_{j=1}^{n}a_{ij}E_{ij}.
+$$<p>全体 $n\times n$ 实矩阵构成的空间维数是 $n^2$.但这样推广的缺点是未考虑矩阵的乘法运算,因此实用的矩阵范数定义如下.</p><div class=def-box><p class=label>定义 2.1.2<span class=label-name>矩阵范数</span></p><p>一个从 $\mathbb{R}^{n\times n}$ 到 $\mathbb{R}$ 的非负函数 $\|\cdot\|$ 叫做 $\mathbb{R}^{n\times n}$ 上的<strong>矩阵范数</strong>,如果它满足:</p><ol><li><strong>正定性</strong>:$\|A\|\ge 0$,且 $\|A\|=0\iff A=0$;</li><li><strong>齐次性</strong>:$\|\alpha A\|=|\alpha|\,\|A\|$;</li><li><strong>三角不等式</strong>:$\|A+B\|\le\|A\|+\|B\|$;</li><li><strong>相容性</strong>:$\|AB\|\le\|A\|\,\|B\|$.</li></ol></div><div class="thm-box prop-box"><p class=label>命题 2.1.2<span class=label-name>矩阵范数的性质</span></p><ol><li>$\mathbb{R}^{n\times n}$ 上任意两个矩阵范数等价;</li><li>矩阵序列的范数收敛等价于其元素收敛:
+$$
+\lim_{k\to\infty}\|A_k-A\|=0\iff \lim_{k\to\infty}a_{ij}^{(k)}=a_{ij}.
+$$<p></li></p></ol></div><p><em>证明.</em> 第一条与向量范数的等价性同理:利用矩阵的 Frobenius 范数 $\|A\|_F$ 与任意矩阵范数 $\|\cdot\|$ 等价 (借助有限维紧集上的连续函数极值).</p><p>第二条:由 $\|A_k-A\|=\max_{i,j}|a_{ij}^{(k)}-a_{ij}|$ 对 $\|A_k-A\|_F$ 与 $\|\cdot\|_\infty$ 的夹逼可得. <span class=qed>$\square$</span></p><div class=def-box><p class=label>定义 2.1.3<span class=label-name>矩阵范数与向量范数的相容性</span></p><p>若矩阵范数 $\|\cdot\|_M$ 和向量范数 $\|\cdot\|_v$ 满足</p>$$
+\|Ax\|_v\le\|A\|_M\|x\|_v,
+$$<p>则称矩阵范数 $\|\cdot\|_M$ 与向量范数 $\|\cdot\|_v$ 是<strong>相容</strong>的.</p></div><blockquote class="alert alert-note"><div class=alert-header><span class=alert-icon>📝</span>
+<span class=alert-title>备注</span></div><div class=alert-body><p><strong>关键提示.</strong> 本书中若无特别说明,凡同时涉及向量范数和矩阵范数的,均假定它们是相容的.</p></div></blockquote><div class=thm-box><p class=label>定理 2.1.5<span class=label-name>诱导范数 (算子范数)</span></p><p>设 $\|\cdot\|$ 是 $\mathbb{R}^n$ 上的一个向量范数.定义</p>$$
+\|A\|=\max_{\|x\|=1}\|Ax\|,\qquad A\in\mathbb{R}^{n\times n},
+$$<p>则 $\|\cdot\|$ 是 $\mathbb{R}^{n\times n}$ 上的一个矩阵范数,且与向量范数 $\|\cdot\|$ 相容.它称为<strong>算子范数</strong>.</p></div><p><em>证明.</em> 首先 $D=\{x:\|x\|=1\}$ 是有界闭集,$\|Ax\|$ 连续,最大值存在.对 $x\ne 0$,</p>$$
+\frac{\|Ax\|}{\|x\|}=\|A\tfrac{x}{\|x\|}\|\le\|A\|\implies \|Ax\|\le\|A\|\|x\|.
+$$<p><strong>(1) 正定性:</strong> 若 $A\ne 0$,设第 $i$ 列非零 $Ae_i\ne 0$,则 $0<\|Ae_i\|\le\|A\|\|e_i\|$,故 $\|A\|>0$.</p><p><strong>(2) 齐次性:</strong> $\|\alpha A\|=\max_{\|x\|=1}\|\alpha Ax\|=|\alpha|\|A\|$.</p><p><strong>(3) 三角不等式:</strong> 取 $x_0$ 使 $\|(A+B)x_0\|=\|A+B\|$,则 $\|A+B\|\le\|Ax_0\|+\|Bx_0\|\le\|A\|+\|B\|$.</p><p><strong>(4) 相容性:</strong> 取 $x_0$ 使 $\|ABx_0\|=\|AB\|$,则 $\|AB\|=\|ABx_0\|\le\|A\|\|Bx_0\|\le\|A\|\|B\|$. <span class=qed>$\square$</span></p><div class=thm-box><p class=label>定理 2.1.6<span class=label-name>常用算子范数</span></p><p>设 $A=[a_{ij}]\in\mathbb{R}^{n\times n}$,则</p>$$
+\|A\|_1=\max_{1\le j\le n}\sum_{i=1}^{n}|a_{ij}|,\quad\text{(列和范数)}
+$$<p></p>$$
+\|A\|_\infty=\max_{1\le i\le n}\sum_{j=1}^{n}|a_{ij}|,\quad\text{(行和范数)}
+$$<p></p>$$
+\|A\|_2=\sqrt{\lambda_{\max}(A^T A)},\quad\text{(谱范数)}
+$$<p>其中 $\lambda_{\max}(A^T A)$ 表示 $A^T A$ 的最大特征值.</p></div><p><em>证明.</em> <strong>$1$-范数:</strong> 将 $A$ 按列分块 $A=[a_1,\dots,a_n]$,记 $\delta=\max_j\|a_j\|_1$. 对 $\|x\|_1=1$,</p>$$
+\|Ax\|_1=\|\sum_j x_j a_j\|_1\le\sum_j|x_j|\|a_j\|_1\le\delta.
+$$<p>取第 $j_0$ 个单位列向量 $e_{j_0}$ 时取等,故 $\|A\|_1=\delta$.</p><p><strong>$\infty$-范数:</strong> 记 $\eta=\max_i\sum_j|a_{ij}|$. 对 $\|x\|_\infty=1$,</p>$$
+\|Ax\|_\infty=\max_i|\sum_j a_{ij}x_j|\le\max_i\sum_j|a_{ij}|=\eta.
+$$<p>取 $\tilde x=(\operatorname{sgn}(a_{k1}),\dots,\operatorname{sgn}(a_{kn}))^T$ 时取等.</p><p><strong>$2$-范数:</strong> $A^T A$ 对称半正定,设其特征值 $\lambda_1\ge\cdots\ge\lambda_n\ge 0$,对应正交规范特征向量 $v_1,\dots,v_n$. 对 $\|x\|_2=1$,写 $x=\sum_i\alpha_i v_i$,$\sum_i\alpha_i^2=1$,则</p>$$
+x^T A^T Ax=\sum_i\lambda_i\alpha_i^2\le\lambda_1.
+$$<p>取 $x=v_1$ 时取等,故 $\|A\|_2=\sqrt{\lambda_1}=\sqrt{\lambda_{\max}(A^T A)}$. <span class=qed>$\square$</span></p><blockquote class="alert alert-note"><div class=alert-header><span class=alert-icon>📝</span>
+<span class=alert-title>备注</span></div><div class=alert-body><p><strong>关键提示.</strong> 列和范数与行和范数很容易计算;谱范数需要计算 $A^T A$ 的最大特征值,不适宜实际计算,但理论性质好,理论研究中常用.</p></div></blockquote><div class=thm-box><p class=label>定理 2.1.7<span class=label-name>谱范数的性质</span></p><p>设 $A\in\mathbb{R}^{n\times n}$,则</p><ol><li>$\|A\|_2=\max\{|y^T Ax|:x,y\in\mathbb{R}^n,\|x\|_2=\|y\|_2=1\}$;</li><li>$\|A^T\|_2=\|A\|_2=\sqrt{\|A^T A\|_2}$;</li><li>对任意 $n$ 阶正交矩阵 $U,V$,有 $\|UA\|_2=\|AV\|_2=\|A\|_2$.</li></ol></div><p><em>证明.</em> 第 (1) 条:对 $\|x\|_2=1$,$\|Ax\|_2=\max_{\|y\|_2=1}y^T Ax$; 第 (2) 条:由 $\|A^T A\|_2=\lambda_{\max}(A^T A)=\|A\|_2^2$ 与 $\|A^T\|_2^2=\lambda_{\max}(AA^T)=\rho(AA^T)=\rho(A^T A)$ 即得; 第 (3) 条:正交矩阵保範數,故 $\|UAx\|_2=\|Ax\|_2$,$\|AVx\|_2=\|Ax\|_2$. <span class=qed>$\square$</span></p><div class=def-box><p class=label>定义 2.1.4<span class=label-name>Frobenius 范数</span></p>$$
+\|A\|_F=\Bigl(\sum_{i,j=1}^{n}|a_{ij}|^2\Bigr)^{\frac12},
+$$<p><p>通常称之为 <strong>Frobenius 范数</strong>(简称 $F$-范数),它是向量 $2$-范数的自然推广,易于计算.</p></p></div><h3 id=谱半径>谱半径</h3><p>为了讨论方便,下面在复数范围内展开.</p><div class=def-box><p class=label>定义 2.1.5<span class=label-name>谱半径</span></p><p>设 $A\in\mathbb{C}^{n\times n}$,则称</p>$$
+\rho(A)=\max\{|\lambda|:\lambda\in\lambda(A)\}
+$$<p>为 $A$ 的<strong>谱半径</strong>,这里 $\lambda(A)$ 表示 $A$ 的特征值全体.</p></div><div class=thm-box><p class=label>定理 2.1.8<span class=label-name>谱半径与矩阵范数</span></p><p>设 $A\in\mathbb{C}^{n\times n}$,则</p><ol><li>对 $\mathbb{C}^{n\times n}$ 上任意矩阵范数 $\|\cdot\|$,有 $\rho(A)\le\|A\|$;</li><li>对任给 $\varepsilon>0$,存在 $\mathbb{C}^{n\times n}$ 上的算子范数 $\|\cdot\|$,使得 $\|A\|\le\rho(A)+\varepsilon$.</li></ol></div><p><em>证明.</em> <strong>(1)</strong> 取特征向量 $x\ne 0$ 使 $Ax=\lambda x$,$|\lambda|=\rho(A)$. 令 $B=xe_1^T$,则 $AB=\lambda B$,由相容性</p>$$
+\rho(A)\|B\|=|\lambda|\|B\|=\|\lambda B\|=\|AB\|\le\|A\|\|B\|,
+$$<p>两边除以 $\|B\|>0$,得 $\rho(A)\le\|A\|$.</p><p><strong>(2)</strong> 由 Jordan 分解,存在非奇异 $X$ 使</p>$$
+X^{-1}AX=\begin{pmatrix}\lambda_1&\delta_1&&\\&\lambda_2&\delta_2&\\&&\ddots&\ddots\\&&&\lambda_n\end{pmatrix},
+$$<p>$\delta_i\in\{0,1\}$. 令 $D_\varepsilon=\operatorname{diag}(1,\varepsilon,\varepsilon^2,\dots,\varepsilon^{n-1})$,则</p>$$
+D_\varepsilon^{-1}X^{-1}AXD_\varepsilon=\begin{pmatrix}\lambda_1&\varepsilon\delta_1&&\\&\lambda_2&\varepsilon\delta_2&\\&&\ddots&\ddots\\&&&\lambda_n\end{pmatrix}.
+$$<p>定义 $\|G\|_\varepsilon=\|D_\varepsilon^{-1}X^{-1}GXD_\varepsilon\|_\infty$,这是算子范数,于是</p>$$
+\|A\|_\varepsilon=\max_i(|\lambda_i|+\varepsilon\delta_i)\le\rho(A)+\varepsilon.
+$$<p><span class=qed>$\square$</span></p><div class=thm-box><p class=label>定理 2.1.9<span class=label-name>$A^k\to 0$ 的充要条件</span></p><p>设 $A\in\mathbb{C}^{n\times n}$,则</p>$$
+\lim_{k\to\infty}A^k=0 \iff \rho(A)<1.
+$$</div><p><em>证明.</em> <strong>必要性:</strong> 若 $A^k\to 0$,取 $\lambda$ 使 $|\lambda|=\rho(A)$,则</p>$$
+\rho(A)^k=|\lambda|^k=\rho(A^k)\le\|A^k\|\to 0,
+$$<p>故 $\rho(A)<1$.</p><p><strong>充分性:</strong> 若 $\rho(A)<1$,由定理 2.1.8 (2) 存在算子范数 $\|\cdot\|$ 使 $\|A\|<1$,于是 $0\le\|A^k\|\le\|A\|^k\to 0$. <span class=qed>$\square$</span></p><div class=thm-box><p class=label>定理 2.1.10<span class=label-name>Neumann 级数</span></p><p>设 $A\in\mathbb{C}^{n\times n}$,则</p><ol><li>$\displaystyle\sum_{k=0}^{\infty}A^k$ 收敛的充要条件是 $\rho(A)<1$;</li><li>收敛时 $\displaystyle\sum_{k=0}^{\infty}A^k=(I-A)^{-1}$,且
+$$
+\Bigl\|(I-A)^{-1}-\sum_{k=0}^{m}A^k\Bigr\|\le\frac{\|A\|^{m+1}}{1-\|A\|}.
+$$<p></li></p></ol></div><p><em>证明.</em> 若 $\rho(A)<1$,存在算子范数 $\|\cdot\|$ 使 $\|A\|<1$,则 $\sum_{k=0}^m\|A^k\|\le\frac{1}{1-\|A\|}$,级数绝对收敛. 设和为 $S$,则</p>$$
+(I-A)S=\lim_{m\to\infty}(I-A)\sum_{k=0}^m A^k=\lim_{m\to\infty}(I-A^{m+1})=I,
+$$<p>故 $S=(I-A)^{-1}$. 误差估计:</p>$$
+(I-A)^{-1}-\sum_{k=0}^m A^k=\sum_{k=m+1}^\infty A^k,\quad
+\|\cdot\|\le\sum_{k=m+1}^\infty\|A\|^k=\frac{\|A\|^{m+1}}{1-\|A\|}.
+$$<p>必要性:级数收敛则通项 $A^k\to 0$,由定理 2.1.9 得 $\rho(A)<1$. <span class=qed>$\square$</span></p><div class="thm-box prop-box"><p class=label>命题 2.1.3</p><p>设 $\|\cdot\|$ 是 $\mathbb{C}^{n\times n}$ 上满足 $\|I\|=1$ 的矩阵范数,若 $\|A\|<1$,则 $I-A$ 可逆,且</p>$$
+\|(I-A)^{-1}\|\le\frac{1}{1-\|A\|}.
+$$<p>(对应原文中"推论 2.1")</p></div><p><em>证明.</em> 由 $\rho(A)\le\|A\|<1$,$I-A$ 无零特征值故可逆. 由 Neumann 级数</p>$$
+(I-A)^{-1}=I+A+A^2+\cdots,
+$$<p>故 $\|(I-A)^{-1}\|\le\sum_{k=0}^\infty\|A\|^k=\frac{1}{1-\|A\|}$. <span class=qed>$\square$</span></p><h3 id=本节要点>本节要点</h3><ul><li>向量范数三性质:正定、齐次、三角不等式;所有范数等价.</li><li>矩阵范数四性质:正定、齐次、三角、相容;常用诱导范数(列和、行和、谱范数).</li><li>$\|A\|_1$ 列和、$\|A\|_\infty$ 行和、$\|A\|_2=\sqrt{\lambda_{\max}(A^T A)}$ 谱范数.</li><li>谱半径 $\rho(A)\le\|A\|$,且是所有范数的下确界.</li><li>$A^k\to 0\iff\rho(A)<1$;Neumann 级数 $\sum A^k=(I-A)^{-1}$.</li></ul><blockquote><p>待续: 后續小節將覆蓋線性方程組的擾動分析與敏度(條件數 $\kappa(A)=\|A\|\|A^{-1}\|$、前向/後向誤差)、Gauss 消元法的捨入誤差傳播(向後誤差分析)、以及對角占優矩陣與三對角矩陣的直接法等內容.</p></blockquote></main><aside class=toc-sidebar aria-label=章节目录><p class=toc-title>目录</p><nav id=TableOfContents><ul><li><a href=#21-向量范数和矩阵范数>2.1 向量范数和矩阵范数</a><ul><li><a href=#向量范数>向量范数</a></li><li><a href=#矩阵范数>矩阵范数</a></li><li><a href=#谱半径>谱半径</a></li><li><a href=#本节要点>本节要点</a></li></ul></li></ul></nav></aside></div><nav class=lecture-nav><span></span>
 <a class=next href=/lecture-notes-website/math/numerical-algebra/chapter-1/><span class=label>下一章 →</span>
-<span class=title>误差分析</span></a></nav><section class=xref-section><h2>相关讲义</h2><div class=xref-grid><a class=xref-card href=/lecture-notes-website/math/abstract-algebra/chapter-4/><span class=xref-tag>抽象代数</span>
-<span class=xref-title>抽象代数 · 第 4 章</span>
+<span class=title>误差分析</span></a></nav><section class=xref-section><h2>相关讲义</h2><div class=xref-grid><a class=xref-card href=/lecture-notes-website/math/matrix-analysis/chapter-1/><span class=xref-tag>矩阵论 · 引论</span>
+<span class=xref-title>矩阵论 · 第 1 章</span>
 <span class=xref-desc></span>
-</a><a class=xref-card href=/lecture-notes-website/math/numerical-algebra/chapter-2/><span class=xref-tag>数值代数 · 引论</span>
-<span class=xref-title>数值代数 · 第 2 章 線性方程組的敏度分析與消去法的舍入誤差分析</span>
+</a><a class=xref-card href=/lecture-notes-website/math/abstract-algebra/chapter-3/><span class=xref-tag>抽象代数</span>
+<span class=xref-title>抽象代数 · 第 3 章</span>
+<span class=xref-desc></span>
+</a><a class=xref-card href=/lecture-notes-website/math/numerical-algebra/chapter-1/><span class=xref-tag>数值代数 · 引论</span>
+<span class=xref-title>数值代数 · 第 1 章 误差分析</span>
 <span class=xref-desc></span>
 </a><a class=xref-card href=/lecture-notes-website/usage/><span class=xref-tag>WXG.math and computer science</span>
 <span class=xref-title>如何阅读、引用、贡献</span>
-<span class=xref-desc>使用须知:如何阅读、引用、贡献。</span>
-</a><a class=xref-card href=/lecture-notes-website/math/numerical-algebra/chapter-1/><span class=xref-tag>数值代数 · 引论</span>
-<span class=xref-title>数值代数 · 第 1 章 误差分析</span>
-<span class=xref-desc></span></a></div></section><footer class=site-foot><div>© 2026–2026 WXG.math and computer science · 本讲义以
+<span class=xref-desc>使用须知:如何阅读、引用、贡献。</span></a></div></section><footer class=site-foot><div>© 2026–2026 WXG.math and computer science · 本讲义以
 <a href=https://creativecommons.org/licenses/by/4.0/ rel=noopener target=_blank>CC BY 4.0</a> 许可发布</div><div style=margin-top:6px;font-size:12px;color:var(--fg-mute)>使用 <a href=https://gohugo.io/ rel=noopener target=_blank>Hugo</a> 构建</div></footer><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\[",right:"\\]",display:!0},{left:"\\(",right:"\\)",display:!1}],throwOnError:!1})'></script><div class=reading-progress id=wxg-reading-progress aria-hidden=true></div><button type=button class=back-to-top id=wxg-back-to-top aria-label=回到顶部>↑</button>
 <script data-goatcounter=https://orion666.goatcounter.com/count async src=//gc.zgo.at/count.js></script><script src=/lecture-notes-website/js/site.js defer></script></body></html>
