@@ -4,18 +4,18 @@
 <a href=/lecture-notes-website/usage/>使用须知</a>
 <button type=button class=theme-toggle aria-label=切换主题 onclick='(function(){var e=document.documentElement.dataset.theme==="dark";document.documentElement.dataset.theme=e?"light":"dark";try{localStorage.setItem("wxg-theme",e?"light":"dark")}catch{}})()'>☾</button></nav></div></header><div class=page-with-toc><main class=page><p class=front-matter><span class=course-tag>数值代数 · 引论</span>
 数值代数 · 第 1 章 误差分析</p><h1>误差分析</h1><p class=lede>本章引入数值计算中的基本误差概念:舍入误差、截断误差、绝对误差与相对误差,以及数值算法的稳定性与收敛性。</p><h2 id=11-误差的来源与分类>1.1 误差的来源与分类</h2><p>数值计算中的误差主要来自四个方面:</p><ol><li><strong>模型误差</strong>:用数学模型近似描述实际问题时的简化误差。</li><li><strong>观测误差</strong>:初始数据本身存在的测量误差。</li><li><strong>截断误差</strong>:用有限过程近似无限过程(如 Taylor 截断、级数截断)产生的误差。</li><li><strong>舍入误差</strong>:计算机用有限位浮点数表示实数时产生的误差。</li></ol><p>本课程重点讨论<strong>截断误差</strong>与<strong>舍入误差</strong>,以及它们在算法迭代过程中的传播与累积。</p><h2 id=12-绝对误差与相对误差>1.2 绝对误差与相对误差</h2><p>设 $x^*$ 为准确值,$x$ 为近似值,则:</p><ul><li><strong>绝对误差</strong>:$e(x) = x^* - x$;</li><li><strong>绝对误差限</strong>:$\varepsilon(x) = |x^* - x| \le \varepsilon$;</li><li><strong>相对误差</strong>:$e_r(x) = \dfrac{e(x)}{x^*}$;</li><li><strong>相对误差限</strong>:$\varepsilon_r(x) = \dfrac{\varepsilon}{|x^*|}$。</li></ul><p>相对误差刻画了近似值的相对精度。例如 $|x| \approx 10^{-3}$ 时,绝对误差 $10^{-6}$ 已相当好;而 $|x| \approx 10^6$ 时,绝对误差 $10^{-6}$ 几乎可以忽略。</p><h2 id=13-有效数字>1.3 有效数字</h2><p>若近似值 $x$ 的绝对误差限满足</p>$$\varepsilon(x) \le \frac{1}{2} \times 10^{m - k}, \qquad k \ge 1,$$<p>且 $x$ 写成</p>$$x = \pm\, a_1.a_2 \ldots a_k \times 10^{m}, \qquad a_1 \ne 0,$$<p>则称 $x$ 具有 $k$ 位<strong>有效数字</strong>(significative figures)。</p><p>例如 $x = 3.1416$,$m = 0$,若 $|x^* - x| \le 5 \times 10^{-5}$,则 $x$ 有 5 位有效数字。</p><h2 id=14-算法的稳定性>1.4 算法的稳定性</h2><p>一个数值算法,若输入数据有微小扰动时,输出数据的扰动也被控制在合理范围内,则称该算法是<strong>数值稳定</strong>的;否则称为<strong>不稳定</strong>的。</p><p>经典的判别准则:考察误差在算法迭代过程中的传播。若误差在迭代中被逐步放大,则不稳定;若被逐步缩小或保持有界,则稳定。</p><blockquote><p>待续:本章后续小节将介绍浮点数系统 IEEE 754、舍入误差的传播、向后稳定性与前向稳定性、Condition Number 等内容。</p></blockquote></main><aside class=toc-sidebar aria-label=章节目录><p class=toc-title>目录</p><nav id=TableOfContents><ul><li><a href=#11-误差的来源与分类>1.1 误差的来源与分类</a></li><li><a href=#12-绝对误差与相对误差>1.2 绝对误差与相对误差</a></li><li><a href=#13-有效数字>1.3 有效数字</a></li><li><a href=#14-算法的稳定性>1.4 算法的稳定性</a></li></ul></nav></aside></div><nav class=lecture-nav><a class=prev href=/lecture-notes-website/math/numerical-algebra/chapter-2/><span class=label>← 上一章</span>
-<span class=title>線性方程組的數值解法</span>
-</a><span></span></nav><section class=xref-section><h2>相关讲义</h2><div class=xref-grid><a class=xref-card href=/lecture-notes-website/math/abstract-algebra/chapter-1/><span class=xref-tag>抽象代数</span>
-<span class=xref-title>抽象代数 · 第 1 章</span>
+<span class=title>線性方程組的敏度分析與消去法的舍入誤差分析</span>
+</a><span></span></nav><section class=xref-section><h2>相关讲义</h2><div class=xref-grid><a class=xref-card href=/lecture-notes-website/math/abstract-algebra/chapter-3/><span class=xref-tag>抽象代数</span>
+<span class=xref-title>抽象代数 · 第 3 章</span>
 <span class=xref-desc></span>
-</a><a class=xref-card href=/lecture-notes-website/usage/><span class=xref-tag>WXG.math and computer science</span>
-<span class=xref-title>如何阅读、引用、贡献</span>
-<span class=xref-desc>使用须知:如何阅读、引用、贡献。</span>
 </a><a class=xref-card href=/lecture-notes-website/math/abstract-algebra/chapter-2/><span class=xref-tag>抽象代数</span>
 <span class=xref-title>抽象代数 · 第 2 章</span>
 <span class=xref-desc></span>
-</a><a class=xref-card href=/lecture-notes-website/math/numerical-algebra/chapter-2/><span class=xref-tag>数值代数 · 引论</span>
-<span class=xref-title>数值代数 · 第 2 章 線性方程組的數值解法</span>
-<span class=xref-desc></span></a></div></section><footer class=site-foot><div>© 2026–2026 WXG.math and computer science · 本讲义以
+</a><a class=xref-card href=/lecture-notes-website/math/numerical-algebra/chapter-1/><span class=xref-tag>数值代数 · 引论</span>
+<span class=xref-title>数值代数 · 第 1 章 误差分析</span>
+<span class=xref-desc></span>
+</a><a class=xref-card href=/lecture-notes-website/usage/><span class=xref-tag>WXG.math and computer science</span>
+<span class=xref-title>如何阅读、引用、贡献</span>
+<span class=xref-desc>使用须知:如何阅读、引用、贡献。</span></a></div></section><footer class=site-foot><div>© 2026–2026 WXG.math and computer science · 本讲义以
 <a href=https://creativecommons.org/licenses/by/4.0/ rel=noopener target=_blank>CC BY 4.0</a> 许可发布</div><div style=margin-top:6px;font-size:12px;color:var(--fg-mute)>使用 <a href=https://gohugo.io/ rel=noopener target=_blank>Hugo</a> 构建</div></footer><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\[",right:"\\]",display:!0},{left:"\\(",right:"\\)",display:!1}],throwOnError:!1})'></script><div class=reading-progress id=wxg-reading-progress aria-hidden=true></div><button type=button class=back-to-top id=wxg-back-to-top aria-label=回到顶部>↑</button>
 <script data-goatcounter=https://orion666.goatcounter.com/count async src=//gc.zgo.at/count.js></script><script src=/lecture-notes-website/js/site.js defer></script></body></html>
